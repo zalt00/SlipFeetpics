@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv87t5qwajnnq"]
+
+[ext_resource type="PackedScene" uid="uid://c0se7dws6rgjx" path="res://player/AMEDEE.tscn" id="1_seph5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8uvqj"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0d01"]
+size = Vector3(10, 0.5, 10)
+
+[node name="TerrainTest" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_8uvqj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_j0d01")
+
+[node name="Amedee" parent="." instance=ExtResource("1_seph5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.989982, 0.034041, -0.13703, 5.5513e-10, 0.970502, 0.241092, 0.141195, -0.238677, 0.96078, -0.944123, 2.10946, 6.63441)
