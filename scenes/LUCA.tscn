@@ -1,17 +1,17 @@
 [gd_scene load_steps=12 format=3 uid="uid://ch1f1fa1xjni"]
 
-[ext_resource type="Script" path="res://scripts/cam.gd" id="1_2xdyu"]
-[ext_resource type="BoxMesh" uid="uid://bnj8mx5fwdcr4" path="res://materials/box.tres" id="1_5id2s"]
-[ext_resource type="Shader" path="res://scene outline/LUCA.gdshader" id="2_46asi"]
-[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://materials/LUCA.tres" id="2_ukifu"]
-[ext_resource type="Script" path="res://scene outline/swing.gd" id="4_xgjxy"]
+[ext_resource type="Script" path="res://scripts/cam.gd" id="1_gu4ii"]
+[ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_pggfl"]
+[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://materials/LUCA.tres" id="3_wdw4m"]
+[ext_resource type="Script" path="res://scripts/swing.gd" id="4_kwpn0"]
+[ext_resource type="BoxMesh" uid="uid://bnj8mx5fwdcr4" path="res://materials/box.tres" id="5_6at7n"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_sywrr"]
 size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0wb0k"]
 render_priority = 0
-shader = ExtResource("2_46asi")
+shader = ExtResource("2_pggfl")
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
 shader_parameter/shadow_thickness = 2.0
 
@@ -19,10 +19,10 @@ shader_parameter/shadow_thickness = 2.0
 size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o7ram"]
-material = ExtResource("2_ukifu")
+material = ExtResource("3_wdw4m")
 
 [sub_resource type="BoxMesh" id="BoxMesh_rlb3b"]
-material = ExtResource("2_ukifu")
+material = ExtResource("3_wdw4m")
 size = Vector3(3, 1, 3)
 
 [sub_resource type="Environment" id="Environment_25ggc"]
@@ -33,7 +33,7 @@ ambient_light_energy = 0.0
 
 [node name="FreeLookCamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, 6.51485, 1.88219, 3.31374)
-script = ExtResource("1_2xdyu")
+script = ExtResource("1_gu4ii")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FreeLookCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00540268, 0, -0.0970898)
@@ -43,7 +43,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_0wb0k")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 gi_mode = 0
 mesh = SubResource("BoxMesh_756jp")
-surface_material_override/0 = ExtResource("2_ukifu")
+surface_material_override/0 = ExtResource("3_wdw4m")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -63,7 +63,7 @@ shadow_blur = 0.0
 spot_range = 233.797
 spot_angle = 20.12
 spot_angle_attenuation = 1e-05
-script = ExtResource("4_xgjxy")
+script = ExtResource("4_kwpn0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7557, 1.10203, 3.70252)
@@ -73,22 +73,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07755, 0.219993, -4.41161)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Chaise"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
-mesh = ExtResource("1_5id2s")
+mesh = ExtResource("5_6at7n")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Chaise"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 0.5)
-mesh = ExtResource("1_5id2s")
+mesh = ExtResource("5_6at7n")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Chaise"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 2.5)
-mesh = ExtResource("1_5id2s")
+mesh = ExtResource("5_6at7n")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Chaise"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 2.5)
-mesh = ExtResource("1_5id2s")
+mesh = ExtResource("5_6at7n")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Chaise"]
@@ -98,17 +98,17 @@ skeleton = NodePath("../..")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Chaise"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 4, 0.5)
-mesh = ExtResource("1_5id2s")
+mesh = ExtResource("5_6at7n")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="Chaise"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 4, 2.5)
-mesh = ExtResource("1_5id2s")
+mesh = ExtResource("5_6at7n")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="Chaise"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, 5, 1.5)
-mesh = ExtResource("1_5id2s")
+mesh = ExtResource("5_6at7n")
 skeleton = NodePath("../..")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

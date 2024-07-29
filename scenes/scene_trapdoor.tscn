@@ -1,23 +1,23 @@
 [gd_scene load_steps=14 format=3 uid="uid://dkeytpiiualef"]
 
-[ext_resource type="Script" path="res://scripts/cam.gd" id="1_opacp"]
-[ext_resource type="Shader" path="res://scene outline/LUCA.gdshader" id="2_b7l4p"]
-[ext_resource type="Shader" path="res://scene outline Emile/brighter.gdshader" id="2_ofl8u"]
-[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://materials/LUCA.tres" id="3_fuxgp"]
-[ext_resource type="PackedScene" uid="uid://bdcf5koe6ovrj" path="res://scene outline Emile/chaise.tscn" id="4_calyq"]
-[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="5_a0id0"]
+[ext_resource type="Script" path="res://scripts/cam.gd" id="1_mv4pk"]
+[ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_o0x2o"]
+[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://materials/LUCA.tres" id="3_f46wx"]
+[ext_resource type="PackedScene" uid="uid://bdcf5koe6ovrj" path="res://scenes/chair_emile.tscn" id="4_v3k31"]
+[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="5_de42c"]
+[ext_resource type="Shader" path="res://shaders/brighter.gdshader" id="6_225kg"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_sywrr"]
 size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0wb0k"]
 render_priority = 0
-shader = ExtResource("2_b7l4p")
+shader = ExtResource("2_o0x2o")
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
 shader_parameter/shadow_thickness = 2.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_o7ram"]
-material = ExtResource("3_fuxgp")
+material = ExtResource("3_f46wx")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lntbu"]
 sky_top_color = Color(0.652274, 0.323285, 0.462369, 1)
@@ -35,13 +35,13 @@ ambient_light_source = 1
 reflected_light_source = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_or2ir"]
-shader = ExtResource("2_ofl8u")
+shader = ExtResource("6_225kg")
 
 [node name="Node3D" type="Node3D"]
 
 [node name="FreeLookCamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, 6.51485, 1.88219, 3.31374)
-script = ExtResource("1_opacp")
+script = ExtResource("1_mv4pk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FreeLookCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00540268, 0, -0.0970898)
@@ -67,7 +67,7 @@ spot_range = 48.67
 spot_angle = 20.12
 spot_angle_attenuation = 0.0
 
-[node name="Chaise" parent="." instance=ExtResource("4_calyq")]
+[node name="Chaise" parent="." instance=ExtResource("4_v3k31")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_66ql6")
@@ -76,7 +76,7 @@ environment = SubResource("Environment_66ql6")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(116.032, 0, 0, 0, 1, 0, 0, 0, 105.56, 0, -1, 0)
-material = ExtResource("5_a0id0")
+material = ExtResource("5_de42c")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 3)
