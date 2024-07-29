@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2eqalsyw03uh"]
+
+[ext_resource type="Script" path="res://scripts/first.gd" id="1_bk1p2"]
+[ext_resource type="Script" path="res://scripts/cam.gd" id="2_r73ek"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_myass"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_bk1p2")
+
+[node name="FreeLookCamera" type="Camera3D" parent="."]
+script = ExtResource("2_r73ek")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+mesh = SubResource("CylinderMesh_myass")
