@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ch1f1fa1xjni"]
 
-[ext_resource type="Script" path="res://cam.gd" id="1_2xdyu"]
+[ext_resource type="Script" path="res://scripts/cam.gd" id="1_2xdyu"]
 [ext_resource type="BoxMesh" uid="uid://bnj8mx5fwdcr4" path="res://scene outline/box.tres" id="1_5id2s"]
 [ext_resource type="Shader" path="res://scene outline/LUCA.gdshader" id="2_46asi"]
 [ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://scene outline/LUCA.tres" id="2_ukifu"]
