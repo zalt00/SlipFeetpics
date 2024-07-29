@@ -1,6 +1,6 @@
 [gd_resource type="BoxMesh" load_steps=2 format=3 uid="uid://bnj8mx5fwdcr4"]
 
-[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://scene outline/LUCA.tres" id="1_1rugi"]
+[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://materials/LUCA.tres" id="1_1rugi"]
 
 [resource]
 material = ExtResource("1_1rugi")

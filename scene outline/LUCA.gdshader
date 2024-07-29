@@ -81,4 +81,6 @@ void fragment() {
 	float alpha_mask = depth_diff;
 	DEPTH = min_depth_data.y*alpha_mask + depth_data.y*(1.0-alpha_mask);
 	ALPHA = clamp((alpha_mask) * 5., 0., 1.);
+	if (color.r == color.g && color.g == color.b)
+		ALPHA = 0.;
 }

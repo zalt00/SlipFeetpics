@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdcf5koe6ovrj"]
 
-[ext_resource type="BoxMesh" uid="uid://bnj8mx5fwdcr4" path="res://scene outline/box.tres" id="1_800r2"]
-[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://scene outline/LUCA.tres" id="2_kl7na"]
+[ext_resource type="BoxMesh" uid="uid://bnj8mx5fwdcr4" path="res://materials/box.tres" id="1_800r2"]
+[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://materials/LUCA.tres" id="2_kl7na"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rlb3b"]
 material = ExtResource("2_kl7na")

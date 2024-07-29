@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ldh53xsves5f"]
 
 [ext_resource type="Script" path="res://cam.gd" id="1_32gbj"]
-[ext_resource type="Script" path="res://MeshInstance3D4.gd" id="1_jistj"]
+[ext_resource type="Script" path="res://scripts/MeshInstance3D4.gd" id="1_jistj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yjhs5"]
 subdivide_width = 50
