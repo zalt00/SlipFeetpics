@@ -14,3 +14,8 @@ config/name="SLIP"
 run/main_scene="res://bah.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=5
+lights_and_shadows/positional_shadow/atlas_size=8192
