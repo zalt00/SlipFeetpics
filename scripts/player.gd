@@ -13,21 +13,22 @@ var _total_pitch = 0.0
 const ACCEL = 30.0
 var speed = 0.0
 
+var dt = 0.0
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _physics_process(delta):
 
-
-	# Add the gravity.
+func _update_movement(delta):
 	if not is_on_floor():
 		var multiplier = 1.0 if velocity.y > 0 else 1.8
 		
 		velocity.y -= gravity * delta * multiplier
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and dt < 0.1:
 		velocity.y = JUMP_VELOCITY
+		dt = 0.0
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -43,7 +44,15 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, ACCEL * delta * abs(norm.x))
 			velocity.z = move_toward(velocity.z, 0, ACCEL * delta * abs(norm.z))
 		
-		
+func _physics_process(delta):
+	if is_on_floor():
+		dt = 0.0
+	else:
+		dt += delta
+	
+	
+	_update_movement(delta)
+	# Add the gravity.
 	_mouse_position *= sensitivity
 	var yaw = _mouse_position.x
 	var pitch = _mouse_position.y
