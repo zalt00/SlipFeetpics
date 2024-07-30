@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cq6q8g20r582t"
+path="res://.godot/imported/cortex2.obj-1eee16d2886b790328992a6ca00d0000.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cortex2.obj-1eee16d2886b790328992a6ca00d0000.mesh"]
+
+source_file="res://obj/cortex2.obj"
+dest_files=["res://.godot/imported/cortex2.obj-1eee16d2886b790328992a6ca00d0000.mesh", "res://.godot/imported/cortex2.obj-1eee16d2886b790328992a6ca00d0000.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

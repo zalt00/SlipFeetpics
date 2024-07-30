@@ -7,6 +7,9 @@ var breakable: CSGCombiner3D
 
 var copies = []
 
+func _ready():
+	pass
+
 
 func _input(event):
 	pass
