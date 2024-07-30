@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cssrgp4jj287o"]
+[gd_scene load_steps=5 format=3 uid="uid://ohxonblegnyj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
+[ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
 size = Vector3(0.1, 1.8, 0.1)
@@ -19,6 +20,8 @@ shape = SubResource("BoxShape3D_l6go6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15739, 0)
+
+[node name="camera_items" parent="Camera3D" instance=ExtResource("2_f1rdo")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 shadow_enabled = true
