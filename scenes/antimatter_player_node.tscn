@@ -21,13 +21,14 @@ script = ExtResource("1_tf8ae")
 projectile = NodePath("AntimatterProjectile")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.978814, 0, -0.204752, 0, 1, 0, 0.204752, 0, 0.978814, 0.0555601, 0, -0.998455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0222241, 0, -0.598618)
 mesh = SubResource("QuadMesh_sywrr")
 skeleton = NodePath("../Camera")
 surface_material_override/0 = SubResource("ShaderMaterial_0wb0k")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_c576h")
 skeleton = NodePath("../Camera")
 
@@ -35,3 +36,4 @@ skeleton = NodePath("../Camera")
 transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 0, 0, -5)
 visible = false
 operation = 2
+size = Vector3(10, 2, 2)
