@@ -43,7 +43,7 @@ func _update_movement(delta):
 		velocity.y -= gravity * delta * multiplier # * (1.0 - illum_level) * 1.6
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and dt < 0.1:
+	if Input.is_action_just_pressed("ui_accept") and dt < 0.5:
 		velocity.y = JUMP_VELOCITY * (illum_level + 0.6)
 		dt = 0.0
 
