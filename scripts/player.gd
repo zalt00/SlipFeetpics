@@ -28,6 +28,8 @@ var dt = 0.0
 
 var illum_level = 0.0
 
+var menu = false
+
 func _ready():
 	sub_viewport.debug_draw = 2
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -112,6 +114,14 @@ func _process(delta):
 	
 func _input(event):
 	# Receives mouse motion
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not menu:
 		_mouse_position = event.relative
+	
+	if Input.is_action_just_pressed("menu"):
+		if not menu:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			menu = true
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			menu = false
 
