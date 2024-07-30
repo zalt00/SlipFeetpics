@@ -91,6 +91,12 @@ size = Vector3(4.84521, 1, 1)
 [node name="CSGBox3D16" type="CSGBox3D" parent="Breakable"]
 transform = Transform3D(2.81001, 0, 0, 0, 1, 0, 0, 0, 2.81001, 9, -2, -4)
 
+[node name="CSGBox3D25" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(2.81001, 0, 0, 0, 1, 0, 0, 0, 2.81001, -2, 2, -1)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(2.81001, 0, 0, 0, 0.866025, -1.405, 0, 0.5, 2.43354, -2, 0, -1)
+
 [node name="CSGBox3D17" type="CSGBox3D" parent="Breakable"]
 transform = Transform3D(2.81001, 0, 0, 0, 1, 0, 0, 0, 2.81001, 13, -1, -0.594994)
 size = Vector3(1, 1, 2)
@@ -126,6 +132,36 @@ physics_material_override = SubResource("PhysicsMaterial_wk37x")
 mesh = SubResource("SphereMesh_jhewa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Marble"]
+shape = SubResource("SphereShape3D_tqxwp")
+
+[node name="Marble3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 2.59806)
+physics_material_override = SubResource("PhysicsMaterial_wk37x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble3"]
+mesh = SubResource("SphereMesh_jhewa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble3"]
+shape = SubResource("SphereShape3D_tqxwp")
+
+[node name="Marble4" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51772, 3.13424, 2.59806)
+physics_material_override = SubResource("PhysicsMaterial_wk37x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble4"]
+mesh = SubResource("SphereMesh_jhewa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble4"]
+shape = SubResource("SphereShape3D_tqxwp")
+
+[node name="Marble5" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51772, 3.13424, -1.02835)
+physics_material_override = SubResource("PhysicsMaterial_wk37x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble5"]
+mesh = SubResource("SphereMesh_jhewa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble5"]
 shape = SubResource("SphereShape3D_tqxwp")
 
 [node name="Marble2" type="RigidBody3D" parent="."]
