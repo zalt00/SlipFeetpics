@@ -1,3 +1,101 @@
-[gd_scene format=3 uid="uid://d1kv8o4fbn0pm"]
+[gd_scene load_steps=3 format=3 uid="uid://d1kv8o4fbn0pm"]
+
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_maiu1"]
+[ext_resource type="PackedScene" uid="uid://h51focyx2547" path="res://scenes/timer.tscn" id="2_7dtdn"]
 
 [node name="Level3" type="Node3D"]
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_maiu1")]
+breakable = NodePath("../Breakable")
+
+[node name="Breakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.48217, 0, 0, 0, 1, 0, 0, 0, -4.48217, 0, -1, 0)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.48217, 0, 0, 0, 1, 0, 0, 0, -4.48217, -0.0785146, -1, -5.08409)
+size = Vector3(0.50769, 1, 0.492676)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.48217, 0, 0, 0, 1, 0, 0, 0, -4.48217, 0.0146469, -14, -14.0736)
+size = Vector3(0.178925, 1, 1.52332)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.48217, -0.000369051, 0.00199052, -0.00166869, 0.999973, -0.0328318, -0.00197835, -0.00732513, -4.48205, -0.0261931, -10, -10.8934)
+size = Vector3(0.486557, 1, 0.427452)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.48217, -0.000369051, 0.00199052, -0.00166869, 0.999973, -0.0328318, -0.00197835, -0.00732513, -4.48205, 0.0515058, -11.3291, -28.8511)
+size = Vector3(3.7431, 8.84717, 5.32115)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.48217, -0.000369051, 0.00199052, -0.00166869, 0.999973, -0.0328318, -0.00197835, -0.00732513, -4.48205, 0.201668, -11.3314, -29.1781)
+operation = 2
+size = Vector3(3.24101, 8.84717, 5.17522)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.48217, -0.000369051, 0.00199052, -0.00166869, 0.999973, -0.0328318, -0.00197835, -0.00732513, -4.48205, -0.00569182, -12.3002, -18.121)
+operation = 2
+size = Vector3(0.184765, 2.552, 0.603724)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.48217, 0, 0, 0, 1, 0, 0, 0, -4.48217, 0, 0.857862, -3.11237)
+size = Vector3(1, 2.53271, 0.157715)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -11)
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, -11)
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -11)
+
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -11)
+
+[node name="CSGTorus3D5" type="CSGTorus3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, -11)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24762, -15, -19.5989)
+size = Vector3(2.50476, 1, 2.19775)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24762, -15, -21.5989)
+size = Vector3(2.50476, 1, 2.19775)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24762, -15, -25.5989)
+size = Vector3(2.50476, 1, 2.19775)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75238, -15, -25.5989)
+size = Vector3(2.50476, 1, 2.19775)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75238, -15, -30.5989)
+size = Vector3(2.50476, 1, 2.19775)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75238, -15, -34.5989)
+size = Vector3(2.50476, 1, 2.19775)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75238, -15, -38.5989)
+size = Vector3(2.50476, 1, 2.19775)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75238, -15, -42.5989)
+size = Vector3(2.50476, 1, 2.19775)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 9.75238, -11.5693, -33.6567)
+size = Vector3(2.50476, 1, 15.9207)
+
+[node name="CSGTorus3D6" type="CSGTorus3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -8, -44)
+
+[node name="Timer" parent="." instance=ExtResource("2_7dtdn")]
