@@ -41,6 +41,10 @@ droite={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_10="light_detection"
+
 [physics]
 
 3d/default_gravity=15.0

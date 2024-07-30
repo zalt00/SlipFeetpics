@@ -9,12 +9,17 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _mouse_position = Vector2(0.0, 0.0)
 var _total_pitch = 0.0
 
+@onready var sub_viewport := $SubViewport
+@onready var light_detection := $SubViewport/light_detection
+@onready var texture_rect := $TextureRect
+
 
 const ACCEL = 30.0
 
 var dt = 0.0
 
 func _ready():
+	sub_viewport.debug_draw = 2
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -68,6 +73,10 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func _process(delta):
+	light_detection.global_position = global_position
+	var tex = sub_viewport.get_texture()
+	texture_rect.texture = tex
 func _input(event):
 	# Receives mouse motion
 	if event is InputEventMouseMotion:
