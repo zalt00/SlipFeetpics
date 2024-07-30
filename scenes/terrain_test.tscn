@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv87t5qwajnnq"]
+[gd_scene load_steps=6 format=3 uid="uid://bv87t5qwajnnq"]
 
 [ext_resource type="PackedScene" uid="uid://c0se7dws6rgjx" path="res://scenes/AMEDEE.tscn" id="1_seph5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8uvqj"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(30, 0.5, 30)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0d01"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(30, 0.5, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rl1v4"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wgss"]
+size = Vector3(1, 2, 1)
 
 [node name="TerrainTest" type="Node3D"]
 
@@ -18,8 +24,18 @@ mesh = SubResource("BoxMesh_8uvqj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_j0d01")
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93459, 0.765145, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_rl1v4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_5wgss")
+
 [node name="Amedee" parent="." instance=ExtResource("1_seph5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.989982, 0.034041, -0.13703, 5.5513e-10, 0.970502, 0.241092, 0.141195, -0.238677, 0.96078, -0.944123, 2.10946, 6.63441)
+transform = Transform3D(0.939711, 0.0824466, -0.331883, 4.82849e-10, 0.970502, 0.241092, 0.341971, -0.226557, 0.911991, -0.944123, 2.10946, 6.63441)
+shadow_enabled = true
