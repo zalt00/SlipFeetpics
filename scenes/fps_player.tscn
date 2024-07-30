@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=10 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="3_ie03h"]
 [ext_resource type="PackedScene" uid="uid://co4lu1l5fa6ou" path="res://scenes/antimatter_player_node.tscn" id="3_p4fqn"]
+[ext_resource type="Theme" uid="uid://bn8rgdmv7kvuf" path="res://themes/illumination_level.tres" id="5_5cn51"]
+[ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
 size = Vector3(0.1, 1.8, 0.1)
@@ -58,10 +60,28 @@ layers = 512
 material_override = ExtResource("3_ie03h")
 mesh = SubResource("PlaneMesh_odakh")
 
-[node name="IlluminationLevel" type="ProgressBar" parent="."]
-offset_left = 577.0
-offset_top = 2.0
-offset_right = 1005.0
-offset_bottom = 29.0
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1081.0
+
+[node name="BarHealth" type="ProgressBar" parent="HUD"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 460.0
+offset_bottom = 40.0
+theme = ExtResource("5_we0pa")
+value = 50.0
+
+[node name="IlluminationLevel" type="ProgressBar" parent="HUD"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 460.0
+offset_bottom = 80.0005
+theme = ExtResource("5_5cn51")
 max_value = 1.0
 step = 0.001
+value = 0.5

@@ -14,7 +14,7 @@ var _total_pitch = 0.0
 @onready var sub_viewport := $SubViewport
 @onready var light_detection := $SubViewport/light_detection
 @onready var texture_rect := $TextureRect
-@onready var progress_bar := $IlluminationLevel
+@onready var progress_bar := $HUD/IlluminationLevel
 
 @export var breakable: CSGCombiner3D
 
@@ -29,14 +29,13 @@ var dt = 0.0
 var illum_level = 0.0
 
 var menu = false
+var health = 100.0
 
 func _ready():
 	sub_viewport.debug_draw = 2
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	antimatter_shotgun.breakable = breakable
-
-
 
 func _update_movement(delta):
 	if not is_on_floor():
@@ -109,8 +108,6 @@ func _process(delta):
 	img.resize(1, 1, Image.INTERPOLATE_LANCZOS)
 	illum_level = img.get_pixel(0, 0).r
 	progress_bar.value = illum_level
-	
-		
 	
 func _input(event):
 	# Receives mouse motion
