@@ -15,12 +15,11 @@ var _total_pitch = 0.0
 @onready var light_detection := $SubViewport/light_detection
 @onready var texture_rect := $TextureRect
 @onready var progress_bar := $HUD/IlluminationLevel
-
-@export var breakable: CSGCombiner3D
-
-
+@onready var health_bar = $HUD/BarHealth
 @onready var antimatter_shotgun := $cam_helper/Camera3D/AntimatterPlayer
 
+@export var breakable: CSGCombiner3D
+@export var health = 100
 
 const ACCEL = 30.0
 
@@ -29,13 +28,13 @@ var dt = 0.0
 var illum_level = 0.0
 
 var menu = false
-var health = 100.0
 
 func _ready():
 	sub_viewport.debug_draw = 2
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	antimatter_shotgun.breakable = breakable
+	health_bar.value = health
 
 func _update_movement(delta):
 	if not is_on_floor():
@@ -82,7 +81,6 @@ func _physics_process(delta):
 	else:
 		dt += delta
 	
-	
 	_update_movement(delta)
 	# Add the gravity.
 	_mouse_position *= sensitivity
@@ -121,4 +119,7 @@ func _input(event):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			menu = false
-
+			
+func _on_modify_health_pressed(attack = 10):
+	health += attack
+	health_bar.value = health

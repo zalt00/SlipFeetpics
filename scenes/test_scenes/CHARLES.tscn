@@ -12,3 +12,4 @@ size = Vector3(10, 0.5, 10)
 
 [node name="player" parent="." instance=ExtResource("1_c6ihu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72542, 1.415, 0.370677)
+health = 100
