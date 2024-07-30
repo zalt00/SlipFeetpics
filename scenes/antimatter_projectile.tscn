@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://d1ekmst4kl7r5"]
+
+[node name="AntimatterProjectile" type="CSGBox3D"]
+size = Vector3(10, 1, 1)

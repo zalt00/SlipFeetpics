@@ -1,22 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkeytpiiualef"]
+[gd_scene load_steps=11 format=3 uid="uid://dkeytpiiualef"]
 
-[ext_resource type="Script" path="res://scripts/cam.gd" id="1_mv4pk"]
-[ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_o0x2o"]
-[ext_resource type="Script" path="res://scenes/antimatter_paintbrush.gd" id="3_yprm1"]
+[ext_resource type="PackedScene" uid="uid://4hwcb4flxafj" path="res://scenes/antimatter_player.tscn" id="1_qmdjb"]
 [ext_resource type="PackedScene" uid="uid://bdcf5koe6ovrj" path="res://scenes/chair_emile.tscn" id="4_v3k31"]
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="5_de42c"]
 [ext_resource type="Shader" path="res://shaders/brighter.gdshader" id="6_225kg"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_sywrr"]
-size = Vector2(2, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wb0k"]
-render_priority = 0
-shader = ExtResource("2_o0x2o")
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/shadow_thickness = 2.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_c576h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lntbu"]
 sky_top_color = Color(0.707929, 0.237819, 0.539283, 1)
@@ -42,22 +29,8 @@ shader = ExtResource("6_225kg")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="FreeLookCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, -3.48515, 1.88219, 3.31374)
-script = ExtResource("1_mv4pk")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FreeLookCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00540257, 0, -0.0970898)
-mesh = SubResource("QuadMesh_sywrr")
-surface_material_override/0 = SubResource("ShaderMaterial_0wb0k")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="FreeLookCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272379, 0, 0.48948)
-mesh = SubResource("CapsuleMesh_c576h")
-
-[node name="AntimatterPaintbrush" type="RayCast3D" parent="FreeLookCamera"]
-target_position = Vector3(0, 0, -10)
-script = ExtResource("3_yprm1")
+[node name="AntimatterPlayer" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_qmdjb")]
+breakable = NodePath("../Breakable")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.275875, -0.360692, 0.890952, -0.185814, 0.92945, 0.318742, -0.943062, -0.0776186, -0.323433, 9.45495, 6.75641, -4.41017)
@@ -87,8 +60,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7466, 0.993713, 8.36932)
 size = Vector3(0.493164, 2.98743, 1.89734)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2978, 0.876221, 1.65747)
-size = Vector3(1.88818, 2.75244, 4.31494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2978, 0.876221, -5.64572)
+size = Vector3(1.88818, 2.75244, 26.2981)
 
 [node name="Unbreakable" type="CSGCombiner3D" parent="."]
 use_collision = true

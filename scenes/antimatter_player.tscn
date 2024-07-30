@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://4hwcb4flxafj"]
+
+[ext_resource type="Script" path="res://scripts/antimatter_player.gd" id="1_rlpfm"]
+[ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_ao357"]
+[ext_resource type="PackedScene" uid="uid://d1ekmst4kl7r5" path="res://scenes/antimatter_projectile.tscn" id="4_r2n0o"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sywrr"]
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wb0k"]
+render_priority = 0
+shader = ExtResource("2_ao357")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 2.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_c576h"]
+
+[node name="AntimatterPlayer" type="Camera3D" node_paths=PackedStringArray("projectile")]
+transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, 0, 0, 0)
+script = ExtResource("1_rlpfm")
+projectile = NodePath("AntimatterProjectile")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.978814, 0, -0.204752, 0, 1, 0, 0.204752, 0, 0.978814, 0.0555601, 0, -0.998455)
+mesh = SubResource("QuadMesh_sywrr")
+skeleton = NodePath("../Camera")
+surface_material_override/0 = SubResource("ShaderMaterial_0wb0k")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_c576h")
+skeleton = NodePath("../Camera")
+
+[node name="AntimatterProjectile" parent="." instance=ExtResource("4_r2n0o")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 0, 0, -5)
+visible = false
+operation = 2
