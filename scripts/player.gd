@@ -16,6 +16,11 @@ var _total_pitch = 0.0
 @onready var texture_rect := $TextureRect
 @onready var progress_bar := $IlluminationLevel
 
+@export var breakable: CSGCombiner3D
+
+
+@onready var antimatter_shotgun := $cam_helper/Camera3D/AntimatterPlayer
+
 
 const ACCEL = 30.0
 
@@ -26,6 +31,9 @@ var illum_level = 0.0
 func _ready():
 	sub_viewport.debug_draw = 2
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	antimatter_shotgun.breakable = breakable
+
 
 
 func _update_movement(delta):

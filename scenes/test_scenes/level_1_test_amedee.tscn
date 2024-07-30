@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsulchs325tq4"]
+
+[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_qjbmb"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_44pk8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umwkw"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ouent"]
+material = SubResource("StandardMaterial3D_umwkw")
+size = Vector2(0.75, 5)
+
+[sub_resource type="Environment" id="Environment_y7nlc"]
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="level_1" type="Node3D"]
+
+[node name="breakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(0.999964, -0.00465492, 0.00712864, 0.00468251, 0.999982, -0.00385703, -0.00711055, 0.00389028, 0.999967, -0.5, 0, 0)
+size = Vector3(8, 1, 9)
+material = ExtResource("1_qjbmb")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -3.5)
+size = Vector3(3, 3, 2)
+material = ExtResource("1_qjbmb")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -7.5)
+size = Vector3(3, 1, 6)
+material = ExtResource("1_qjbmb")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, -9)
+size = Vector3(5, 1, 3)
+material = ExtResource("1_qjbmb")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 5.5, -9)
+size = Vector3(4, 16, 3)
+material = ExtResource("1_qjbmb")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, -9)
+size = Vector3(7, 1, 3)
+material = ExtResource("1_qjbmb")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 3, -10)
+size = Vector3(2, 1, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 3, -9)
+size = Vector3(2, 1, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 3, -7.5)
+size = Vector3(2, 1, 2)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -46.5, -10)
+size = Vector3(9, 100, 9)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="breakable/CSGBox3D10"]
+process_mode = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+operation = 2
+size = Vector3(7, 103, 7)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="breakable"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 36, 3.51824, -10)
+mesh = SubResource("PlaneMesh_ouent")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="breakable/CSGMesh3D"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ouent")
+
+[node name="unbreakable" type="CSGCombiner3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y7nlc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_44pk8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+breakable = NodePath("../breakable")
