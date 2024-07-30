@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
 var sensitivity: float = 0.25
-const SPEED = 3.0
+const SPEED = 5.0
 const JUMP_VELOCITY = 7.0
 
-const MAX_SPEED = 15.0
+const MAX_SPEED = 30.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -51,19 +51,29 @@ func _update_movement(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("gauche", "droite", "avant", "arrière")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	var multiplier = 2.0 if is_on_floor() else 1.0
+	
 	if direction:
 		
-		velocity.x = move_toward(velocity.x, direction.x * SPEED, ACCEL * delta*abs(direction.x))
-		velocity.z = move_toward(velocity.z, direction.z * SPEED, ACCEL * delta*abs(direction.z))
-	else:
-		var norm = velocity.normalized()
-		if is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, ACCEL * delta * abs(norm.x))
-			velocity.z = move_toward(velocity.z, 0, ACCEL * delta * abs(norm.z))
-	
+		velocity.x += multiplier * ACCEL * delta*direction.x
+		velocity.z += multiplier * ACCEL * delta*direction.z
+		
+
+
+	var norm = velocity.normalized()
+	if is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, ACCEL * delta * abs(norm.x))
+		velocity.z = move_toward(velocity.z, 0, ACCEL * delta * abs(norm.z))
+		
+	var plan_velo = Vector2(velocity.x, velocity.z)
+	var plan_speed = plan_velo.length()
+	if plan_speed > SPEED:
+		velocity.x = velocity.x * SPEED / plan_speed
+		velocity.z = velocity.z * SPEED / plan_speed
 	var speed = velocity.length()
 	if speed > MAX_SPEED:
-		velocity = velocity / MAX_SPEED * 8
+		velocity = velocity / speed * MAX_SPEED
 	
 func _physics_process(delta):
 	if is_on_floor():
