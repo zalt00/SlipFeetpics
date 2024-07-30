@@ -45,14 +45,14 @@ func _update_movement(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and dt < 0.5:
 		velocity.y = JUMP_VELOCITY * (illum_level + 0.6)
-		dt = 0.0
+		dt = 999999.0
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("gauche", "droite", "avant", "arrière")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	var multiplier = 2.0 if is_on_floor() else 1.0
+	var multiplier = 2.0 if is_on_floor() else 0.7
 	
 	if direction:
 		
