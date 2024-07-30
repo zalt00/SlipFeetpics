@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/cam.gd" id="1_mv4pk"]
 [ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_o0x2o"]
-[ext_resource type="Material" uid="uid://bhgjfeyuipwwo" path="res://materials/LUCA.tres" id="3_f46wx"]
+[ext_resource type="PackedScene" uid="uid://drqorc3tw7x1a" path="res://scenes/hider.tscn" id="4_h2pyk"]
 [ext_resource type="PackedScene" uid="uid://bdcf5koe6ovrj" path="res://scenes/chair_emile.tscn" id="4_v3k31"]
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="5_de42c"]
 [ext_resource type="Shader" path="res://shaders/brighter.gdshader" id="6_225kg"]
@@ -16,12 +16,11 @@ shader = ExtResource("2_o0x2o")
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
 shader_parameter/shadow_thickness = 2.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_o7ram"]
-material = ExtResource("3_f46wx")
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_c576h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lntbu"]
-sky_top_color = Color(0.652274, 0.323285, 0.462369, 1)
-sky_horizon_color = Color(0.777166, 0.607828, 0.592065, 1)
+sky_top_color = Color(0.707929, 0.237819, 0.539283, 1)
+sky_horizon_color = Color(0.93216, 0.524162, 0.460182, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0, 0, 0, 1)
 
@@ -40,21 +39,26 @@ shader = ExtResource("6_225kg")
 [node name="Node3D" type="Node3D"]
 
 [node name="FreeLookCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, 6.51485, 1.88219, 3.31374)
+transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, -3.48515, 1.88219, 3.31374)
 script = ExtResource("1_mv4pk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FreeLookCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00540268, 0, -0.0970898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00540257, 0, -0.0970898)
 mesh = SubResource("QuadMesh_sywrr")
 surface_material_override/0 = SubResource("ShaderMaterial_0wb0k")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-gi_mode = 0
-mesh = SubResource("BoxMesh_o7ram")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="FreeLookCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272379, 0, 0.48948)
+mesh = SubResource("CapsuleMesh_c576h")
+
+[node name="Node3D" type="Node3D" parent="FreeLookCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11112, 0, -1.99691)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="FreeLookCamera/Node3D"]
+remote_path = NodePath("../../../CSGCombiner3D/Hider")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.0430011, -0.992682, 0.112845, -0.329825, 0.092512, 0.939498, -0.943062, -0.0776186, -0.323433, 1.19415, 14.9866, -5.55109)
+transform = Transform3D(-0.275875, -0.360692, 0.890952, -0.185814, 0.92945, 0.318742, -0.943062, -0.0776186, -0.323433, 9.45495, 6.75641, -4.41017)
 light_energy = 12.798
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
@@ -65,7 +69,7 @@ shadow_reverse_cull_face = true
 shadow_blur = 0.0
 spot_range = 48.67
 spot_angle = 20.12
-spot_angle_attenuation = 0.0
+spot_angle_attenuation = 0.000541786
 
 [node name="Chaise" parent="." instance=ExtResource("4_v3k31")]
 
@@ -81,6 +85,38 @@ material = ExtResource("5_de42c")
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 3)
 operation = 2
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(116.032, 0, 0, 0, 1, 0, 0, 0, 105.56, 27.334, -32, 9.43881)
+size = Vector3(0.246277, 1, 0.356812)
+material = ExtResource("5_de42c")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(116.032, 0, 0, 0, 0.998233, -6.27325, 0, 0.0594283, 105.373, 16.2443, -36.6445, 9.43881)
+size = Vector3(0.246277, 1, 0.356812)
+material = ExtResource("5_de42c")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2, 9)
+size = Vector3(6, 5, 5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4873, 1.8017, 9.01251)
+operation = 2
+size = Vector3(5.35742, 4.60339, 4.39905)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3578, 0.939957, 8.34218)
+operation = 2
+size = Vector3(1.4729, 2.80072, 1.78043)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-3.62397e-08, 0, 6.02971, 0, 1, 0, -0.829067, 0, -2.63567e-07, -10.5, 4.5, 11.5)
+polygon = PackedVector2Array(0, 0, 3, 1, 6, 0)
+
+[node name="Hider" parent="CSGCombiner3D" instance=ExtResource("4_h2pyk")]
+transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, -4.85828, 1.88219, 3.38352)
+size = Vector3(1, 1, 3.51172)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

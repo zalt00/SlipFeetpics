@@ -8,8 +8,8 @@ uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_n
 
 void fragment() {
 	vec4 color = textureLod(screen_texture, UV, 0.);
-	if (color.r == color.g && color.g == color.b && color.rgb != vec3(0.))
-		color = vec4(1.);
+	//if (color.r == color.g && color.g == color.b && color.rgb != vec3(0.))
+	//	color = vec4(1.);
 	COLOR = color;
 }
 
