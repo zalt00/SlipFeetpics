@@ -1,11 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkeytpiiualef"]
+[gd_scene load_steps=17 format=3 uid="uid://dkeytpiiualef"]
 
 [ext_resource type="Script" path="res://scripts/cam.gd" id="1_mv4pk"]
 [ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_o0x2o"]
-[ext_resource type="Script" path="res://scenes/antimatter_paintbrush.gd" id="3_yprm1"]
+[ext_resource type="PackedScene" uid="uid://drqorc3tw7x1a" path="res://scenes/hider.tscn" id="4_h2pyk"]
 [ext_resource type="PackedScene" uid="uid://bdcf5koe6ovrj" path="res://scenes/chair_emile.tscn" id="4_v3k31"]
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="5_de42c"]
 [ext_resource type="Shader" path="res://shaders/brighter.gdshader" id="6_225kg"]
+[ext_resource type="Script" path="res://scripts/marble.gd" id="7_kgxuh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_sywrr"]
 size = Vector2(2, 2)
@@ -55,9 +56,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_0wb0k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272379, 0, 0.48948)
 mesh = SubResource("CapsuleMesh_c576h")
 
-[node name="AntimatterPaintbrush" type="RayCast3D" parent="FreeLookCamera"]
-target_position = Vector3(0, 0, -10)
-script = ExtResource("3_yprm1")
+[node name="Node3D" type="Node3D" parent="FreeLookCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11112, 0, -1.99691)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="FreeLookCamera/Node3D"]
+remote_path = NodePath("../../../Breakable/Hider")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.275875, -0.360692, 0.890952, -0.185814, 0.92945, 0.318742, -0.943062, -0.0776186, -0.323433, 9.45495, 6.75641, -4.41017)
@@ -89,6 +92,10 @@ size = Vector3(0.493164, 2.98743, 1.89734)
 [node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2978, 0.876221, 1.65747)
 size = Vector3(1.88818, 2.75244, 4.31494)
+
+[node name="Hider" parent="Breakable" instance=ExtResource("4_h2pyk")]
+transform = Transform3D(-0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, -0.0555601, -9.48052, 1.62761, 3.63674)
+size = Vector3(1.1779, 1.16394, 12.6182)
 
 [node name="Unbreakable" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -147,7 +154,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="Marble" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 2.80169, 0)
-axis_lock_linear_x = true
+script = ExtResource("7_kgxuh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Marble"]
 mesh = SubResource("SphereMesh_kt2vj")
