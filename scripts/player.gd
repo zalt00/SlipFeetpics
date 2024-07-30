@@ -114,4 +114,8 @@ func _input(event):
 	# Receives mouse motion
 	if event is InputEventMouseMotion:
 		_mouse_position = event.relative
+		
+	elif event is InputEventKey:
+		if Input.is_action_just_pressed("menu"):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
