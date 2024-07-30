@@ -114,14 +114,14 @@ func _process(delta):
 	
 func _input(event):
 	# Receives mouse motion
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not menu:
 		_mouse_position = event.relative
 	
 	if Input.is_action_just_pressed("menu"):
-		if menu:
+		if not menu:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			menu = false
+			menu = true
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			menu = true
+			menu = false
 
