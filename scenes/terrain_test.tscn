@@ -1,5 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv87t5qwajnnq"]
+[gd_scene load_steps=9 format=3 uid="uid://bv87t5qwajnnq"]
 
+[ext_resource type="Material" uid="uid://bee5t8suvbedj" path="res://materials/red.tres" id="1_3fgrf"]
+[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_f87ha"]
 [ext_resource type="PackedScene" uid="uid://ohxonblegnyj" path="res://scenes/player_2.tscn" id="1_x3l1w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0d01"]
@@ -14,6 +16,10 @@ size = Vector3(1, 2, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wgss"]
 size = Vector3(1, 2, 1)
 
+[sub_resource type="Environment" id="Environment_ip71w"]
+background_energy_multiplier = 0.0
+ambient_light_energy = 0.0
+
 [node name="TerrainTest" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -22,12 +28,15 @@ size = Vector3(1, 2, 1)
 shape = SubResource("BoxShape3D_j0d01")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0055356, -0.00436473, 0.00101572)
+material_override = ExtResource("1_3fgrf")
 mesh = SubResource("BoxMesh_8uvqj")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93459, 0.765145, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+material_override = ExtResource("1_f87ha")
 mesh = SubResource("BoxMesh_rl1v4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
@@ -39,3 +48,10 @@ shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("1_x3l1w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.92237, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ip71w")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.186301, 0.982493, 0, -0.982493, 0.186301, 0, 2.65056, 0)
+light_energy = 10.057

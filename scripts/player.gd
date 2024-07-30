@@ -12,11 +12,14 @@ var _total_pitch = 0.0
 @onready var sub_viewport := $SubViewport
 @onready var light_detection := $SubViewport/light_detection
 @onready var texture_rect := $TextureRect
+@onready var progress_bar := $IlluminationLevel
 
 
 const ACCEL = 30.0
 
 var dt = 0.0
+
+var illum_level = 0.0
 
 func _ready():
 	sub_viewport.debug_draw = 2
@@ -27,7 +30,7 @@ func _update_movement(delta):
 	if not is_on_floor():
 		var multiplier = 1.0 if velocity.y > 0 else 1.8
 		
-		velocity.y -= gravity * delta * multiplier
+		velocity.y -= gravity * delta * multiplier * (1.0 - illum_level) * 0.4
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and dt < 0.1:
@@ -75,8 +78,14 @@ func _physics_process(delta):
 
 func _process(delta):
 	light_detection.global_position = global_position
-	var tex = sub_viewport.get_texture()
-	texture_rect.texture = tex
+	var tex : ViewportTexture = sub_viewport.get_texture()
+	var img = tex.get_image()
+	img.resize(1, 1, Image.INTERPOLATE_LANCZOS)
+	illum_level = img.get_pixel(0, 0).r
+	progress_bar.value = illum_level
+	
+		
+	
 func _input(event):
 	# Receives mouse motion
 	if event is InputEventMouseMotion:
