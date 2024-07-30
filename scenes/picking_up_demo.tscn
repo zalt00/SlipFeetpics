@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cll0neviwuqe1"]
+
+[ext_resource type="PackedScene" path="res://scenes/player_2.tscn" id="2_gldui"]
+[ext_resource type="Script" path="res://scripts/pointeur.gd" id="2_npuur"]
+[ext_resource type="PackedScene" uid="uid://cpgl41ltc71p7" path="res://scenes/lampe.tscn" id="3_jjed8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_waasp"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8njyq"]
+size = Vector3(10, 0.5, 10)
+
+[node name="picking_up_demo" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_waasp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_8njyq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.989982, 0.034041, -0.13703, 5.5513e-10, 0.970502, 0.241092, 0.141195, -0.238677, 0.96078, -0.944123, 2.10946, 6.63441)
+
+[node name="Lampe" parent="." instance=ExtResource("3_jjed8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64419, 0.84467, -2.22742)
+
+[node name="player" parent="." instance=ExtResource("2_gldui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.806446, 0)
+
+[node name="Pointeur" type="RayCast3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1829, 0)
+target_position = Vector3(0, 0, -2)
+script = ExtResource("2_npuur")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bigttmwopa71u"]
+
+[ext_resource type="Script" path="res://scripts/pointeur.gd" id="1_mt2js"]
+
+[node name="camera_items" type="Node3D"]
+
+[node name="Pointeur" type="RayCast3D" parent="."]
+script = ExtResource("1_mt2js")

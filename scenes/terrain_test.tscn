@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bv87t5qwajnnq"]
 
-[ext_resource type="PackedScene" uid="uid://c0se7dws6rgjx" path="res://scenes/AMEDEE.tscn" id="1_seph5"]
+[ext_resource type="PackedScene" uid="uid://cssrgp4jj287o" path="res://scenes/player_2.tscn" id="1_x3l1w"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8uvqj"]
 size = Vector3(30, 0.5, 30)
@@ -33,9 +33,9 @@ mesh = SubResource("BoxMesh_rl1v4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 shape = SubResource("BoxShape3D_5wgss")
 
-[node name="Amedee" parent="." instance=ExtResource("1_seph5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.939711, 0.0824466, -0.331883, 4.82849e-10, 0.970502, 0.241092, 0.341971, -0.226557, 0.911991, -0.944123, 2.10946, 6.63441)
 shadow_enabled = true
+
+[node name="player" parent="." instance=ExtResource("1_x3l1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.857, 0)
