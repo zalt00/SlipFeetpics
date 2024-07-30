@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" path="res://cam.gd" id="1_8ewni"]
 
+[gd_scene load_steps=3 format=3 uid="uid://6xygcwl6v7c"]
+
+[ext_resource type="Script" path="res://scripts/cam.gd" id="1_8ewni"]
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_bxaaf"]
 viewport_path = NodePath("SubViewport")
 
