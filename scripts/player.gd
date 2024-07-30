@@ -4,6 +4,8 @@ var sensitivity: float = 0.25
 const SPEED = 3.0
 const JUMP_VELOCITY = 7.0
 
+const MAX_SPEED = 15.0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _mouse_position = Vector2(0.0, 0.0)
@@ -30,11 +32,11 @@ func _update_movement(delta):
 	if not is_on_floor():
 		var multiplier = 1.0 if velocity.y > 0 else 1.8
 		
-		velocity.y -= gravity * delta * multiplier * (1.0 - illum_level) * 0.4
+		velocity.y -= gravity * delta * multiplier # * (1.0 - illum_level) * 1.6
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and dt < 0.1:
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * (illum_level + 0.6)
 		dt = 0.0
 
 	# Get the input direction and handle the movement/deceleration.
@@ -50,7 +52,11 @@ func _update_movement(delta):
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, ACCEL * delta * abs(norm.x))
 			velocity.z = move_toward(velocity.z, 0, ACCEL * delta * abs(norm.z))
-		
+	
+	var speed = velocity.length()
+	if speed > MAX_SPEED:
+		velocity = velocity / MAX_SPEED * 8
+	
 func _physics_process(delta):
 	if is_on_floor():
 		dt = 0.0
