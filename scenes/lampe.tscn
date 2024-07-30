@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpgl41ltc71p7"]
+[gd_scene load_steps=12 format=3 uid="uid://dnmic6xycrjux"]
 
 [ext_resource type="Script" path="res://scripts/lampe.gd" id="1_4biy4"]
 [ext_resource type="Shader" path="res://shaders/lampe.gdshader" id="2_s33rv"]
