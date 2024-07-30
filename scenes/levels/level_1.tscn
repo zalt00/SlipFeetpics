@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce1874ibnua7a"]
+[gd_scene load_steps=7 format=3 uid="uid://ce1874ibnua7a"]
 
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_vot43"]
-[ext_resource type="PackedScene" uid="uid://4hwcb4flxafj" path="res://scenes/antimatter_player.tscn" id="2_fu17t"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_7avps"]
+[ext_resource type="PackedScene" uid="uid://h51focyx2547" path="res://scenes/timer.tscn" id="3_hl1t7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umwkw"]
 albedo_color = Color(0, 0, 0, 1)
@@ -86,5 +87,12 @@ environment = SubResource("Environment_y7nlc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
-[node name="AntimatterPlayer" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_fu17t")]
+[node name="Timer" parent="." instance=ExtResource("3_hl1t7")]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 12.0
+offset_bottom = 8.0
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("3_7avps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3175, 1.93907, -0.608218)
 breakable = NodePath("../breakable")
