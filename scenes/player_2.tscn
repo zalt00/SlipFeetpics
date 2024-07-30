@@ -7,22 +7,29 @@
 size = Vector3(0.1, 1.8, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l6go6"]
+size = Vector3(0.5, 1.8, 0.5)
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_3j6es")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("BoxMesh_bn3hq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_l6go6")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15739, 0)
-
-[node name="camera_items" parent="Camera3D" instance=ExtResource("2_f1rdo")]
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 shadow_enabled = true
 omni_range = 2.051
+
+[node name="cam_helper" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="cam_helper"]
+
+[node name="camera_items" parent="cam_helper/Camera3D" instance=ExtResource("2_f1rdo")]
+
+[node name="position_helper" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049369, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="position_helper"]
+visible = false
+mesh = SubResource("BoxMesh_bn3hq")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_l6go6")

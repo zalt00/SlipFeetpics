@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c0se7dws6rgjx"]
 
-[ext_resource type="PackedScene" uid="uid://cssrgp4jj287o" path="res://scenes/player_2.tscn" id="1_1yiak"]
+[ext_resource type="PackedScene" uid="uid://ohxonblegnyj" path="res://scenes/player_2.tscn" id="1_1yiak"]
 
 [node name="Amedee" type="Node3D"]
 

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var sensitivity: float = 0.25
-const SPEED = 5.0
+const SPEED = 3.0
 const JUMP_VELOCITY = 7.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -11,7 +11,6 @@ var _total_pitch = 0.0
 
 
 const ACCEL = 30.0
-var speed = 0.0
 
 var dt = 0.0
 
@@ -63,7 +62,7 @@ func _physics_process(delta):
 	_total_pitch += pitch
 
 	rotate_y(deg_to_rad(-yaw))
-	var cam = get_node("Camera3D")
+	var cam = get_node("cam_helper")
 	
 	cam.rotate_object_local(Vector3(1,0,0), deg_to_rad(-pitch))
 
