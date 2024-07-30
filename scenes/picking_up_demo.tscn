@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cll0neviwuqe1"]
 
-[ext_resource type="PackedScene" uid="uid://ohxonblegnyj" path="res://scenes/player_2.tscn" id="2_gldui"]
+[ext_resource type="PackedScene" uid="uid://ohxonblegnyj" path="res://scenes/fps_player.tscn" id="2_gldui"]
 [ext_resource type="Script" path="res://scripts/pointeur.gd" id="2_npuur"]
-[ext_resource type="PackedScene" uid="uid://cpgl41ltc71p7" path="res://scenes/lampe.tscn" id="3_jjed8"]
+[ext_resource type="PackedScene" path="res://scenes/lampe.tscn" id="3_jjed8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_waasp"]
 size = Vector3(10, 0.5, 10)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bv87t5qwajnnq"]
 
-[ext_resource type="Material" uid="uid://bee5t8suvbedj" path="res://materials/red.tres" id="1_3fgrf"]
-[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_f87ha"]
-[ext_resource type="PackedScene" uid="uid://ohxonblegnyj" path="res://scenes/player_2.tscn" id="1_x3l1w"]
+[ext_resource type="Material" uid="uid://bee5t8suvbedj" path="res://materials/red.tres" id="1_3xq7g"]
+[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="2_wgrh6"]
+[ext_resource type="PackedScene" uid="uid://ohxonblegnyj" path="res://scenes/fps_player.tscn" id="3_nlbs1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0d01"]
 size = Vector3(30, 0.5, 30)
@@ -29,14 +29,14 @@ shape = SubResource("BoxShape3D_j0d01")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0055356, -0.00436473, 0.00101572)
-material_override = ExtResource("1_3fgrf")
+material_override = ExtResource("1_3xq7g")
 mesh = SubResource("BoxMesh_8uvqj")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93459, 0.765145, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
-material_override = ExtResource("1_f87ha")
+material_override = ExtResource("2_wgrh6")
 mesh = SubResource("BoxMesh_rl1v4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
@@ -46,7 +46,7 @@ shape = SubResource("BoxShape3D_5wgss")
 transform = Transform3D(0.939711, 0.0824466, -0.331883, 4.82849e-10, 0.970502, 0.241092, 0.341971, -0.226557, 0.911991, -0.944123, 2.10946, 6.63441)
 shadow_enabled = true
 
-[node name="player" parent="." instance=ExtResource("1_x3l1w")]
+[node name="player" parent="." instance=ExtResource("3_nlbs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.92237, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

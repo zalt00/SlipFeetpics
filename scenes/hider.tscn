@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://drqorc3tw7x1a"]
-
-[node name="CSGBox3D" type="CSGBox3D"]
-operation = 2
