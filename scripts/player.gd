@@ -17,7 +17,7 @@ var _total_pitch = 0.0
 @onready var progress_bar := $HUD/IlluminationLevel
 @onready var health_bar = $HUD/BarHealth
 @onready var antimatter_shotgun := $cam_helper/Camera3D/AntimatterPlayer
-@onready var antimatter_grenade_launcher: Node3D = $cam_helper/AntimatterGrenadeLauncher
+@onready var antimatter_grenade_launcher: Node3D = $AntimatterGrenadeLauncher
 
 @export var resume_scene := "res://scenes/test_scenes/level_1_test_amedee.tscn"
 @export var breakable: CSGCombiner3D
@@ -47,7 +47,6 @@ func _update_movement(delta):
 	if Input.is_action_just_pressed("ui_accept") and dt < 0.5:
 		velocity.y = JUMP_VELOCITY * (illum_level + 0.6)
 		dt = 999999.0
-		$sounds.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -111,7 +110,7 @@ func _process(delta):
 	
 func _input(event):
 	# Receives mouse motion
-	if event is InputEventMouseMotion and not $Echap.menu:
+	if event is InputEventMouseMotion and not $Echap.pause:
 		_mouse_position = event.relative
 			
 func _on_modify_health_pressed(attack = 10):

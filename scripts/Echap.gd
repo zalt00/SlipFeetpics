@@ -3,19 +3,18 @@ extends Control
 @onready var principal = $Principal
 @onready var options = $Options
 
-var menu = false
+var pause = false
 
 func _ready():
-	menu = false
+	pause = false
 	principal.visible = false
 	options.visible = false
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func _on_resume_pressed():
-	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	principal.visible = false
-	menu = false
+	pause = false
 
 func _on_options_pressed():
 	principal.visible = false
@@ -31,14 +30,12 @@ func _on_quit_pressed():
 
 func _input(event):
 	if Input.is_action_just_pressed("echap"):
-		if not menu:
-			get_tree().paused = true
+		if not pause:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			principal.visible = true
-			menu = true
+			pause = true
 		else:
-			get_tree().paused = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			principal.visible = false
 			options.visible = false
-			menu = false
+			pause = false
