@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl2qgrl8wv2hs"]
+
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_gpnhn"]
+
+[node name="Test" type="Node3D"]
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_gpnhn")]
+breakable = NodePath("../CSGCombiner3D")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2439, -1.35727, -0.0465088)
+size = Vector3(12.2534, 1, 7.47095)

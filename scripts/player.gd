@@ -44,7 +44,7 @@ func _update_movement(delta):
 		velocity.y -= gravity * delta * multiplier # * (1.0 - illum_level) * 1.6
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and dt < 0.5:
+	if Input.is_action_just_pressed("ui_accept") and dt < 0.2:
 		velocity.y = JUMP_VELOCITY * (illum_level + 0.6)
 		dt = 999999.0
 		$sounds.play()
