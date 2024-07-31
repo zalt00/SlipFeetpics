@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://clft8rriwp70h"]
+[gd_scene load_steps=3 format=3 uid="uid://clft8rriwp70h"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_c6ihu"]
+[ext_resource type="PackedScene" uid="uid://8jvacyrdv33w" path="res://scenes/switch_light.tscn" id="2_4gawr"]
 
 [node name="Charles" type="Node3D"]
 
@@ -8,8 +9,16 @@
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
-size = Vector3(10, 0.5, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.4941)
+size = Vector3(10, 0.5, 40.9883)
 
-[node name="player" parent="." instance=ExtResource("1_c6ihu")]
+[node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24068, -13.0236)
+size = Vector3(10, 4.08008, 0.988525)
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_c6ihu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72542, 1.415, 0.370677)
-health = 100
+breakable = NodePath("../breakable")
+
+[node name="SwitchLight" parent="." instance=ExtResource("2_4gawr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93935, 2.76118, -12.5294)

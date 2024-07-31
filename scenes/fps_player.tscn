@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=15 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
+[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="3_ie03h"]
 [ext_resource type="PackedScene" uid="uid://co4lu1l5fa6ou" path="res://scenes/antimatter_player_node.tscn" id="3_p4fqn"]
 [ext_resource type="Theme" uid="uid://bn8rgdmv7kvuf" path="res://themes/illumination_level.tres" id="5_5cn51"]
-[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="5_7d6k7"]
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
-[ext_resource type="ArrayMesh" uid="uid://68hq68u2gmmo" path="res://obj/cortex.obj" id="6_jwd0y"]
 [ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
-[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="7_u1o4s"]
+[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/echap.tscn" id="8_aemiu"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="9_fmnkt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
@@ -23,8 +22,10 @@ size = Vector2(0.5, 0.5)
 [sub_resource type="LabelSettings" id="LabelSettings_spi7g"]
 font_size = 55
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hyhvs"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="LabelSettings" id="LabelSettings_lebje"]
+font_size = 25
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_3j6es")
@@ -66,23 +67,13 @@ render_target_update_mode = 3
 [node name="light_detection" type="Node3D" parent="SubViewport"]
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport/light_detection"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.00585079, 0)
-cull_mask = 1048065
-fov = 52.6274
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.287189, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/light_detection"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.543228, 0)
-visible = false
 layers = 512
-material_override = ExtResource("5_7d6k7")
+material_override = ExtResource("3_ie03h")
 mesh = SubResource("PlaneMesh_odakh")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewport/light_detection"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 0.668997, 0, -0.707107, 0, 0.707107, 0, -1.31027, 0)
-layers = 512
-material_override = ExtResource("5_7d6k7")
-cast_shadow = 0
-mesh = ExtResource("6_jwd0y")
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -125,14 +116,7 @@ label_settings = SubResource("LabelSettings_spi7g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HUD"]
-layout_mode = 0
-offset_left = 500.0
-offset_right = 1012.0
-offset_bottom = 512.0
-texture = SubResource("ViewportTexture_hyhvs")
-
-[node name="Echap" parent="." instance=ExtResource("7_u1o4s")]
+[node name="Echap" parent="." instance=ExtResource("8_aemiu")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -143,3 +127,34 @@ grow_vertical = 1
 
 [node name="sounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_fmnkt")
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -55.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="InteractText" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -17.5
+offset_right = 109.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press E to interact"
+label_settings = SubResource("LabelSettings_lebje")
+horizontal_alignment = 1
+vertical_alignment = 1
