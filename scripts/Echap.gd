@@ -15,6 +15,7 @@ func _on_resume_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	principal.visible = false
 	pause = false
+	get_tree().paused = false
 
 func _on_options_pressed():
 	principal.visible = false
@@ -34,8 +35,10 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			principal.visible = true
 			pause = true
+			get_tree().paused = true
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			principal.visible = false
 			options.visible = false
 			pause = false
+			get_tree().paused = false
