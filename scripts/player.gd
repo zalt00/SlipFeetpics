@@ -13,11 +13,13 @@ var _total_pitch = 0.0
 
 @onready var sub_viewport := $SubViewport
 @onready var light_detection := $SubViewport/light_detection
-@onready var texture_rect := $TextureRect
+
 @onready var progress_bar := $HUD/IlluminationLevel
 @onready var health_bar = $HUD/BarHealth
 @onready var antimatter_shotgun := $cam_helper/Camera3D/AntimatterPlayer
 @onready var antimatter_grenade_launcher: Node3D = $cam_helper/AntimatterGrenadeLauncher
+
+@onready var cam = $cam_helper
 
 @onready var ammo_label = $HUD/AmmoLabel
 
@@ -109,7 +111,6 @@ func _physics_process(delta):
 	_total_pitch += pitch
 
 	rotate_y(deg_to_rad(-yaw))
-	var cam = get_node("cam_helper")
 	
 	cam.rotate_object_local(Vector3(1,0,0), deg_to_rad(-pitch))
 

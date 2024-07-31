@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_73wpq"]
 [ext_resource type="PackedScene" path="res://scenes/switch.tscn" id="2_ubrp4"]
-[ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="3_ys2ae"]
+[ext_resource type="PackedScene" path="res://scenes/red_sky.tscn" id="3_ys2ae"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwr2m"]
 
