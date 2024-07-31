@@ -19,9 +19,12 @@ var _total_pitch = 0.0
 @onready var antimatter_shotgun := $cam_helper/Camera3D/AntimatterPlayer
 @onready var antimatter_grenade_launcher: Node3D = $cam_helper/AntimatterGrenadeLauncher
 
+@onready var ammo_label = $HUD/AmmoLabel
 
 @export var breakable: CSGCombiner3D
 @export var health = 100
+
+@export var number_of_shots = 5
 
 const ACCEL = 30.0
 
@@ -36,6 +39,8 @@ func _ready():
 	antimatter_shotgun.breakable = breakable
 	health_bar.value = health
 	antimatter_grenade_launcher.breakable = breakable
+	
+	antimatter_shotgun.number_of_shots = number_of_shots
 
 func _update_movement(delta):
 	if not is_on_floor():
@@ -76,6 +81,9 @@ func _update_movement(delta):
 	var speed = velocity.length()
 	if speed > MAX_SPEED:
 		velocity = velocity / speed * MAX_SPEED
+	
+	ammo_label.text = str(antimatter_shotgun.number_of_shots)
+	
 	
 func _physics_process(delta):
 	if is_on_floor():
