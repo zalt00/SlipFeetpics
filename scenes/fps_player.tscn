@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://bn8rgdmv7kvuf" path="res://themes/illumination_level.tres" id="5_5cn51"]
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
 [ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
-[ext_resource type="PackedScene" path="res://scenes/Echap.tscn" id="7_u1o4s"]
+[ext_resource type="PackedScene" uid="uid://c43sspky0a7b" path="res://scenes/Echap.tscn" id="7_u1o4s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
 size = Vector3(0.1, 1.8, 0.1)
@@ -31,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="cam_helper"]
 cull_mask = 1048063
+current = true
 
 [node name="camera_items" parent="cam_helper/Camera3D" instance=ExtResource("2_f1rdo")]
 
