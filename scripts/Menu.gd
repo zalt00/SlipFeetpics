@@ -13,7 +13,7 @@ func _ready():
 	for level_path in array:
 		var button = button_pck.instantiate()
 		button.set_meta("scene_path", level_path)
-		button.connect("pressed", Callable(self, "_on_button_pressed").bind(level_path))
+		button.connect("pressed", button._on_button_up.bind())
 		button.something = level_path
 		button_container.add_child(button)
 		

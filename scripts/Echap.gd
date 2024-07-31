@@ -12,10 +12,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func _on_resume_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	principal.hide()
-	pause = false
-	get_tree().paused = false
+	resume()
 
 func _on_options_pressed():
 	principal.hide()
@@ -36,3 +33,13 @@ func _input(event):
 			principal.show()
 			pause = true
 			get_tree().paused = true
+
+func _on_respawn_pressed():
+	resume()
+	get_tree().reload_current_scene()
+	
+func resume():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	principal.hide()
+	pause = false
+	get_tree().paused = false
