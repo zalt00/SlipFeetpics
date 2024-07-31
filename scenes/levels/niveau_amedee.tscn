@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://doboslpiwyr4n"]
+
+[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="1_gu6h4"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_ovw1s"]
+
+[sub_resource type="Environment" id="Environment_bi4ip"]
+background_mode = 1
+background_color = Color(0.4896, 0.288, 0.96, 1)
+background_energy_multiplier = 0.71
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="NiveauAmedee" type="Node3D"]
+
+[node name="breakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_gu6h4")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983887, -0.19458, -1.15811)
+size = Vector3(11.5537, 0.61084, 9.69733)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529142, 4.40904, -7.96481)
+size = Vector3(7.81628, 11.2231, 4.19434)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51036, 16.6863, 1.93177)
+size = Vector3(11.0758, 1.00196, 12.9975)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.911528, 9.32229, -25.4708)
+size = Vector3(11.0292, 1, 4.97559)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.334167, 9.11419, -12.9725)
+size = Vector3(10.3177, 1.6073, 5.49622)
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_ovw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3985, 0)
+breakable = NodePath("../breakable")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bi4ip")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.986847, 0.048048, -0.15435, 0.0418395, 0.846358, 0.530969, 0.156147, -0.530443, 0.833215, 0, 5.13811, 7.84622)
+light_indirect_energy = 0.0
+shadow_enabled = true

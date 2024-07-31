@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cd4gqcvmru1dc"]
 
-[ext_resource type="Script" path="res://scenes/emancipation_grid.gd" id="1_kbtly"]
+[ext_resource type="Script" path="res://scripts/emancipation_grid.gd" id="1_kbtly"]
 [ext_resource type="Shader" path="res://shaders/holo2.gdshader" id="2_e8r8e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p6sl4"]

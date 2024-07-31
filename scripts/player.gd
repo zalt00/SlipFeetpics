@@ -61,6 +61,9 @@ func _update_movement(delta):
 		velocity.y = JUMP_VELOCITY * (illum_level + 0.6)
 		dt = 999999.0
 		$sounds.play()
+		
+	if Input.is_action_just_pressed("godmod"):
+		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
