@@ -74,8 +74,6 @@ func _update_movement(delta):
 		velocity.x += multiplier * ACCEL * delta*direction.x
 		velocity.z += multiplier * ACCEL * delta*direction.z
 		
-
-
 	var norm = velocity.normalized()
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, ACCEL * delta * abs(norm.x))
@@ -128,7 +126,10 @@ func _input(event):
 	# Receives mouse motion
 	if event is InputEventMouseMotion and not $Echap.pause:
 		_mouse_position = event.relative
-			
+		
+	if Input.is_action_just_pressed("respawn"):
+		get_tree().reload_current_scene()
+
 func _on_modify_health_pressed(attack = 10):
 	health += attack
 	health_bar.value = health
