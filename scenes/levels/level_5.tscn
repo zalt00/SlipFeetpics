@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3joxv2kcsl4a"]
+
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_cxpca"]
+[ext_resource type="PackedScene" uid="uid://ds4f2k83ddgrs" path="res://scenes/switch.tscn" id="2_8bsql"]
+[ext_resource type="PackedScene" uid="uid://cdfm5vvlbk06r" path="res://scenes/wire.tscn" id="3_3or3q"]
+[ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_1bltb"]
+
+[node name="Level5" type="Node3D"]
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_cxpca")]
+breakable = NodePath("../breakable")
+
+[node name="breakable" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -4, -4.5)
+size = Vector3(12, 1, 16)
+
+[node name="switch" parent="." node_paths=PackedStringArray("powered") instance=ExtResource("2_8bsql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.522035, -1.35012, -3.62261)
+powered = [NodePath("wire"), NodePath("wire2"), NodePath("wire3"), NodePath("lamp")]
+
+[node name="wire" parent="switch" instance=ExtResource("3_3or3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.92, 0, 0, -4)
+
+[node name="wire2" parent="switch" instance=ExtResource("3_3or3q")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -6.35163, 0, 1, -2.77639e-07, 0, 0, -8)
+
+[node name="wire3" parent="switch" instance=ExtResource("3_3or3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.12899, 0, 4.72272, -5.04919)
+
+[node name="lamp" parent="switch" instance=ExtResource("4_1bltb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.40662, -2)

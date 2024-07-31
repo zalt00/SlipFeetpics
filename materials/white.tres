@@ -2,6 +2,7 @@
 
 [resource]
 vertex_color_is_srgb = true
+albedo_color = Color(0, 0, 0, 1)
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
 normal_scale = 16.0
