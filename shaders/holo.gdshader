@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, shadows_disabled, world_vertex_coords;
+render_mode world_vertex_coords, cull_disabled, unshaded;
 #include "funcs.gdshaderinc"
 
 uniform float lines1:hint_range(0.0, 200.0, 1.0) = 2.0;
@@ -10,8 +10,11 @@ uniform float _emission:hint_range(0.0, 10.0 ) = 1.0;
 uniform float _frensel:hint_range(0.0, 10.0 ) = 1.0;
 
 uniform float _glitch_intensity:hint_range(0.04, 3.0, 0.01);
+uniform float _th:hint_range(0.0, 1.0, 0.01);
 
 varying float rand_dist;
+
+
 
 void vertex() {
 	float distorsion = sin(TIME*10.0+VERTEX.y*20.0)*_glitch_intensity;
@@ -43,8 +46,9 @@ void fragment() {
 	
 	float m = f*n*l1*l2;
 	//ALBEDO = vec3(m);
-	ALPHA=m;
-	ALBEDO = color*mix(_emission, _emission + 2.0, rand_dist);
+	ALPHA = (0.3 + sin(abs(VERTEX.z)*50.0)*0.0)*step(_th, length(VERTEX));
+	ALBEDO = color;
+	//ALBEDO = color*mix(_emission, _emission + 2.0, rand_dist);
 	//ALBEDO = vec3(l2);
 }
 
