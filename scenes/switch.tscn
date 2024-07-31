@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://ds4f2k83ddgrs"]
+
+[ext_resource type="Script" path="res://scripts/switch.gd" id="1_gx3bp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_31dn5"]
+size = Vector3(1, 0.25, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utp7p"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(1, 0.0117647, 0.0117647, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a84lf"]
+material = SubResource("StandardMaterial3D_utp7p")
+size = Vector3(1, 0.25, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bgvbu"]
+size = Vector3(1, 0.688477, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vyhc"]
+size = Vector3(1.5, 0.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmvhb"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.113725, 0.145098, 0.172549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_umvkt"]
+material = SubResource("StandardMaterial3D_qmvhb")
+size = Vector3(1.5, 0.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xey6p"]
+size = Vector3(0.5, 0.55, 1.55)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygtww"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drs1k"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[node name="switch" type="StaticBody3D" groups=["switch"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.522035, -0.350118, -0.622605)
+script = ExtResource("1_gx3bp")
+
+[node name="button" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_31dn5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="button"]
+mesh = SubResource("BoxMesh_a84lf")
+
+[node name="press_area" type="Area3D" parent="button"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="button/press_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.155762, 0)
+shape = SubResource("BoxShape3D_bgvbu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7vyhc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D2"]
+mesh = SubResource("BoxMesh_umvkt")
+
+[node name="light1" type="MeshInstance3D" parent="CollisionShape3D2"]
+mesh = SubResource("BoxMesh_xey6p")
+surface_material_override/0 = SubResource("StandardMaterial3D_ygtww")
+
+[node name="light2" type="MeshInstance3D" parent="CollisionShape3D2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_xey6p")
+surface_material_override/0 = SubResource("StandardMaterial3D_drs1k")
+
+[connection signal="body_entered" from="button/press_area" to="." method="_on_press_area_body_entered"]
+[connection signal="body_exited" from="button/press_area" to="." method="_on_press_area_body_exited"]
