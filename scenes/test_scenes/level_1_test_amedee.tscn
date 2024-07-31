@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsulchs325tq4"]
+[gd_scene load_steps=7 format=3 uid="uid://bsulchs325tq4"]
 
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_qjbmb"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_44pk8"]
+[ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_mmdya"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umwkw"]
 albedo_color = Color(0, 0, 0, 1)
@@ -97,3 +98,8 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 breakable = NodePath("../breakable")
 health = 50
+
+[node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_mmdya")]
+transform = Transform3D(-0.00537564, 0, -0.999986, 0, 1, 0, 0.999986, 0, -0.00537564, 17.4244, 3.39334, -8.93881)
+player = NodePath("../player")
+refill = 5

@@ -32,6 +32,12 @@ var dt = 0.0
 
 var illum_level = 0.0
 
+func set_number_of_shots(n):
+	if n == -1:
+		antimatter_shotgun.number_of_shots = number_of_shots
+	else:
+		antimatter_shotgun.number_of_shots = n
+
 func _ready():
 	sub_viewport.debug_draw = 2
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

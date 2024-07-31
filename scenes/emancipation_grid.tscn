@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cd4gqcvmru1dc"]
+
+[ext_resource type="Script" path="res://scenes/emancipation_grid.gd" id="1_kbtly"]
+[ext_resource type="Shader" path="res://shaders/holo2.gdshader" id="2_e8r8e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p6sl4"]
+size = Vector3(2.8, 2, 0.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yv3sv"]
+render_priority = 0
+shader = ExtResource("2_e8r8e")
+shader_parameter/lines1 = 80.0
+shader_parameter/lines2 = 50.0
+shader_parameter/color = Color(0.283848, 0.000523855, 0.95708, 1)
+shader_parameter/_emission = 15.0
+shader_parameter/_frensel = 0.897
+shader_parameter/_glitch_intensity = 0.07
+shader_parameter/_th = null
+
+[sub_resource type="BoxMesh" id="BoxMesh_kmbx5"]
+size = Vector3(2.8, 2, 0.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m2x6c"]
+render_priority = 0
+shader = ExtResource("2_e8r8e")
+shader_parameter/lines1 = 90.0
+shader_parameter/lines2 = 50.0
+shader_parameter/color = Color(0.4896, 0.288, 0.96, 1)
+shader_parameter/_emission = 6.155
+shader_parameter/_frensel = 0.583
+shader_parameter/_glitch_intensity = null
+shader_parameter/_th = null
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5aan"]
+size = Vector3(2.4, 1.6, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ljgx"]
+
+[node name="EmancipationGrid" type="Node3D"]
+script = ExtResource("1_kbtly")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.968, 0)
+shape = SubResource("BoxShape3D_p6sl4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.961645, 0)
+material_override = SubResource("ShaderMaterial_yv3sv")
+mesh = SubResource("BoxMesh_kmbx5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.999669, 0, -0.0257233, 0, 1, 0, 0.0257233, 0, 0.999669, 0, 0.961645, 0)
+material_override = SubResource("ShaderMaterial_m2x6c")
+mesh = SubResource("BoxMesh_i5aan")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Area3D"]
+material_override = SubResource("StandardMaterial3D_7ljgx")
+transparency = 0.25
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Area3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969534, 0)
+size = Vector3(3, 2.2, 0.1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969534, 0)
+operation = 2
+size = Vector3(2.8, 2, 1)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

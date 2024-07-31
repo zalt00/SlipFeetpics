@@ -18,6 +18,11 @@ func _ready():
 func _input(event):
 	pass
 
+func clear_antimater():
+	for obj in copies:
+		obj.queue_free()
+	copies.clear()
+
 # Updates mouselook and movement every frame
 func _process(delta):
 
