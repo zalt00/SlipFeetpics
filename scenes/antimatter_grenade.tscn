@@ -26,6 +26,7 @@ shape = SubResource("SphereShape3D_yhklg")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
+wait_time = 0.5
 
 [node name="Explosion" type="CSGBox3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
