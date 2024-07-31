@@ -9,7 +9,6 @@ material = ExtResource("1_raant")
 size = Vector3(1, 0.5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gtx5s"]
-material = ExtResource("3_aqs2y")
 size = Vector3(0.75, 0.5, 0.75)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3hanm"]
@@ -27,6 +26,7 @@ mesh = SubResource("BoxMesh_oqejc")
 [node name="bulb" type="MeshInstance3D" parent="base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.229175, 0)
 mesh = SubResource("BoxMesh_gtx5s")
+surface_material_override/0 = ExtResource("3_aqs2y")
 
 [node name="spot" type="SpotLight3D" parent="base/bulb"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.265951, 0)
