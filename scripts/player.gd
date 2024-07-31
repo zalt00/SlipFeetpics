@@ -18,6 +18,7 @@ var _total_pitch = 0.0
 @onready var health_bar = $HUD/BarHealth
 @onready var antimatter_shotgun := $cam_helper/Camera3D/AntimatterPlayer
 
+@export var resume_scene := "res://scenes/test_scenes/level_1_test_amedee.tscn"
 @export var breakable: CSGCombiner3D
 @export var health = 100
 
@@ -26,8 +27,6 @@ const ACCEL = 30.0
 var dt = 0.0
 
 var illum_level = 0.0
-
-var menu = false
 
 func _ready():
 	sub_viewport.debug_draw = 2
@@ -109,16 +108,8 @@ func _process(delta):
 	
 func _input(event):
 	# Receives mouse motion
-	if event is InputEventMouseMotion and not menu:
+	if event is InputEventMouseMotion and not $Echap.menu:
 		_mouse_position = event.relative
-	
-	if Input.is_action_just_pressed("menu"):
-		if not menu:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			menu = true
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			menu = false
 			
 func _on_modify_health_pressed(attack = 10):
 	health += attack

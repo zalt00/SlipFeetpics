@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://co4lu1l5fa6ou" path="res://scenes/antimatter_player_node.tscn" id="3_p4fqn"]
 [ext_resource type="Theme" uid="uid://bn8rgdmv7kvuf" path="res://themes/illumination_level.tres" id="5_5cn51"]
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
-[ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
+[ext_resource type="PackedScene" uid="uid://c43sspky0a7b" path="res://scenes/Echap.tscn" id="7_u1o4s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
 size = Vector3(0.1, 1.8, 0.1)
@@ -87,4 +87,4 @@ max_value = 1.0
 step = 0.001
 value = 0.5
 
-[node name="AntimatterGrenadeLauncher" parent="." instance=ExtResource("7_8lwy5")]
+[node name="Echap" parent="." instance=ExtResource("7_u1o4s")]
