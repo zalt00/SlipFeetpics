@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://bn8rgdmv7kvuf" path="res://themes/illumination_level.tres" id="5_5cn51"]
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
 [ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
-[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="7_u1o4s"]
+[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/echap.tscn" id="8_aemiu"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="9_fmnkt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
@@ -111,7 +111,7 @@ label_settings = SubResource("LabelSettings_spi7g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Echap" parent="." instance=ExtResource("7_u1o4s")]
+[node name="Echap" parent="." instance=ExtResource("8_aemiu")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

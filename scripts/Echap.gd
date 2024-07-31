@@ -22,8 +22,11 @@ func _on_option_back_pressed():
 	principal.show()
 	options.hide()
 
+func _on_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
 func _on_quit_pressed():
-	get_tree().change_scene_to_file("res://scenes/scenes/Menu.tscn")
 	get_tree().quit()
 
 func _input(event):

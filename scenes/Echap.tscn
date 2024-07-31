@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5d2ojowi23y5"]
 
-[ext_resource type="Script" path="res://scripts/Echap.gd" id="1_r88ut"]
+[ext_resource type="Script" path="res://scripts/echap.gd" id="1_1w00l"]
 
 [node name="Echap" type="Control"]
 process_mode = 2
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_r88ut")
+script = ExtResource("1_1w00l")
 
 [node name="Principal" type="MarginContainer" parent="."]
 process_mode = 2
@@ -45,6 +45,11 @@ text = "RESPAWN"
 process_mode = 2
 layout_mode = 2
 text = "OPTIONS"
+
+[node name="Menu" type="Button" parent="Principal/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+text = "MENU"
 
 [node name="Quit" type="Button" parent="Principal/VBoxContainer"]
 process_mode = 2
@@ -86,5 +91,6 @@ text = "BACK"
 [connection signal="pressed" from="Principal/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Principal/VBoxContainer/Respawn" to="." method="_on_respawn_pressed"]
 [connection signal="pressed" from="Principal/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Principal/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Principal/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/OptionBack" to="." method="_on_option_back_pressed"]

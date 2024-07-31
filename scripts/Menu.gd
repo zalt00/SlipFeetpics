@@ -8,13 +8,18 @@ var scenes_path = "res://scenes/levels/"
 var button_pck = preload("res://scenes/level_button.tscn")
 
 func _ready():
+	main_menu.show()
+	levels_menu.hide()
+	
 	var array = get_scene_files(scenes_path)
 	
-	for level_path in array:
+	for level_number in array.size():
+		var level_path = array[level_number]
 		var button = button_pck.instantiate()
 		button.set_meta("scene_path", level_path)
 		button.connect("pressed", button._on_button_up.bind())
-		button.something = level_path
+		button.text = "Level "+str(level_number+1)
+		button.level_path = level_path
 		button_container.add_child(button)
 		
 func get_scene_files(path):
@@ -43,3 +48,6 @@ func _on_options_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+func _on_menu_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

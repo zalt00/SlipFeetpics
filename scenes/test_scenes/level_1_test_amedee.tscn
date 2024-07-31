@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsulchs325tq4"]
 
-[ext_resource type="Material" path="res://materials/white_vraiment_blanc.tres" id="1_dos75"]
+[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="1_dos75"]
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_qjbmb"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_44pk8"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_mmdya"]
