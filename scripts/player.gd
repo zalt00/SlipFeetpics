@@ -17,6 +17,7 @@ var _total_pitch = 0.0
 @onready var progress_bar := $HUD/IlluminationLevel
 @onready var health_bar = $HUD/BarHealth
 @onready var antimatter_shotgun := $cam_helper/Camera3D/AntimatterPlayer
+@onready var antimatter_grenade_launcher: Node3D = $AntimatterGrenadeLauncher
 
 @export var resume_scene := "res://scenes/test_scenes/level_1_test_amedee.tscn"
 @export var breakable: CSGCombiner3D
@@ -34,6 +35,7 @@ func _ready():
 	
 	antimatter_shotgun.breakable = breakable
 	health_bar.value = health
+	antimatter_grenade_launcher.breakable = breakable
 
 func _update_movement(delta):
 	if not is_on_floor():
