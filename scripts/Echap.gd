@@ -9,8 +9,10 @@ func _ready():
 	menu = false
 	principal.visible = false
 	options.visible = false
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func _on_resume_pressed():
+	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	principal.visible = false
 	menu = false
@@ -30,10 +32,12 @@ func _on_quit_pressed():
 func _input(event):
 	if Input.is_action_just_pressed("echap"):
 		if not menu:
+			get_tree().paused = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			principal.visible = true
 			menu = true
 		else:
+			get_tree().paused = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			principal.visible = false
 			options.visible = false
