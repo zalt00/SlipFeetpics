@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://c43sspky0a7b"]
+
+[ext_resource type="Script" path="res://scripts/Echap.gd" id="1_r88ut"]
+
+[node name="Echap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r88ut")
+
+[node name="Principal" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 911.0
+offset_top = 491.0
+offset_right = 990.0
+offset_bottom = 592.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Principal"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="Principal/VBoxContainer"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="Options" type="Button" parent="Principal/VBoxContainer"]
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="Quit" type="Button" parent="Principal/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="Options" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 996.0
+offset_top = 452.0
+offset_right = 1046.0
+offset_bottom = 523.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+
+[node name="Sounds" type="HSlider" parent="Options/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="HSlider" parent="Options/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionBack" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="pressed" from="Principal/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Principal/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Principal/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/OptionBack" to="." method="_on_option_back_pressed"]

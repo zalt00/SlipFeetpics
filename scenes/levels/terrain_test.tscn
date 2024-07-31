@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bee5t8suvbedj" path="res://materials/red.tres" id="1_3xq7g"]
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="2_wgrh6"]
-[ext_resource type="PackedScene" uid="uid://ohxonblegnyj" path="res://scenes/fps_player.tscn" id="3_nlbs1"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_nlbs1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0d01"]
 size = Vector3(30, 0.5, 30)
