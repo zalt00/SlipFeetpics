@@ -3,10 +3,16 @@
 [ext_resource type="Script" path="res://scripts/antimatter_grenade.gd" id="1_ayfon"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ht8ww"]
+radius = 0.1
+height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yhklg"]
+radius = 0.1
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[node name="RigidBody3D" type="RigidBody3D" node_paths=PackedStringArray("timer", "explosion")]
+script = ExtResource("1_ayfon")
+timer = NodePath("Timer")
+explosion = NodePath("Explosion")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ht8ww")
@@ -16,6 +22,9 @@ shape = SubResource("SphereShape3D_yhklg")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-script = ExtResource("1_ayfon")
 
-[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
+[node name="Explosion" type="CSGBox3D" parent="."]
+visible = false
+operation = 2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
