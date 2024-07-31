@@ -7,6 +7,8 @@ extends StaticBody3D
 
 @export var powered : Array[Node3D]
 
+var nb_of_bodies = 0
+
 var pressing = false
 var animation_speed = 0.2
 var pressed = false :
@@ -37,8 +39,10 @@ func _process(delta):
 	
 func _on_press_area_body_entered(body):
 	if not body.is_in_group("switch"):
+		nb_of_bodies += 1
 		pressing = true
 
 
 func _on_press_area_body_exited(body):
-	pressing = false
+	nb_of_bodies -= 1
+	pressing = (nb_of_bodies > 0)

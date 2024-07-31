@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnsttj046dcr3"]
+[gd_scene load_steps=8 format=3 uid="uid://bnsttj046dcr3"]
 
 [ext_resource type="Script" path="res://scenes/lamp.gd" id="1_8nynr"]
 [ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_raant"]
@@ -12,6 +12,12 @@ size = Vector3(1, 0.5, 1)
 material = ExtResource("3_aqs2y")
 size = Vector3(0.75, 0.5, 0.75)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3hanm"]
+data = PackedVector3Array(-0.375, 0.25, 0.375, 0.375, 0.25, 0.375, -0.375, -0.25, 0.375, 0.375, 0.25, 0.375, 0.375, -0.25, 0.375, -0.375, -0.25, 0.375, 0.375, 0.25, -0.375, -0.375, 0.25, -0.375, 0.375, -0.25, -0.375, -0.375, 0.25, -0.375, -0.375, -0.25, -0.375, 0.375, -0.25, -0.375, 0.375, 0.25, 0.375, 0.375, 0.25, -0.375, 0.375, -0.25, 0.375, 0.375, 0.25, -0.375, 0.375, -0.25, -0.375, 0.375, -0.25, 0.375, -0.375, 0.25, -0.375, -0.375, 0.25, 0.375, -0.375, -0.25, -0.375, -0.375, 0.25, 0.375, -0.375, -0.25, 0.375, -0.375, -0.25, -0.375, 0.375, 0.25, 0.375, -0.375, 0.25, 0.375, 0.375, 0.25, -0.375, -0.375, 0.25, 0.375, -0.375, 0.25, -0.375, 0.375, 0.25, -0.375, -0.375, -0.25, 0.375, 0.375, -0.25, 0.375, -0.375, -0.25, -0.375, 0.375, -0.25, 0.375, 0.375, -0.25, -0.375, -0.375, -0.25, -0.375)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v5yab"]
+data = PackedVector3Array(-0.5, 0.25, 0.5, 0.5, 0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, -0.5, 0.5, -0.25, -0.5, -0.5, 0.25, -0.5, -0.5, -0.25, -0.5, 0.5, -0.25, -0.5, 0.5, 0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, -0.5, 0.5, -0.25, 0.5, -0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, 0.25, 0.5, -0.5, 0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, 0.25, -0.5, 0.5, 0.25, -0.5, -0.5, -0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, -0.25, 0.5, 0.5, -0.25, -0.5, -0.5, -0.25, -0.5)
+
 [node name="lamp" type="Node3D"]
 script = ExtResource("1_8nynr")
 
@@ -23,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.229175, 0)
 mesh = SubResource("BoxMesh_gtx5s")
 
 [node name="spot" type="SpotLight3D" parent="base/bulb"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.265951, 0)
 visible = false
 light_color = Color(1, 0.95, 0, 1)
 light_energy = 10.0
@@ -31,3 +37,13 @@ spot_range = 10.0
 spot_attenuation = 0.0
 spot_angle = 30.0
 spot_angle_attenuation = 1e-05
+
+[node name="StaticBody3D" type="StaticBody3D" parent="base/bulb"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="base/bulb/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3hanm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="base"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="base/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_v5yab")
