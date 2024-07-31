@@ -11,4 +11,5 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	explosion.visible = true
 	explosion.reparent(breakable)
+	explosion.rotation = Vector3(0., 0., 0.)
 	queue_free()

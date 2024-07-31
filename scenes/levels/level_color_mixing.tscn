@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://c17gnqibxoqs7"]
+
+[ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_dwa5r"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_jx7ne"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3e4gh"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6vwgp"]
+radius = 0.2
+
+[node name="LevelColorMixing" type="Node3D"]
+
+[node name="RedSky" parent="." instance=ExtResource("1_dwa5r")]
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_jx7ne")]
+transform = Transform3D(1, -0.000534744, 0.00073559, 0.000535746, 0.999999, -0.00133727, -0.00073486, 0.00133767, 0.999999, 0, 0, 0)
+breakable = NodePath("../Breakable")
+
+[node name="Breakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79765, 1, -6.55201)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 3.75599, 1, -6.54713)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(5.909, 0, 0, 0, 1, 0, 0, 0, 5.909, 0, -2, 0)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(5.909, 0, 0, 0, 1, 0, 0, 0, 5.909, -0.437831, -3.76536, -26)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(5.11735, 0.5, 0, -2.93069, 0.859046, 0.748677, 0.374339, -0.109726, 5.86138, -3.19238, -1.73084, -10.5338)
+size = Vector3(1, 1.76953, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(-5.11735, -0.5, 5.16582e-07, -2.93069, 0.859046, -0.748677, 0.374338, -0.109726, -5.86138, 2.39478, -2.07856, -10.4894)
+size = Vector3(1, 2.5791, 2)
+
+[node name="GlowingMarble" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76672, 1.7458, -6.56737)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GlowingMarble"]
+mesh = SubResource("SphereMesh_3e4gh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GlowingMarble"]
+shape = SubResource("SphereShape3D_6vwgp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="GlowingMarble"]
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 2.451
+omni_attenuation = 0.0126914
+
+[node name="GlowingMarble2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87557, 1.74484, -6.56737)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GlowingMarble2"]
+mesh = SubResource("SphereMesh_3e4gh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GlowingMarble2"]
+shape = SubResource("SphereShape3D_6vwgp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="GlowingMarble2"]
+light_energy = 16.0
+omni_range = 2.451
+omni_attenuation = 0.0126914
