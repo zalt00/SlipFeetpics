@@ -60,6 +60,7 @@ func _update_movement(delta):
 	if Input.is_action_just_pressed("ui_accept") and dt < 0.2:
 		velocity.y = JUMP_VELOCITY * (illum_level + 0.6)
 		dt = 999999.0
+		$sounds.pitch_scale = 2 - illum_level
 		$sounds.play()
 		
 	if Input.is_action_just_pressed("godmod"):
