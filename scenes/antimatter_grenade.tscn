@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://diimrrbgtt3ce"]
+[gd_scene load_steps=5 format=3 uid="uid://diimrrbgtt3ce"]
 
 [ext_resource type="Script" path="res://scripts/antimatter_grenade.gd" id="1_ayfon"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_scxs5"]
+bounce = 0.5
 
 [sub_resource type="SphereMesh" id="SphereMesh_ht8ww"]
 radius = 0.1
@@ -10,6 +13,7 @@ height = 0.2
 radius = 0.1
 
 [node name="RigidBody3D" type="RigidBody3D" node_paths=PackedStringArray("timer", "explosion")]
+physics_material_override = SubResource("PhysicsMaterial_scxs5")
 script = ExtResource("1_ayfon")
 timer = NodePath("Timer")
 explosion = NodePath("Explosion")
@@ -24,6 +28,7 @@ shape = SubResource("SphereShape3D_yhklg")
 process_callback = 0
 
 [node name="Explosion" type="CSGBox3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 visible = false
 operation = 2
 

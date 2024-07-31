@@ -1,9 +1,24 @@
-[gd_scene format=3 uid="uid://cnfl6dqqxuu3s"]
+[gd_scene load_steps=2 format=3 uid="uid://cnfl6dqqxuu3s"]
+
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_73wpq"]
 
 [node name="Level4" type="Node3D"]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="Breakable" type="CSGCombiner3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, -2)
-size = Vector3(10, 1, 10)
+[node name="CSGBox3D" type="CSGBox3D" parent="Breakable"]
+size = Vector3(5, 1, 5)
+
+[node name="Unbreakable" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 0)
+size = Vector3(5, 5, 5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -3, 4.61659, -0.147576)
+operation = 2
+size = Vector3(1, 2.52637, 7)
+
+[node name="player" parent="." instance=ExtResource("1_73wpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
