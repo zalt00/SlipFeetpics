@@ -30,8 +30,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 script = ExtResource("1_tf8ae")
 projectile = NodePath("CSGMesh3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="quad de shader" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 0.0119474, 0, -0.353876)
+layers = 2
+cast_shadow = 0
 mesh = SubResource("QuadMesh_sywrr")
 surface_material_override/0 = SubResource("ShaderMaterial_0wb0k")
 
