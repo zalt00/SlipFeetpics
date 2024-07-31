@@ -88,4 +88,3 @@ step = 0.001
 value = 0.5
 
 [node name="AntimatterGrenadeLauncher" parent="." instance=ExtResource("7_8lwy5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.460883, -0.807164)
