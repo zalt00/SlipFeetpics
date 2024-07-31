@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://diimrrbgtt3ce"]
+
+[ext_resource type="Script" path="res://scripts/antimatter_grenade.gd" id="1_ayfon"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ht8ww"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yhklg"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ht8ww")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_yhklg")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+script = ExtResource("1_ayfon")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
