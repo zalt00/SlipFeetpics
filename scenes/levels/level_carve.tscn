@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjmrobf4fydb1"]
+
+[ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_2vcit"]
+[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_1ynu5"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_sjgox"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_t2dto"]
+
+[node name="LevelCarve" type="Node3D"]
+
+[node name="RedSky" parent="." instance=ExtResource("1_2vcit")]
+
+[node name="Breakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -7)
+size = Vector3(7, 5, 1)
+material = ExtResource("2_1ynu5")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 3.93301, 4, -17.616)
+size = Vector3(6, 5, 5)
+material = ExtResource("2_1ynu5")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.433, 6, -18.75)
+size = Vector3(4, 17, 3)
+material = ExtResource("2_1ynu5")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.433, -2, -18.75)
+size = Vector3(4, 25, 3)
+material = ExtResource("2_1ynu5")
+
+[node name="Unbreakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -5.5)
+size = Vector3(3, 1, 12)
+material = ExtResource("2_sjgox")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(0.866025, -0.25, -0.433013, 0, 0.866025, -0.5, 0.5, 0.433013, 0.75, 1.40558, -0.210961, -13.5368)
+size = Vector3(3, 1, 7)
+material = ExtResource("2_sjgox")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(-2.98023e-08, -0.5, -0.866025, 1.49012e-08, 0.866025, -0.5, 1, -1.49012e-08, -8.9407e-08, 8.40558, 7.78904, -18.5368)
+size = Vector3(3, 1, 7)
+material = ExtResource("2_sjgox")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(-1.8359e-08, -2.98023e-08, -1, 2.78059e-08, 1, -2.98023e-08, 1, -1.49012e-08, -8.9407e-08, 14.6674, 9.42049, -18.5368)
+size = Vector3(1, 1, 7)
+material = ExtResource("2_sjgox")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(-1.8359e-08, -2.98023e-08, -1, 2.78059e-08, 1, -2.98023e-08, 1, -1.49012e-08, -8.9407e-08, 29.6674, 6.42049, -18.5368)
+size = Vector3(1, 1, 7)
+material = ExtResource("2_sjgox")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(-1.8359e-08, -2.98023e-08, -1, 2.78059e-08, 1, -2.98023e-08, 1, -1.49012e-08, -8.9407e-08, 50.6674, -13.5795, -18.5368)
+size = Vector3(1, 1, 7)
+material = ExtResource("2_sjgox")
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_t2dto")]
+breakable = NodePath("../Breakable")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0)
+shadow_enabled = true
