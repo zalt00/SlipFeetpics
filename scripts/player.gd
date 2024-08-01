@@ -25,6 +25,9 @@ var _total_pitch = 0.0
 
 @onready var ammo_label = $HUD/AmmoLabel
 
+@onready var reticule = $HUD/Reticle
+@onready var camera_items = $cam_helper/Camera3D/camera_items/Pointeur
+
 @export var breakable: CSGCombiner3D
 @export var health = 100
 
@@ -57,6 +60,8 @@ func _ready():
 	antimatter_grenade_launcher.breakable = breakable
 	
 	antimatter_shotgun.number_of_shots = number_of_shots
+	
+	camera_items.reticule = reticule
 
 func _update_movement(delta):
 	if not is_on_floor():

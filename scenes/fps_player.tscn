@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=16 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
@@ -7,7 +7,8 @@
 [ext_resource type="Theme" uid="uid://bn8rgdmv7kvuf" path="res://themes/illumination_level.tres" id="5_5cn51"]
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
 [ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
-[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/echap.tscn" id="8_aemiu"]
+[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="8_aemiu"]
+[ext_resource type="Texture2D" uid="uid://bixqn5tvwua8v" path="res://images/ret.png" id="8_m8wlf"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="9_fmnkt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
@@ -117,19 +118,13 @@ label_settings = SubResource("LabelSettings_spi7g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Reticle" type="ColorRect" parent="HUD"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.5
-offset_top = -2.5
-offset_right = 2.5
-offset_bottom = 2.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Reticle" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 540.5
+offset_right = 969.0
+offset_bottom = 549.5
+texture = ExtResource("8_m8wlf")
 
 [node name="Echap" parent="." instance=ExtResource("8_aemiu")]
 anchors_preset = 0
