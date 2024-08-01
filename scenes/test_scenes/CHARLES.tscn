@@ -25,9 +25,21 @@ size = Vector3(12.0043, 6.65585, 0.988525)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97831, 3.52856, -2.56839)
 size = Vector3(0.001, 6.65585, 8.41669)
 
+[node name="CSGBox3D11" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97831, 7.85461, -4.75065)
+size = Vector3(0.001, 2.00228, 3.82993)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90587, 7.85461, -4.75065)
+size = Vector3(0.001, 2.00228, 3.82993)
+
 [node name="CSGBox3D8" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00315452, 6.74546, -0.938239)
 size = Vector3(10.0063, 0.001, 4.4976)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00315452, 8.76273, -5.43493)
+size = Vector3(10.0063, 0.001, 5.27956)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93789, 3.52856, -2.56839)
@@ -38,8 +50,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0831
 size = Vector3(0.001, 6.65585, 10.7963)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.083159, 8.01622, -2.98901)
-size = Vector3(0.001, 2.54199, 10.7963)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.083159, 7.79143, -2.98901)
+size = Vector3(0.001, 2.09241, 10.7963)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55629, 7.77172, -7.13142)
@@ -58,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926527, 7.82094, -13.013)
 size = Vector3(2.57617, 2.09674, 0.988525)
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_c6ihu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60988, 1.415, 0.370677)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62305, 1.415, 0.370677)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
 

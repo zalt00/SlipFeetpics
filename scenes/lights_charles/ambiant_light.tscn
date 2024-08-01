@@ -36,8 +36,6 @@ layers = 2
 [node name="OmniLight3D" type="OmniLight3D" parent="spot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21785e-08, 0.278612, 0)
 layers = 2
-light_energy = 2.705
-light_size = 0.18
 
 [node name="base" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
