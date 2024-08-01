@@ -9,15 +9,13 @@ var unbreakable: CSGCombiner3D
 var number_of_shots
 
 @onready var previsu_meshi := $Previsu
+@onready var unbreakable_normal = preload("res://materials/unbreakable.tres")
+@onready var unbreakable_colored = preload("res://materials/unbreakable_colored.tres")
 
 var copies = []
 
 func _ready():
-	pass
-
-
-func _input(event):
-	pass
+	previsu_meshi.hide()
 
 func clear_antimater():
 	for obj in copies:
@@ -40,7 +38,10 @@ func _process(delta):
 			
 		number_of_shots -= 1
 		
+func _input(event):
 	if Input.is_action_pressed("viser"):
 		previsu_meshi.show()
-	else:
+		unbreakable.material_override = unbreakable_colored
+	elif Input.is_action_just_released("viser"):
 		previsu_meshi.hide()
+		unbreakable.material_override = unbreakable_normal
