@@ -39,7 +39,11 @@ var _total_pitch = 0.0
 @export var run_speed_light = 5.
 @export var run_speed_shadow = 10.
 
+@export var kill_plane_y = -50.0
+
 const ACCEL = 30.0
+
+var saved_position = [Vector3(0, 0, 0)]
 
 var dt = 0.0
 
@@ -111,8 +115,14 @@ func _update_movement(delta):
 func _physics_process(delta):
 	if is_on_floor():
 		dt = 0.0
+		saved_position.append(position)
+		if len(saved_position) > 10:
+			saved_position.pop_front()
 	else:
 		dt += delta
+		if position.y < kill_plane_y:
+			position = saved_position[0]
+			velocity = Vector3(0, 0, 0)
 	
 	_update_movement(delta)
 	# Add the gravity.
