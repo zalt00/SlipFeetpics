@@ -138,11 +138,12 @@ func _process(delta):
 	img.resize(1, 1, Image.INTERPOLATE_LANCZOS)
 	illum_level = img.get_pixel(0, 0).r
 	progress_bar.value = illum_level
-	if illum_level >= light_threshold:
-		SPEED = run_speed_light
-	else:
-		SPEED = run_speed_shadow
-	
+	if is_on_floor():
+		if illum_level >= light_threshold:
+			SPEED = move_toward(SPEED, run_speed_light, 10. * delta)
+		else:
+			SPEED = run_speed_shadow
+
 func _input(event):
 	# Receives mouse motion
 	if event is InputEventMouseMotion and not $Echap.pause:
