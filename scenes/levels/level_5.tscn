@@ -115,3 +115,4 @@ player = NodePath("../player")
 
 [node name="lamp2" parent="." instance=ExtResource("4_1bltb")]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 21, 6, -12)
+already_on = true

@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvunrqonu5jb4"]
+
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_ugy6t"]
+[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_lv6l3"]
+[ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="3_cyu1l"]
+[ext_resource type="PackedScene" uid="uid://cdfm5vvlbk06r" path="res://scenes/wire.tscn" id="4_o6ghu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ojv7s"]
+sky_top_color = Color(0.246507, 0.241173, 0.264071, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0.125932, 0.138809, 0.150741, 1)
+ground_horizon_color = Color(0.221194, 0.227319, 0.236989, 1)
+
+[sub_resource type="Sky" id="Sky_3vlip"]
+sky_material = SubResource("ProceduralSkyMaterial_ojv7s")
+
+[sub_resource type="Environment" id="Environment_xqp7n"]
+background_mode = 2
+sky = SubResource("Sky_3vlip")
+
+[node name="level_fast" type="Node3D"]
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_ugy6t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -53)
+breakable = NodePath("../breakable")
+
+[node name="breakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("2_lv6l3")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
+size = Vector3(3, 1, 16)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.5)
+size = Vector3(3, 1, 16)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.5)
+size = Vector3(3, 1, 16)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -88.5)
+size = Vector3(3, 1, 16)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 8, -61.5)
+size = Vector3(16, 1, 134)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -44)
+size = Vector3(3, 5, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -73.5)
+size = Vector3(3, 5, 2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xqp7n")
+
+[node name="lamp" parent="." instance=ExtResource("3_cyu1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -14)
+already_on = true
+
+[node name="lamp2" parent="." instance=ExtResource("3_cyu1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -39)
+already_on = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.766044, 0.182562, -0.616317, 0, 0.95882, 0.284015, 0.642788, 0.217568, -0.734499, 0, 0, 0)
+light_color = Color(0, 0, 0, 1)
+light_angular_distance = 4.25
+shadow_enabled = true
+
+[node name="wire" parent="." instance=ExtResource("4_o6ghu")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2.7, 0, -1, -1.18021e-07, 0, 7, -14)
+already_on = true
+
+[node name="wire2" parent="." instance=ExtResource("4_o6ghu")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2.7, 0, -1, -1.18021e-07, 0, 7, -39)
+already_on = true
+
+[node name="lamp3" parent="." instance=ExtResource("3_cyu1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -64)
+already_on = true
+
+[node name="wire3" parent="." instance=ExtResource("4_o6ghu")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2.7, 0, -1, -1.18021e-07, 0, 7, -64)
+already_on = true
+
+[node name="lamp4" parent="." instance=ExtResource("3_cyu1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -95)
+already_on = true
+
+[node name="wire4" parent="." instance=ExtResource("4_o6ghu")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2.7, 0, -1, -1.18021e-07, 0, 7, -95)
+already_on = true
