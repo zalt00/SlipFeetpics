@@ -24,10 +24,6 @@ sky = SubResource("Sky_8qwgu")
 
 [node name="Level2" type="Node3D"]
 
-[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_k0rea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4046, 11.9687, 9.71092)
-breakable = NodePath("../Breakable")
-
 [node name="Breakable" type="CSGCombiner3D" parent="."]
 use_collision = true
 
@@ -183,3 +179,7 @@ environment = SubResource("Environment_3gtyp")
 [node name="Timer" parent="." instance=ExtResource("2_26oxc")]
 offset_left = 2.0
 offset_right = 2.0
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_k0rea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4046, 11.9687, 9.71092)
+breakable = NodePath("../Breakable")

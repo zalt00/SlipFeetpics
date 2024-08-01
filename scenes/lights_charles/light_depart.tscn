@@ -31,6 +31,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02738e-08, 0.235037, 0)
 light_color = Color(0.784314, 0.784314, 0, 1)
 light_energy = 0.2
+shadow_enabled = true
 distance_fade_enabled = true
 distance_fade_begin = 0.0
 

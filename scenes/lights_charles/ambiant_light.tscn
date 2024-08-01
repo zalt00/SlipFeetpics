@@ -35,6 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20157e-08, 0.274888, 0)
 layers = 2
 light_energy = 0.5
 light_size = 0.5
+shadow_enabled = true
 omni_range = 23.394
 omni_attenuation = 0.8
 
