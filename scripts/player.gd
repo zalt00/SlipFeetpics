@@ -25,10 +25,13 @@ var _total_pitch = 0.0
 
 @onready var ammo_label = $HUD/AmmoLabel
 
+@onready var jump_bar = $HUD/jump_bar
+
 @onready var reticule = $HUD/Reticle
 @onready var camera_items = $cam_helper/Camera3D/camera_items/Pointeur
 
 @export var breakable: CSGCombiner3D
+@export var unbreakable: CSGCombiner3D
 @export var health = 100
 
 @export var number_of_shots = 5
@@ -63,6 +66,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	antimatter_shotgun.breakable = breakable
+	antimatter_shotgun.unbreakable = unbreakable
 	health_bar.value = health
 	antimatter_grenade_launcher.breakable = breakable
 	
@@ -75,7 +79,15 @@ func _update_movement(delta):
 		var multiplier = 1.0 if velocity.y > 0 else 1.8
 		
 		velocity.y -= gravity * delta * multiplier # * (1.0 - illum_level) * 1.6
-
+	
+		if illum_level <= little_jump:
+			jump_bar.change_fill_level(0)
+		elif illum_level > medium_jump:
+			jump_bar.change_fill_level(2)
+		else:
+			jump_bar.change_fill_level(1)
+	
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and dt < 0.2:
 		var jump_velo

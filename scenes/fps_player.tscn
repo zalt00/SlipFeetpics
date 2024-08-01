@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=21 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="8_aemiu"]
 [ext_resource type="Texture2D" uid="uid://bixqn5tvwua8v" path="res://images/ret.png" id="8_m8wlf"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="9_fmnkt"]
+[ext_resource type="Script" path="res://scripts/bar.gd" id="11_d40eg"]
+[ext_resource type="Texture2D" uid="uid://c43a13sg7pin1" path="res://images/1on3.jpg" id="12_6juyx"]
+[ext_resource type="Texture2D" uid="uid://8414arp0sc0l" path="res://images/2on3.jpg" id="13_xa5mh"]
+[ext_resource type="Texture2D" uid="uid://dvwcxba2ejx16" path="res://images/fill.jpg" id="14_704fg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
 size = Vector3(0.1, 1.8, 0.1)
@@ -23,7 +27,7 @@ size = Vector2(0.5, 0.5)
 [sub_resource type="LabelSettings" id="LabelSettings_spi7g"]
 font_size = 55
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_s6fqd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xti1f"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lebje"]
@@ -137,7 +141,14 @@ layout_mode = 0
 offset_left = 500.0
 offset_right = 540.0
 offset_bottom = 40.0
-texture = SubResource("ViewportTexture_s6fqd")
+texture = SubResource("ViewportTexture_xti1f")
+
+[node name="jump_bar" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_d40eg")
+textures = Array[CompressedTexture2D]([ExtResource("12_6juyx"), ExtResource("13_xa5mh"), ExtResource("14_704fg")])
 
 [node name="Echap" parent="." instance=ExtResource("8_aemiu")]
 anchors_preset = 0

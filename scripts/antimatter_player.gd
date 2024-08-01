@@ -3,6 +3,7 @@ extends Node3D
 # Modifier keys' speed multiplier
 
 var breakable: CSGCombiner3D
+var unbreakable: CSGCombiner3D
 @export var projectile: Node3D
 
 var number_of_shots
