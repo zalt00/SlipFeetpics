@@ -30,6 +30,9 @@ var _total_pitch = 0.0
 
 @export var number_of_shots = 5
 
+# The minimum light level for the player to be considered in the light.
+@export var light_threshold = .5
+
 const ACCEL = 30.0
 
 var dt = 0.0
@@ -127,7 +130,7 @@ func _process(delta):
 	img.resize(1, 1, Image.INTERPOLATE_LANCZOS)
 	illum_level = img.get_pixel(0, 0).r
 	progress_bar.value = illum_level
-	if illum_level >= 0.3:
+	if illum_level >= light_threshold:
 		SPEED = 5.0
 	else:
 		SPEED = 8.0
