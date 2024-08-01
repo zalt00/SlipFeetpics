@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
-[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="3_ie03h"]
 [ext_resource type="PackedScene" uid="uid://co4lu1l5fa6ou" path="res://scenes/antimatter_player_node.tscn" id="3_p4fqn"]
 [ext_resource type="Theme" uid="uid://bn8rgdmv7kvuf" path="res://themes/illumination_level.tres" id="5_5cn51"]
+[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="5_brba3"]
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
 [ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
 [ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="8_aemiu"]
@@ -70,11 +70,12 @@ render_target_update_mode = 3
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport/light_detection"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.287189, 0)
+cull_mask = 1048065
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/light_detection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.543228, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.848855, 0)
 layers = 512
-material_override = ExtResource("3_ie03h")
+material_override = ExtResource("5_brba3")
 mesh = SubResource("PlaneMesh_odakh")
 
 [node name="HUD" type="Control" parent="."]

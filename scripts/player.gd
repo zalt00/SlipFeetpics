@@ -41,6 +41,9 @@ var _total_pitch = 0.0
 
 @export var kill_plane_y = -50.0
 
+@export var little_jump = 0.40
+@export var medium_jump = 0.7
+
 const ACCEL = 30.0
 
 var saved_position = [Vector3(0, 0, 0)]
