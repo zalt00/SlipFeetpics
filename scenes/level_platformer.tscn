@@ -60,5 +60,6 @@ size = Vector3(5, 20, 6)
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_a38h0")]
 breakable = NodePath("../Breakable")
 unbreakable = NodePath("../Unbreakable")
-move_speed = [12.0, 12.0, 12.0, 12.0, 12.0]
+move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
 friction_air = 1.5
+gravity_multiplier = 0.8

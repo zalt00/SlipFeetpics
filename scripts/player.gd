@@ -4,7 +4,7 @@ var sensitivity: float = 0.25
 var SPEED = 5.0
 const JUMP_VELOCITY = 7.0
 
-const MAX_SPEED = 30.0
+@export var MAX_SPEED = 30.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
