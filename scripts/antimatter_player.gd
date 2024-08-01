@@ -41,7 +41,13 @@ func _process(delta):
 func _input(event):
 	if Input.is_action_pressed("viser"):
 		previsu_meshi.show()
-		unbreakable.material_override = unbreakable_colored
+		update_materials(unbreakable_colored)
 	elif Input.is_action_just_released("viser"):
 		previsu_meshi.hide()
-		unbreakable.material_override = unbreakable_normal
+		update_materials(unbreakable_normal)
+		
+func update_materials(material):
+	if unbreakable:
+		unbreakable.material_override = material
+	else:
+		print("Unbreakable n'existe pas")

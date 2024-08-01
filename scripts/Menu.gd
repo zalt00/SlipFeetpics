@@ -15,10 +15,11 @@ func _ready():
 	
 	for level_number in array.size():
 		var level_path = array[level_number]
+		var level_name = level_path.split("/")[-1]
 		var button = button_pck.instantiate()
 		button.set_meta("scene_path", level_path)
 		button.connect("pressed", button._on_button_up.bind())
-		button.text = "Level "+str(level_number+1)
+		button.text = "Level "+str(level_number+1)+" ("+level_name+")"
 		button.level_path = level_path
 		button_container.add_child(button)
 		
