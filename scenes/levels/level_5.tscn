@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm0pyux7ujiu8"]
+[gd_scene load_steps=10 format=3 uid="uid://dm0pyux7ujiu8"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_cxpca"]
 [ext_resource type="PackedScene" uid="uid://ds4f2k83ddgrs" path="res://scenes/switch.tscn" id="2_8bsql"]
 [ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="2_ryoti"]
 [ext_resource type="PackedScene" uid="uid://cdfm5vvlbk06r" path="res://scenes/wire.tscn" id="3_3or3q"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_4l2ir"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_1bltb"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="6_dt26v"]
 
@@ -14,7 +15,7 @@
 [node name="Level5" type="Node3D"]
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_cxpca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 5, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -5)
 breakable = NodePath("../breakable")
 
 [node name="breakable" type="CSGCombiner3D" parent="."]
@@ -23,8 +24,8 @@ material_override = ExtResource("2_ryoti")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -4, -10)
-size = Vector3(22, 1, 17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -4, -5.5)
+size = Vector3(42, 1, 42)
 material = ExtResource("2_ryoti")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
@@ -37,36 +38,45 @@ operation = 2
 size = Vector3(2, 1, 2)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, -5)
-size = Vector3(10, 1, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 14.5, 16)
+size = Vector3(42, 38, 1)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 4.5)
-size = Vector3(12, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 14.5, -5.5)
+size = Vector3(1, 38, 42)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 8)
-size = Vector3(2, 1, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 14.5, -27)
+size = Vector3(42, 38, 1)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 1)
-size = Vector3(2, 1, 5)
+transform = Transform3D(1, 0.000126853, 8.18351e-05, -0.000126853, 1, 4.34193e-05, -8.18351e-05, -4.34193e-05, 1, -17, 15, -5.5)
+size = Vector3(1, 37, 42)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, -4, 4.5)
-size = Vector3(2, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 8, -4.5)
+size = Vector3(5, 1, 6)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, -4, 9.5)
-size = Vector3(2, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 13, -19.5)
+size = Vector3(19, 9, 6)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 3, -9.5)
-size = Vector3(3, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 8, -12.5)
+size = Vector3(3, 1, 6)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 20.567, 0.25, -9.5)
-size = Vector3(4, 1, 2)
+[node name="unbreakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("3_4l2ir")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 26.5, -23)
+size = Vector3(16, 6, 7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 26.5, -23)
+operation = 2
+size = Vector3(18, 4, 5)
 
 [node name="wire" parent="." instance=ExtResource("3_3or3q")]
 transform = Transform3D(1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 4.52204, -1.90299, -10.6226)
@@ -79,6 +89,7 @@ transform = Transform3D(-4.37114e-08, 0, -2.47739, 0, 1, 0, 1, 0, -1.0829e-07, 6
 
 [node name="lamp" parent="." instance=ExtResource("4_1bltb")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 7.82241, 3.16624, -9.23544)
+already_on = true
 
 [node name="switch" parent="." node_paths=PackedStringArray("powered") instance=ExtResource("2_8bsql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52204, -2.1567, -10.6226)
@@ -89,7 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.847, 3.29585, -9.76371)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -11)
-mass = 0.1
+mass = 0.01
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("SphereMesh_ow6hy")
@@ -97,22 +108,18 @@ mesh = SubResource("SphereMesh_ow6hy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_5wjk1")
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 7, -9.5)
-mass = 0.1
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-mesh = SubResource("SphereMesh_ow6hy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-shape = SubResource("SphereShape3D_5wjk1")
-
 [node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_dt26v")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 2.48085, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 10.5104, -13)
 player = NodePath("../player")
 
 [node name="lamp2" parent="." instance=ExtResource("4_1bltb")]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 21, 6, -12)
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -3, 11, -21)
+already_on = true
+
+[node name="lamp3" parent="." instance=ExtResource("4_1bltb")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -7, 15, -18)
+already_on = true
+
+[node name="lamp4" parent="." instance=ExtResource("4_1bltb")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -12, 19, -22)
 already_on = true

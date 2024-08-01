@@ -8,6 +8,7 @@ extends Node3D
 var on = false :
 	set(value):
 		$base/bulb/spot.visible = value
+		$base/bulb/spot2.visible = value
 		
 		if value:
 			$base/bulb.set_surface_override_material(0, mat_on)
