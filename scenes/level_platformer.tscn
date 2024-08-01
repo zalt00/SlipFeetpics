@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://c411rupintnjt"]
+
+[ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_hy0na"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_a38h0"]
+
+[node name="LevelPlatformer" type="Node3D"]
+
+[node name="RedSky" parent="." instance=ExtResource("1_hy0na")]
+
+[node name="Breakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -1.5)
+size = Vector3(9, 1, 8)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -2)
+size = Vector3(1, 4, 13)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1, -1.5)
+size = Vector3(5, 1, 6)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, -2.5, -1.5)
+size = Vector3(5, 20, 6)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, -7, -0.5)
+size = Vector3(4, 1, 4)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5, -7, -0.5)
+size = Vector3(4, 1, 4)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -3.5, -1.5)
+size = Vector3(1, 4, 12)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, -4, -1.5)
+size = Vector3(1, 3, 2)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -6, 1.5)
+size = Vector3(1, 3, 2)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, -10, -5.5)
+size = Vector3(1, 3, 2)
+
+[node name="Unbreakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -2.5, -1.5)
+size = Vector3(5, 20, 6)
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_a38h0")]
+breakable = NodePath("../Breakable")
+unbreakable = NodePath("../Unbreakable")
+move_speed = [12.0, 12.0, 12.0, 12.0, 12.0]
+friction_air = 1.5

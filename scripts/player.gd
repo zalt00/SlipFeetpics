@@ -52,6 +52,8 @@ var _total_pitch = 0.0
 @export var friction_air := .7
 @export var friction_ground := 2.
 
+@export var gravity_multiplier := 1.
+
 const ACCEL = 30.0
 
 var saved_position = [Vector3(0, 0, 0)]
@@ -83,7 +85,7 @@ func _update_movement(delta):
 	if not is_on_floor():
 		var multiplier = 1.0 if velocity.y > 0 else 1.8
 		
-		velocity.y -= gravity * delta * multiplier # * (1.0 - illum_level) * 1.6
+		velocity.y -= gravity * delta * multiplier * gravity_multiplier # * (1.0 - illum_level) * 1.6
 	
 	
 	
