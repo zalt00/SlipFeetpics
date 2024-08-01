@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ce1874ibnua7a"]
 
-[ext_resource type="Material" path="res://materials/white.tres" id="1_vot43"]
+[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_vot43"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_7avps"]
 [ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="3_hl1t7"]
 

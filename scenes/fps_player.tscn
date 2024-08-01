@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=22 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="5_brba3"]
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
 [ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
-[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/echap.tscn" id="8_aemiu"]
+[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="8_aemiu"]
 [ext_resource type="Texture2D" uid="uid://bixqn5tvwua8v" path="res://images/ret.png" id="8_m8wlf"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="9_fmnkt"]
 [ext_resource type="Script" path="res://scripts/bar.gd" id="11_d40eg"]
@@ -30,6 +30,9 @@ font_size = 55
 [sub_resource type="ViewportTexture" id="ViewportTexture_xti1f"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="LabelSettings" id="LabelSettings_svboh"]
+font_size = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_lebje"]
 font_size = 25
 outline_size = 3
@@ -37,6 +40,9 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_3j6es")
+palliers = [0.16, 0.4, 0.7, 0.9, 1.0]
+jump_speed = [3.0, 6.0, 7.3, 12.0, 20.0]
+move_speed = [20.0, 9.0, 5.4, 3.0, 2.0]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 visible = false
@@ -149,6 +155,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("11_d40eg")
 textures = Array[CompressedTexture2D]([ExtResource("12_6juyx"), ExtResource("13_xa5mh"), ExtResource("14_704fg")])
+
+[node name="pallier_label" type="Label" parent="HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_svboh")
 
 [node name="Echap" parent="." instance=ExtResource("8_aemiu")]
 anchors_preset = 0

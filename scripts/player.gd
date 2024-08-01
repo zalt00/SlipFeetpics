@@ -44,8 +44,9 @@ var _total_pitch = 0.0
 
 @export var kill_plane_y = -50.0
 
-@export var little_jump = 0.40
-@export var medium_jump = 0.7
+@export var palliers = [0.2, 0.4, 0.6, 0.8, 1.0]
+@export var jump_speed = [1.0, 5.0, 7.0, 10.0, 20.0]
+@export var move_speed = [20.0, 8.0, 5.0, 3.0, 1.0]
 
 const ACCEL = 30.0
 
@@ -80,23 +81,26 @@ func _update_movement(delta):
 		
 		velocity.y -= gravity * delta * multiplier # * (1.0 - illum_level) * 1.6
 	
-		if illum_level <= little_jump:
-			jump_bar.change_fill_level(0)
-		elif illum_level > medium_jump:
-			jump_bar.change_fill_level(2)
-		else:
-			jump_bar.change_fill_level(1)
 	
+	
+	
+	var pallier = 0
+	while illum_level > palliers[pallier]:
+		pallier += 1
+
+	
+	$HUD/pallier_label.text = str(pallier)
+	
+	var new_speed = move_speed[pallier]
+	if is_on_floor():
+		if new_speed < SPEED:
+			SPEED = move_toward(SPEED, new_speed, 10. * delta)
+		else:
+			SPEED = new_speed
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and dt < 0.2:
-		var jump_velo
-		if illum_level <= little_jump:
-			jump_velo = JUMP_VELOCITY * 0.6
-		elif illum_level > medium_jump:
-			jump_velo = JUMP_VELOCITY * 2.0
-		else:
-			jump_velo = JUMP_VELOCITY
+		var jump_velo = jump_speed[pallier]
 		
 		velocity.y = jump_velo
 		dt = 999999.0
@@ -171,11 +175,7 @@ func _process(delta):
 	img.resize(1, 1, Image.INTERPOLATE_LANCZOS)
 	illum_level = img.get_pixel(0, 0).r
 	progress_bar.value = illum_level
-	if is_on_floor():
-		if illum_level >= light_threshold:
-			SPEED = move_toward(SPEED, run_speed_light, 10. * delta)
-		else:
-			SPEED = run_speed_shadow
+
 
 func _input(event):
 	# Receives mouse motion
