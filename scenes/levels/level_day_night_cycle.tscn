@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsdgh6e454r18"]
+
+[ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_gq2kx"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_hjukc"]
+
+[sub_resource type="Animation" id="Animation_5ptyw"]
+resource_name = "day_night_cycle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../DirectionalLight3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2.5, 1, 1, 0, 0, -4.37114e-08, 5, 1, 1.19209e-07, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4pk6y"]
+_data = {
+"day_night_cycle": SubResource("Animation_5ptyw")
+}
+
+[node name="LevelDayNightCycle" type="Node3D"]
+
+[node name="RedSky" parent="." instance=ExtResource("1_gq2kx")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../RedSky")
+libraries = {
+"": SubResource("AnimationLibrary_4pk6y")
+}
+autoplay = "day_night_cycle"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.323304, 0.946295, 0, -0.946295, -0.323304, 0, 0, 0)
+shadow_enabled = true
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_hjukc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+breakable = NodePath("../Breakable")
+
+[node name="Breakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+size = Vector3(7, 1, 7)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, -2, 0)
+size = Vector3(7, 1, 7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 7, 1)
+size = Vector3(18, 3, 13)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 7, 0.5)
+operation = 2
+size = Vector3(5, 5, 4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Breakable"]
+transform = Transform3D(0.999835, 0.0181679, 0, -0.0181679, 0.999835, 0, 0, 0, 1, 16, -2, 0)
+size = Vector3(19, 3, 15)
