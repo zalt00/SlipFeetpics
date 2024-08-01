@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnsttj046dcr3"]
 
 [ext_resource type="Script" path="res://scenes/lamp.gd" id="1_8nynr"]
-[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_raant"]
+[ext_resource type="Material" path="res://materials/white.tres" id="1_raant"]
 [ext_resource type="Material" uid="uid://cys8n0adb33n6" path="res://materials/wire_off.tres" id="3_aqs2y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oqejc"]
