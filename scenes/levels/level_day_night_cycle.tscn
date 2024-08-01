@@ -11,9 +11,9 @@ tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("../DirectionalLight3D")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2.5, 1, 1, 0, 0, -4.37114e-08, 5, 1, 1.19209e-07, 0, 0, 1)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.382683, 0, 0, 0.92388, 2.5, 1, 0.94693, 0, 0, -0.32144, 5, 1, -0.382683, 0, 0, 0.92388)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4pk6y"]
 _data = {
@@ -32,7 +32,7 @@ libraries = {
 autoplay = "day_night_cycle"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.323304, 0.946295, 0, -0.946295, -0.323304, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shadow_enabled = true
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_hjukc")]
@@ -51,14 +51,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, -2, 0)
 size = Vector3(7, 1, 7)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 7, 1)
-size = Vector3(18, 3, 13)
+transform = Transform3D(1, -0.00010573, 4.45636e-06, 0.000105734, 1, -0.000848638, -4.36861e-06, 0.000848639, 1, 19.5, 6.99703, 0.999999)
+size = Vector3(18, 3, 39)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 7, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 7, 0.5)
 operation = 2
 size = Vector3(5, 5, 4)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(0.999835, 0.0181679, 0, -0.0181679, 0.999835, 0, 0, 0, 1, 16, -2, 0)
-size = Vector3(19, 3, 15)
+transform = Transform3D(0.999835, 0.0181679, 0, -0.0181679, 0.999835, 0, 0, 0, 1, 16, -2, 2)
+size = Vector3(19, 3, 19)

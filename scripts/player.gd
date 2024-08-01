@@ -33,6 +33,9 @@ var _total_pitch = 0.0
 # The minimum light level for the player to be considered in the light.
 @export var light_threshold = .5
 
+@export var run_speed_light = 5.
+@export var run_speed_shadow = 10.
+
 const ACCEL = 30.0
 
 var dt = 0.0
@@ -131,9 +134,9 @@ func _process(delta):
 	illum_level = img.get_pixel(0, 0).r
 	progress_bar.value = illum_level
 	if illum_level >= light_threshold:
-		SPEED = 5.0
+		SPEED = run_speed_light
 	else:
-		SPEED = 8.0
+		SPEED = run_speed_shadow
 	
 func _input(event):
 	# Receives mouse motion
