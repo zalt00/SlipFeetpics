@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://doboslpiwyr4n"]
+[gd_scene load_steps=7 format=3 uid="uid://tyexhg3qei83"]
 
-[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="1_gu6h4"]
-[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_ovw1s"]
-[ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_mj53v"]
+[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="1_7wlb0"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_ey0pv"]
+[ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_yqp58"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qx7bj"]
 sky_top_color = Color(0.4896, 0.288, 0.96, 1)
@@ -23,7 +23,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="NiveauAmedee" type="Node3D"]
 
 [node name="breakable" type="CSGCombiner3D" parent="."]
-material_override = ExtResource("1_gu6h4")
+material_override = ExtResource("1_7wlb0")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
@@ -140,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.571, -7.57289, -79.534)
 operation = 2
 radius = 8.10229
 
-[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_ovw1s")]
+[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_ey0pv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3985, 0)
 breakable = NodePath("../breakable")
 
@@ -152,7 +152,7 @@ transform = Transform3D(0.986847, 0.048048, -0.15435, 0.0418395, 0.846358, 0.530
 light_indirect_energy = 0.0
 shadow_enabled = true
 
-[node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_mj53v")]
+[node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_yqp58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.645787, 9.94542, -25.4787)
 player = NodePath("../player")
 refill = 5
@@ -166,7 +166,7 @@ spot_attenuation = 0.0473661
 spot_angle = 5.79
 spot_angle_attenuation = 0.0525561
 
-[node name="EmancipationGrid2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_mj53v")]
+[node name="EmancipationGrid2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_yqp58")]
 transform = Transform3D(1, 0, 0, 0, -0.0340098, -0.999421, 0, 0.999421, -0.0340098, 13.0536, 3.88256, -79.2484)
 player = NodePath("../player")
 refill = 8
@@ -180,5 +180,3 @@ omni_range = 12.3409
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.905, -36.8214, -110.066)
 light_energy = 1.453
 omni_range = 5.8086
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]

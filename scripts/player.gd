@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var sensitivity: float = 0.25
-const SPEED = 5.0
+var SPEED = 5.0
 const JUMP_VELOCITY = 7.0
 
 const MAX_SPEED = 30.0
@@ -127,6 +127,10 @@ func _process(delta):
 	img.resize(1, 1, Image.INTERPOLATE_LANCZOS)
 	illum_level = img.get_pixel(0, 0).r
 	progress_bar.value = illum_level
+	if illum_level >= 0.3:
+		SPEED = 5.0
+	else:
+		SPEED = 8.0
 	
 func _input(event):
 	# Receives mouse motion
