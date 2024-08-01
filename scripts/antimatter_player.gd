@@ -49,5 +49,3 @@ func _input(event):
 func update_materials(material):
 	if unbreakable:
 		unbreakable.material_override = material
-	else:
-		print("Unbreakable n'existe pas")

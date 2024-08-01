@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://doboslpiwyr4n"]
+[gd_scene load_steps=8 format=3 uid="uid://doboslpiwyr4n"]
 
 [ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="1_gu6h4"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_ovw1s"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_mj53v"]
+[ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_8mdp8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qx7bj"]
 sky_top_color = Color(0.4896, 0.288, 0.96, 1)
@@ -182,3 +183,6 @@ light_energy = 1.453
 omni_range = 5.8086
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="lamp" parent="." instance=ExtResource("4_8mdp8")]
+transform = Transform3D(1, 0, 0, 0, 0.194234, -0.980955, 0, 0.980955, 0.194234, -7.85364, 20.1755, -44.3481)
