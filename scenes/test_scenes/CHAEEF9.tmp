@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://clft8rriwp70h"]
+[gd_scene load_steps=7 format=3 uid="uid://clft8rriwp70h"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_c6ihu"]
 [ext_resource type="Material" path="res://materials/unbreakable.tres" id="1_dx1tu"]
 [ext_resource type="PackedScene" uid="uid://8jvacyrdv33w" path="res://scenes/switch_charles.tscn" id="2_4gawr"]
 [ext_resource type="PackedScene" uid="uid://yo3vtjafi7si" path="res://scenes/lights_charles/light_depart.tscn" id="5_a2lm4"]
 [ext_resource type="PackedScene" uid="uid://6cv2qpe2yxgc" path="res://scenes/lights_charles/ambiant_light.tscn" id="5_o3775"]
-[ext_resource type="PackedScene" uid="uid://cr25obm5qpigu" path="res://scenes/lights_charles/light_saut1.tscn" id="6_2qjpg"]
 
 [sub_resource type="Environment" id="Environment_y2qll"]
 ambient_light_source = 1
@@ -28,12 +27,8 @@ operation = 2
 size = Vector3(11.6621, 5.13867, 10.9047)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 1.60275, -2.38258)
-size = Vector3(2.57983, 1.02539, 3.57129)
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 1.60275, 1.18954)
-size = Vector3(11.7471, 1.02539, 3.57129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 1.7601, -2.38258)
+size = Vector3(2.57983, 1.34009, 3.57129)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0122644, 4.52232, -9.60505)
@@ -53,37 +48,36 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.51417, -13.0621)
 size = Vector3(3.56348, 2.30011, 1)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1001, -3.79548)
-size = Vector3(12.1338, 2.30011, 1)
-
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_c6ihu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.63962, 2.46154, -2.46563)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.11926, 2.46154, 0.745578)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
 
-[node name="SwitchLight" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("2_4gawr")]
+[node name="SwitchLight" parent="." instance=ExtResource("2_4gawr")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.71354, 2.15044, -4.54664)
-lights = NodePath("../WiredLights")
+pressed = null
 
 [node name="AmbiantLigths" type="Node3D" parent="."]
 
 [node name="ambiant1" parent="AmbiantLigths" instance=ExtResource("5_o3775")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.71355, 6.22694, -2.0935)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.71355, 6.22694, -4.30263)
+
+[node name="ambiant4" parent="AmbiantLigths" instance=ExtResource("5_o3775")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.71355, 6.22694, 1.26491)
 
 [node name="ambiant2" parent="AmbiantLigths" instance=ExtResource("5_o3775")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.88297, 6.22694, -2.0935)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.88297, 6.22694, -4.30263)
+
+[node name="ambiant3" parent="AmbiantLigths" instance=ExtResource("5_o3775")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.88297, 6.22694, 1.16073)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_y2qll")
 
-[node name="WiredLights" type="Node3D" parent="."]
+[node name="GameLights" type="Node3D" parent="."]
 
-[node name="LightCharlesDepart" parent="WiredLights" instance=ExtResource("5_a2lm4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20748, 1.63593, -2.43028)
+[node name="LightCharlesDepart" parent="GameLights" instance=ExtResource("5_a2lm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20748, 1.80326, -2.43028)
 
-[node name="LightCharlesDepart2" parent="WiredLights" instance=ExtResource("5_a2lm4")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.36761, 1.63593, -2.43028)
-
-[node name="LightCharlesSaut1" parent="." instance=ExtResource("6_2qjpg")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0441689, 3.49014, 4.25952)
+[node name="LightCharlesDepart2" parent="GameLights" instance=ExtResource("5_a2lm4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.36761, 1.80326, -2.43028)

@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@export var lights : Array[Node3D]
+@export var lights : Node3D
 @export var pressed = false
 
 var pressing = false
@@ -12,7 +12,7 @@ var pressing = false
 var animation_speed = 3
 
 func _ready():
-	for light in lights:
+	for light in lights.get_children():
 		var bulb = light.get_node("bulb")
 		var spot = light.get_node("spot")
 		if spot:
@@ -25,7 +25,7 @@ func _ready():
 	pressing = !pressing
 
 func interact():
-	for light in lights:
+	for light in lights.get_children():
 		var bulb = light.get_node("bulb")
 		var spot = light.get_node("spot")
 		if spot:

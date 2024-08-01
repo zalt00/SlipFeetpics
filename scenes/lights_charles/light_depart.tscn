@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://yo3vtjafi7si"]
+
+[ext_resource type="Material" uid="uid://cys8n0adb33n6" path="res://materials/wire_off.tres" id="1_lpoi6"]
+[ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="2_75lhk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c5uqe"]
+material = ExtResource("2_75lhk")
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.1
+
+[node name="LightCharlesDepart" type="Node3D"]
+
+[node name="bulb" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_lpoi6")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="bulb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0938367, 0, 0)
+radius = 0.3
+
+[node name="CSGBox3D" type="CSGBox3D" parent="bulb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.239258, 0, 0)
+operation = 2
+size = Vector3(0.521484, 1, 1)
+
+[node name="spot" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02738e-08, 0.235037, 0)
+light_color = Color(0.784314, 0.784314, 0, 1)
+light_energy = 0.2
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+
+[node name="base" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_c5uqe")
