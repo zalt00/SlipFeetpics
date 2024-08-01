@@ -20,6 +20,8 @@ var _total_pitch = 0.0
 @onready var antimatter_grenade_launcher: Node3D = $cam_helper/AntimatterGrenadeLauncher
 
 @onready var cam = $cam_helper
+@onready var raycast = $cam_helper/Camera3D/camera_items/Pointeur
+@onready var interact_text = $UI
 
 @onready var ammo_label = $HUD/AmmoLabel
 
@@ -133,6 +135,11 @@ func _input(event):
 		
 	if Input.is_action_just_pressed("respawn"):
 		get_tree().reload_current_scene()
+		
+	if raycast.is_looking_at_interactable:
+		interact_text.show()
+	else:
+		interact_text.hide()
 
 func _on_modify_health_pressed(attack = 10):
 	health += attack

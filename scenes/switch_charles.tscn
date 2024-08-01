@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://8jvacyrdv33w"]
+[gd_scene load_steps=7 format=3 uid="uid://8jvacyrdv33w"]
 
 [ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="1_0x2di"]
+[ext_resource type="Script" path="res://scripts/switch_charles.gd" id="1_2tu0p"]
 [ext_resource type="Material" uid="uid://ctvepy15hk2gn" path="res://materials/wood.tres" id="2_r5bcy"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ah3b7"]
@@ -8,26 +9,33 @@ top_radius = 0.02
 bottom_radius = 0.02
 height = 0.24
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohl64"]
+size = Vector3(0.520508, 0.792969, 0.142334)
+
 [sub_resource type="BoxMesh" id="BoxMesh_t4a1e"]
 size = Vector3(0.5, 0.8, 0.1)
 
-[node name="SwitchLight" type="Node3D"]
+[node name="SwitchCharles" type="StaticBody3D" groups=["interactables"]]
+script = ExtResource("1_2tu0p")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-
-[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D"]
+[node name="Lever" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0.089542)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D/Sprite3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lever"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.118836, 5.97537e-05)
 material_override = ExtResource("1_0x2di")
 mesh = SubResource("CylinderMesh_ah3b7")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ohl64")
+
+[node name="Support" type="MeshInstance3D" parent="CollisionShape3D"]
 material_override = ExtResource("1_0x2di")
 mesh = SubResource("BoxMesh_t4a1e")
+skeleton = NodePath("")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D"]
+[node name="Plaque" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(0.552218, 0, 0, 0, 0.617402, 0, 0, 0, 0.580476, 0, 0, 0.0801888)
 material_override = ExtResource("2_r5bcy")
 mesh = SubResource("BoxMesh_t4a1e")
+skeleton = NodePath("")

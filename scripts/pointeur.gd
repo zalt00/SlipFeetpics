@@ -1,16 +1,20 @@
 extends RayCast3D
 
-var looking_at = null
+var is_looking_at_interactable : bool = false
+var interactable_object : Node = null
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var coll = get_collider()
-	
-	if coll != looking_at:
-		if coll != null and "targeted" in coll:
-			coll.targeted = true 
-		if looking_at != null and "targeted" in looking_at:
-			looking_at.targeted = false
-		
-		looking_at = coll
-	
+	if is_colliding():
+		var collider = get_collider()
+		if collider.is_in_group("interactables"):
+			is_looking_at_interactable = true
+			interactable_object = collider
+		else:
+			is_looking_at_interactable = false
+			interactable_object = null
+	else:
+		is_looking_at_interactable = false
+		interactable_object = null
+
+	if is_looking_at_interactable and Input.is_action_just_pressed("interact"):
+		interactable_object.call("interact")
