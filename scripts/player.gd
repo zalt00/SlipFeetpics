@@ -49,6 +49,9 @@ var _total_pitch = 0.0
 @export var jump_speed = [1.0, 5.0, 7.0, 10.0, 20.0]
 @export var move_speed = [20.0, 8.0, 5.0, 3.0, 1.0]
 
+@export var friction_air := .7
+@export var friction_ground := 2.
+
 const ACCEL = 30.0
 
 var saved_position = [Vector3(0, 0, 0)]
@@ -116,7 +119,7 @@ func _update_movement(delta):
 	var input_dir = Input.get_vector("gauche", "droite", "avant", "arrière")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	var multiplier = 2.0 if is_on_floor() else 0.7
+	var multiplier = friction_ground if is_on_floor() else friction_air
 	
 	if direction:
 		
