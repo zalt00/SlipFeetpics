@@ -11,6 +11,9 @@ uniform sampler2D NORMAL_TEXTURE : hint_normal_roughness_texture, filter_nearest
 uniform vec3 shadow_color : source_color = vec3(0.0);
 uniform float shadow_thickness = 2.0;
 
+uniform bool truc = false;
+
+
 vec2 getDepth(vec2 screen_uv, sampler2D depth_texture, mat4 inv_projection_matrix){
 	float raw_depth = texture(depth_texture, screen_uv)[0];
 	vec3 normalized_device_coordinates = vec3(screen_uv * 2.0 - 1.0, raw_depth);
@@ -34,6 +37,7 @@ void fragment() {
 	vec2 min_depth_data = depth_data;
 	float min_depth = 9999999.9;
 	
+	vec2 z_data = getDepth(SCREEN_UV, DEPTH_TEXTURE, INV_PROJECTION_MATRIX);
 
 	vec3 normal = texture(NORMAL_TEXTURE, SCREEN_UV).rgb * 2.0 - 1.0;
 	
@@ -49,12 +53,15 @@ void fragment() {
 			float du = du_data.x;
 			float dd = dd_data.x;
 			
-			float dd_diff = clamp(abs((depth - dd) - (dd - du)), 0.0, 1.0);
+			//float dd_diff = clamp(abs((depth - dd) - (dd - du)), 0.0, 1.0);
+			float dd_diff = clamp((depth - dd) - (dd - du), -1.0, 1.0);
 
-			float val = clamp(abs(depth - du), 0., 1.)/(x*x + y*y)*dd_diff*dd_diff*5000.0;
+			float val = clamp(depth - du, -1., 1.)/(x*x + y*y)*dd_diff*dd_diff*5000.0;
 			
-			val = clamp(val, 0.0, 1.0);
-
+			val = clamp(val, -1.0, 1.0);
+			if (truc) {
+				val = abs(val);
+			}
 			depth_diff += val;
 
 			if (du < min_depth){
@@ -71,7 +78,7 @@ void fragment() {
 			depth_diff += (1.0-abs(dot(nu, normal)))/max(min(dd, depth), 2.0);
 		}
 	}
-
+	depth_diff = abs(depth_diff);
 
 	depth_diff = smoothstep(0.2, 0.3, depth_diff);
 
@@ -81,6 +88,5 @@ void fragment() {
 	float alpha_mask = depth_diff;
 	DEPTH = min_depth_data.y*alpha_mask + depth_data.y*(1.0-alpha_mask);
 	ALPHA = clamp((alpha_mask) * 5., 0., 1.);
-	if (color.r == color.g && color.g == color.b && false)
-		ALPHA = 0.;
+	
 }

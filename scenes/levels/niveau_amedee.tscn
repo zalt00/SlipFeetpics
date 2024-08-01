@@ -56,7 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.334167, 9.11419, -12.9725)
 size = Vector3(10.3177, 1.6073, 5.49622)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77233, 10.522, -29.5083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77233, 10.424, -29.5083)
 size = Vector3(3.89771, 2.41364, 3.46509)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="breakable"]
@@ -142,7 +142,7 @@ operation = 2
 radius = 8.10229
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("2_ovw1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3985, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20335, 2.70889, 0)
 breakable = NodePath("../breakable")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
