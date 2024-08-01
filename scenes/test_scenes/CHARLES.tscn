@@ -6,28 +6,28 @@
 
 [node name="Charles" type="Node3D"]
 
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.60192)
+size = Vector3(10, 0.5, 40.9883)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22792, -7.13142)
+size = Vector3(10, 2.05457, 0.988525)
+
 [node name="breakable" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.89218)
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.4941)
-size = Vector3(10, 0.5, 40.9883)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24068, -13.0236)
-size = Vector3(10, 4.08008, 0.988525)
-
 [node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_c6ihu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72542, 1.415, 0.370677)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60988, 1.415, 0.370677)
 breakable = NodePath("../breakable")
 
 [node name="SwitchLight" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("2_4gawr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22126, 1.33478, -6.63722)
-lights = [NodePath("../LightCharles"), NodePath("../LightCharles2")]
+lights = [NodePath("../LightCharles")]
 
 [node name="LightCharles" parent="." instance=ExtResource("3_3kr5l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34747, 2.31277, -5.16956)
-
-[node name="LightCharles2" parent="." instance=ExtResource("3_3kr5l")]
-transform = Transform3D(1, 0, 0, 0, 0.1911, 0.981571, 0, -0.981571, 0.1911, -0.0857942, 2.31277, -5.16956)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.28617, 1.41262, -6.63716)
