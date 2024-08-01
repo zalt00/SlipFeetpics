@@ -9,7 +9,7 @@
 [node name="Charles" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.99903)
 
-[node name="unbreakable" type="CSGCombiner3D" parent="."]
+[node name="unbreakable" type="CSGCombiner3D" parent="." groups=["unbreakable"]]
 material_override = ExtResource("1_dx1tu")
 use_collision = true
 

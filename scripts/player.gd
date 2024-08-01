@@ -21,6 +21,7 @@ var _total_pitch = 0.0
 
 @onready var cam = $cam_helper
 @onready var interact_raycast = $cam_helper/Camera3D/camera_items/InteractRay
+@onready var aim_raycast = $cam_helper/Camera3D/camera_items/AimRay
 @onready var interact_text = $UI
 
 @onready var ammo_label = $HUD/AmmoLabel
@@ -184,6 +185,17 @@ func _input(event):
 		
 	if Input.is_action_just_pressed("respawn"):
 		get_tree().reload_current_scene()
+	
+	"""
+	var list_changed = []
+	if Input.is_action_just_pressed("interact"):
+		if interact_raycast.is_looking_at_unbreakable:
+			#ajout de l'objet intersecté à list_changed
+			#change le matériau des objets de list_changed en "mat_colored"
+	elif Input.is_action_just_released("interact"):
+		if list_changed:
+			#change le matériau des objets de list_changed en "mat_normal"
+	"""
 		
 	if interact_raycast.is_looking_at_interactable:
 		interact_text.show()
