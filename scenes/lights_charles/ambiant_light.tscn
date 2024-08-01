@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://baoc6e0awu12n"]
+[gd_scene load_steps=5 format=3 uid="uid://6cv2qpe2yxgc"]
 
-[ext_resource type="Material" uid="uid://cys8n0adb33n6" path="res://materials/wire_off.tres" id="1_lpoi6"]
-[ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="2_75lhk"]
+[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="1_u7b5c"]
+[ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="2_a0dm7"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_c5uqe"]
-material = ExtResource("2_75lhk")
+material = ExtResource("2_a0dm7")
 top_radius = 0.4
 bottom_radius = 0.4
 height = 0.1
@@ -15,7 +15,7 @@ data = PackedVector3Array(0, 0.05, 0.4, 0.0392, 0.05, 0.3981, 0, 0.03, 0.4, 0.03
 [node name="LightCharles" type="Node3D"]
 
 [node name="bulb" type="CSGCombiner3D" parent="."]
-material_override = ExtResource("1_lpoi6")
+material_override = ExtResource("1_u7b5c")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="bulb"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0938367, 0, 0)
@@ -28,13 +28,16 @@ size = Vector3(0.521484, 1, 1)
 
 [node name="spot" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="spot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+layers = 2
 
 [node name="OmniLight3D" type="OmniLight3D" parent="spot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02738e-08, 0.235037, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21785e-08, 0.278612, 0)
+layers = 2
+light_energy = 2.705
+light_size = 0.18
 
 [node name="base" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)

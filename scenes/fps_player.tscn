@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="5_brba3"]
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
 [ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
-[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="8_aemiu"]
+[ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/echap.tscn" id="8_aemiu"]
 [ext_resource type="Texture2D" uid="uid://bixqn5tvwua8v" path="res://images/ret.png" id="8_m8wlf"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="9_fmnkt"]
 [ext_resource type="Script" path="res://scripts/bar.gd" id="11_d40eg"]
@@ -57,7 +57,6 @@ cull_mask = 1048063
 current = true
 
 [node name="camera_items" parent="cam_helper/Camera3D" instance=ExtResource("2_f1rdo")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
 [node name="AntimatterPlayer" parent="cam_helper/Camera3D" instance=ExtResource("3_p4fqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

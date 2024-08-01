@@ -20,7 +20,7 @@ var _total_pitch = 0.0
 @onready var antimatter_grenade_launcher: Node3D = $cam_helper/AntimatterGrenadeLauncher
 
 @onready var cam = $cam_helper
-@onready var raycast = $cam_helper/Camera3D/camera_items/Pointeur
+@onready var interact_raycast = $cam_helper/Camera3D/camera_items/InteractRay
 @onready var interact_text = $UI
 
 @onready var ammo_label = $HUD/AmmoLabel
@@ -28,7 +28,7 @@ var _total_pitch = 0.0
 @onready var jump_bar = $HUD/jump_bar
 
 @onready var reticule = $HUD/Reticle
-@onready var camera_items = $cam_helper/Camera3D/camera_items/Pointeur
+@onready var camera_items = $cam_helper/Camera3D/camera_items/InteractRay
 
 @export var breakable: CSGCombiner3D
 @export var unbreakable: CSGCombiner3D
@@ -185,7 +185,7 @@ func _input(event):
 	if Input.is_action_just_pressed("respawn"):
 		get_tree().reload_current_scene()
 		
-	if raycast.is_looking_at_interactable:
+	if interact_raycast.is_looking_at_interactable:
 		interact_text.show()
 	else:
 		interact_text.hide()
