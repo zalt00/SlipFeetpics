@@ -18,4 +18,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_yein3")
-text = "cramptés s"
+theme_override_font_sizes/font_size = 46
+text = "CRAMPTES"

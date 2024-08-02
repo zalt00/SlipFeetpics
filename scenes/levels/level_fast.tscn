@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvunrqonu5jb4"]
+[gd_scene load_steps=15 format=3 uid="uid://cvunrqonu5jb4"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_ugy6t"]
 [ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_lv6l3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="4_bh2mm"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="6_3okd6"]
 [ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="6_ceffq"]
+[ext_resource type="Script" path="res://scripts/killbox.gd" id="7_toem2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ojv7s"]
 sky_top_color = Color(0.0034489, 0.00991546, 0.00931598, 1)
@@ -20,6 +21,18 @@ sky_material = SubResource("ProceduralSkyMaterial_ojv7s")
 [sub_resource type="Environment" id="Environment_xqp7n"]
 background_mode = 2
 sky = SubResource("Sky_3vlip")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjusx"]
+size = Vector3(99, 4, 94)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bocf"]
+size = Vector3(113, 4, 31)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_msq7b"]
+size = Vector3(34, 5, 43)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yofjl"]
+size = Vector3(120, 1, 11)
 
 [node name="level_fast" type="Node3D"]
 
@@ -240,15 +253,57 @@ move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -1, -54)
 already_on = true
 
-[node name="EmancipationGrid" parent="." instance=ExtResource("4_bh2mm")]
+[node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_bh2mm")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -25, -91.6611, -83)
+player = NodePath("../player")
 
 [node name="Timer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_ceffq")]
-offset_left = 36.0
-offset_top = 197.0
-offset_right = -1795.0
-offset_bottom = -849.0
+offset_left = 22.0
+offset_top = 227.0
+offset_right = -1716.0
+offset_bottom = -756.0
 player = NodePath("../player")
 
 [node name="finish_gate" parent="." instance=ExtResource("6_3okd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)
+
+[node name="killbox" type="Area3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+script = ExtResource("7_toem2")
+player = NodePath("../player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="killbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, 17.5)
+shape = SubResource("BoxShape3D_rjusx")
+
+[node name="killbox2" type="Area3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+script = ExtResource("7_toem2")
+player = NodePath("../player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="killbox2"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.775794, 1.5, -42.4865)
+shape = SubResource("BoxShape3D_3bocf")
+
+[node name="killbox3" type="Area3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+script = ExtResource("7_toem2")
+player = NodePath("../player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="killbox3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, 3.58906, -37)
+shape = SubResource("BoxShape3D_msq7b")
+
+[node name="killbox4" type="Area3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+script = ExtResource("7_toem2")
+player = NodePath("../player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="killbox4"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -13.1673, -4, -53.2972)
+shape = SubResource("BoxShape3D_yofjl")
+
+[connection signal="body_entered" from="killbox" to="killbox" method="_on_body_entered"]
+[connection signal="body_entered" from="killbox2" to="killbox2" method="_on_body_entered"]
+[connection signal="body_entered" from="killbox3" to="killbox3" method="_on_body_entered"]
+[connection signal="body_entered" from="killbox4" to="killbox4" method="_on_body_entered"]
