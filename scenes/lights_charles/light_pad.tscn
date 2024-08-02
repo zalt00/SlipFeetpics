@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj536pjn2am8v"]
+
+[ext_resource type="Material" uid="uid://cys8n0adb33n6" path="res://materials/wire_off.tres" id="1_j62fj"]
+
+[node name="LightPad" type="Node3D"]
+
+[node name="bulb" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_j62fj")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="bulb"]
+size = Vector3(1, 0.001, 1)
+
+[node name="spot" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.162459, 0)
+light_color = Color(1, 1, 0.407843, 1)
+omni_range = 9.722

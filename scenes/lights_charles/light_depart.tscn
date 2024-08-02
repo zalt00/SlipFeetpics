@@ -25,13 +25,11 @@ size = Vector3(0.521484, 1, 1)
 
 [node name="spot" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="spot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02738e-08, 0.235037, 0)
-light_color = Color(0.784314, 0.784314, 0, 1)
-light_energy = 0.2
-shadow_enabled = true
+light_color = Color(1, 1, 0.407843, 1)
+light_energy = 0.3
 distance_fade_enabled = true
 distance_fade_begin = 0.0
 

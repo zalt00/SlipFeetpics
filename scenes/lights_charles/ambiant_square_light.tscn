@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca5vh0rjxdsk1"]
+
+[ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="1_m0kb3"]
+
+[node name="AmbiantSquareLight" type="Node3D"]
+
+[node name="bulb" type="CSGCombiner3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="bulb"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0112172, 0, 0)
+radius = 0.08
+height = 1.4
+sides = 6
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="bulb"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.276756, 0, 0)
+radius = 0.08
+height = 1.4
+sides = 6
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="bulb"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.548185, 0, 0)
+radius = 0.08
+height = 1.4
+sides = 6
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="bulb"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.271525, 0, 0)
+radius = 0.08
+height = 1.4
+sides = 6
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="bulb"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.535149, 0, 0)
+radius = 0.08
+height = 1.4
+sides = 6
+
+[node name="base" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_m0kb3")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="base"]
+size = Vector3(1.5, 0.3, 1.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0589563, 0)
+operation = 2
+size = Vector3(1.4, 0.2, 1.4)
+
+[node name="spot" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.667699, -0.321212, 0.631753)
+omni_range = 25.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62763, -0.321212, 0.631753)
+omni_range = 25.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62763, -0.321212, -0.634948)
+omni_range = 25.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636737, -0.321212, -0.634948)
+omni_range = 25.0
+omni_attenuation = 0.8

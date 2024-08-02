@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7kjir42wrqa7"]
+
+[ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="1_wftm1"]
+[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="2_c2moc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h7sf5"]
+radius = 0.4
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b0lte"]
+material = ExtResource("2_c2moc")
+radius = 0.2
+height = 0.7
+
+[node name="SpotLightCharles" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.751118, 0)
+
+[node name="base" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_wftm1")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="base"]
+mesh = SubResource("CapsuleMesh_h7sf5")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="base"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+operation = 2
+mesh = SubResource("CapsuleMesh_h7sf5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.386719, 0)
+operation = 2
+size = Vector3(1, 1.22656, 1)
+
+[node name="bulb" type="CSGCombiner3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="bulb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.346101, 0)
+mesh = SubResource("CapsuleMesh_b0lte")
+
+[node name="spot" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.329472, 0)
+light_color = Color(0.784314, 1, 1, 1)
+light_cull_mask = 4294967293
+shadow_enabled = true
+omni_range = 25.0
+omni_attenuation = 0.8

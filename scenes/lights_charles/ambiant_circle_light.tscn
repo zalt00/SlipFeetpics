@@ -33,7 +33,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 [node name="OmniLight3D" type="OmniLight3D" parent="spot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20157e-08, 0.274888, 0)
 layers = 2
-light_energy = 0.5
+light_color = Color(0.784314, 1, 1, 1)
 light_size = 0.5
 shadow_enabled = true
 omni_range = 23.394
