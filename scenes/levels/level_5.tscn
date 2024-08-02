@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ds4f2k83ddgrs" path="res://scenes/switch.tscn" id="2_8bsql"]
 [ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="2_ryoti"]
 [ext_resource type="PackedScene" uid="uid://cdfm5vvlbk06r" path="res://scenes/wire.tscn" id="3_3or3q"]
-[ext_resource type="Material" path="res://materials/unbreakable.tres" id="3_4l2ir"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_4l2ir"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_1bltb"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="6_dt26v"]
 
@@ -123,3 +123,4 @@ already_on = true
 [node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_cxpca")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -5)
 breakable = NodePath("../breakable")
+move_speed = [20.0, 20.0, 20.0, 5.6, 5.6]

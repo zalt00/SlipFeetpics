@@ -1,15 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvunrqonu5jb4"]
+[gd_scene load_steps=7 format=3 uid="uid://cvunrqonu5jb4"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_ugy6t"]
 [ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_lv6l3"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="3_cyu1l"]
-[ext_resource type="PackedScene" uid="uid://cdfm5vvlbk06r" path="res://scenes/wire.tscn" id="4_o6ghu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ojv7s"]
-sky_top_color = Color(0.246507, 0.241173, 0.264071, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
-ground_bottom_color = Color(0.125932, 0.138809, 0.150741, 1)
-ground_horizon_color = Color(0.221194, 0.227319, 0.236989, 1)
+sky_top_color = Color(0.0034489, 0.00991546, 0.00931598, 1)
+sky_horizon_color = Color(0.258824, 0.0980392, 0, 1)
+sky_energy_multiplier = 21.36
+ground_bottom_color = Color(0.529412, 0.305882, 0, 1)
+ground_horizon_color = Color(0.6, 0.156863, 0, 1)
 
 [sub_resource type="Sky" id="Sky_3vlip"]
 sky_material = SubResource("ProceduralSkyMaterial_ojv7s")
@@ -20,79 +20,180 @@ sky = SubResource("Sky_3vlip")
 
 [node name="level_fast" type="Node3D"]
 
-[node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_ugy6t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -53)
-breakable = NodePath("../breakable")
-
 [node name="breakable" type="CSGCombiner3D" parent="."]
 material_override = ExtResource("2_lv6l3")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
-size = Vector3(3, 1, 16)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.5)
-size = Vector3(3, 1, 16)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.5)
-size = Vector3(3, 1, 16)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -88.5)
-size = Vector3(3, 1, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+size = Vector3(5, 1, 9)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 8, -61.5)
-size = Vector3(16, 1, 134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -14)
+size = Vector3(3, 1, 3)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -44)
-size = Vector3(3, 5, 1)
+[node name="CSGBox3D3" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -14)
+size = Vector3(3, 1, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -23)
+size = Vector3(3, 1, 3)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5, -49)
+size = Vector3(3, 1, 3)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5, -83, -72.5)
+size = Vector3(6, 1, 6)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -6, -54)
+size = Vector3(3, 1, 3)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -73.5)
-size = Vector3(3, 5, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -39.5)
+size = Vector3(7, 1, 6)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -29.2895, -43, -72.1616)
+size = Vector3(37.5191, 59, 28)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -29.9966, -43, -72.8687)
+operation = 2
+size = Vector3(17, 57, 17)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -33)
+size = Vector3(5, 4, 3)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.997, -34.5, -72.869)
+size = Vector3(26, 1, 3)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -29.6431, -56.5, -72.5151)
+size = Vector3(20, 1, 3)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -29.6431, -56.5, -72.5151)
+size = Vector3(20, 1, 3)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4966, -34.5, -72.8687)
+size = Vector3(26, 1, 3)
+
+[node name="unbreakable" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -29.9966, -43, -72.8687)
+size = Vector3(17, 57, 17)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -29.9966, -43, -72.8687)
+operation = 2
+size = Vector3(15, 57, 15)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, -13, -65)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, -13, -70)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.5, -13, -64)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26.5, -13, -68)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22, -13, -82)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27, -13, -77)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, -13, -80)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -13, -76)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -37.5, -13, -63.5)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -32.5, -13, -68.5)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.5, -13, -65.5)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -34.5, -13, -69.5)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39, -13, -80.5)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -34, -13, -75.5)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, -13, -81.5)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33, -13, -77.5)
+size = Vector3(4, 1, 1)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(0.740728, -0.437486, 0.50983, -0.0241015, 0.741103, 0.670958, -0.671372, -0.509286, 0.538412, -34.118, -68.1978, -77.8848)
+size = Vector3(21, 7, 1)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-0.702621, -0.489991, 0.515977, -0.0241016, 0.741103, 0.670958, -0.711156, 0.458994, -0.532524, -36.4867, -68.1978, -70.0655)
+size = Vector3(21, 7, 1)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-0.719517, 0.453095, -0.526309, -0.0241016, 0.741103, 0.670958, 0.694057, 0.495451, -0.522316, -24.9988, -68.1978, -68.8848)
+size = Vector3(21, 7, 1)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(0.704233, 0.488948, -0.514768, -0.0241016, 0.741103, 0.670958, 0.70956, -0.460105, 0.533694, -24.7757, -68.1978, -76.7427)
+size = Vector3(21, 7, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xqp7n")
 
-[node name="lamp" parent="." instance=ExtResource("3_cyu1l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -14)
-already_on = true
-
-[node name="lamp2" parent="." instance=ExtResource("3_cyu1l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -39)
-already_on = true
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.766044, 0.182562, -0.616317, 0, 0.95882, 0.284015, 0.642788, 0.217568, -0.734499, 0, 0, 0)
-light_color = Color(0, 0, 0, 1)
+light_color = Color(0.670588, 0.180392, 0, 1)
 light_angular_distance = 4.25
 shadow_enabled = true
 
-[node name="wire" parent="." instance=ExtResource("4_o6ghu")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2.7, 0, -1, -1.18021e-07, 0, 7, -14)
-already_on = true
+[node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_ugy6t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+breakable = NodePath("../breakable")
+unbreakable = NodePath("../unbreakable")
+number_of_shots = 30
+kill_plane_y = -150.0
+move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
 
-[node name="wire2" parent="." instance=ExtResource("4_o6ghu")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2.7, 0, -1, -1.18021e-07, 0, 7, -39)
-already_on = true
-
-[node name="lamp3" parent="." instance=ExtResource("3_cyu1l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -64)
-already_on = true
-
-[node name="wire3" parent="." instance=ExtResource("4_o6ghu")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2.7, 0, -1, -1.18021e-07, 0, 7, -64)
-already_on = true
-
-[node name="lamp4" parent="." instance=ExtResource("3_cyu1l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -95)
-already_on = true
-
-[node name="wire4" parent="." instance=ExtResource("4_o6ghu")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2.7, 0, -1, -1.18021e-07, 0, 7, -95)
+[node name="lamp" parent="." instance=ExtResource("3_cyu1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -1, -54)
 already_on = true
