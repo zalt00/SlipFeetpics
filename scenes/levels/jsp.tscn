@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck3sx3j6h1f1j"]
+[gd_scene load_steps=14 format=3 uid="uid://ck3sx3j6h1f1j"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_g446a"]
-[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_udstr"]
+[ext_resource type="Material" path="res://materials/breakable.tres" id="2_udstr"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_gvil7"]
-[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="4_du13t"]
+[ext_resource type="PackedScene" uid="uid://b14abfo1cgk2y" path="res://scenes/checkpoint.tscn" id="4_du13t"]
 [ext_resource type="Script" path="res://scripts/AnimatableBody3D.gd" id="5_h5et7"]
+[ext_resource type="Texture2D" uid="uid://bu3m7xi04a3ow" path="res://images/ARRAOW.png" id="6_baqsy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lhuk6"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -22,7 +23,11 @@ sky = SubResource("Sky_salpv")
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0cb7"]
 size = Vector3(5, 1, 5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1xlx"]
+albedo_color = Color(1, 0, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_erxpi"]
+material = SubResource("StandardMaterial3D_k1xlx")
 size = Vector3(5, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jlpek"]
@@ -68,6 +73,14 @@ size = Vector3(3.34184, 13.2252, 3.90369)
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.5308, -9.72661, -35.7008)
 size = Vector3(20.2414, 13.2252, 3.90369)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9502, -20.5272, -22.1686)
+size = Vector3(7.40264, 34.8263, 8.92709)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.701366, -0.553828, 0.448732, 0.466516, 0.832631, 0.298476, -0.538933, 0, 0.842349, 102.066, -9.94586, -25.4091)
+size = Vector3(19.9377, 1.0489, 2.92165)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.455, 0.655952, -102.226)
@@ -119,6 +132,7 @@ size = Vector3(2.51035, 10.7465, 0.290588)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.936574, 0.289094, -0.198124, 0, 0.565313, 0.824877, 0.350469, -0.772558, 0.529457, 0, 0, 4.97653)
+light_color = Color(0.870588, 0.847059, 1, 1)
 light_energy = 0.9
 shadow_enabled = true
 
@@ -149,6 +163,10 @@ size = Vector3(2.51035, 14.7606, 0.290588)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.8793, -14.0948, -36.2357)
 size = Vector3(10.5539, 0.149239, 4.41679)
 
+[node name="CSGBox3D18" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.6788, -14.0948, -23.366)
+size = Vector3(1.64385, 0.149239, 17.4964)
+
 [node name="CSGBox3D13" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.3626, -14.0948, -36.008)
 size = Vector3(8.36174, 0.149239, 0.960644)
@@ -168,17 +186,6 @@ size = Vector3(18.3457, 0.149239, 0.960644)
 [node name="CSGBox3D17" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(0.0169812, 0, 0.999856, 0, 1, 0, -0.999856, 0, 0.0169812, 111.313, -5.12942, -152.333)
 size = Vector3(30.6689, 0.149239, 5.86565)
-
-[node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_gvil7")]
-transform = Transform3D(-0.0328062, 0, -0.999462, 0, 1, 0, 0.999462, 0, -0.0328062, 39.477, -9.76303, -36.3851)
-player = NodePath("../player")
-
-[node name="checkpoint" parent="EmancipationGrid" node_paths=PackedStringArray("player", "respawn_location") instance=ExtResource("4_du13t")]
-player = NodePath("../../player")
-respawn_location = NodePath("Node3D")
-
-[node name="Node3D" type="Node3D" parent="EmancipationGrid/checkpoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09845, 0)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.204, -3.8128, -93.0229)
@@ -214,5 +221,12 @@ respawn_location = NodePath("Node3D")
 
 [node name="Node3D" type="Node3D" parent="EmancipationGrid2/checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.803857, -0.260712)
+
+[node name="EmancipationGrid" parent="." instance=ExtResource("3_gvil7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38.9302, -9.97441, -36.591)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 71.2577, -6.61649, -36.124)
+texture = ExtResource("6_baqsy")
 
 [connection signal="body_entered" from="Node3D/AnimatableBody3D/Area3D" to="Node3D/AnimatableBody3D" method="_on_area_3d_body_entered"]
