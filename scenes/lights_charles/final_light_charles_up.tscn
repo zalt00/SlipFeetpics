@@ -18,7 +18,7 @@ sides = 5
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="spot"]
 transform = Transform3D(1, 0, 0, 0, -0.422618, 0.906308, 0, -0.906308, -0.422618, 3.8147e-06, -0.937274, 0.420974)
-light_energy = 2.0
+light_energy = 0.7
 shadow_enabled = true
 spot_range = 20.0
 spot_attenuation = 0.176777
