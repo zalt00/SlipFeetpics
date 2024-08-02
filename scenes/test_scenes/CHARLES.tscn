@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://clft8rriwp70h"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_c6ihu"]
-[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="1_dx1tu"]
+[ext_resource type="Material" path="res://materials/unbreakable.tres" id="1_dx1tu"]
 [ext_resource type="PackedScene" uid="uid://8jvacyrdv33w" path="res://scenes/switch_charles.tscn" id="2_4gawr"]
 [ext_resource type="PackedScene" uid="uid://yo3vtjafi7si" path="res://scenes/lights_charles/light_depart.tscn" id="5_a2lm4"]
 [ext_resource type="PackedScene" uid="uid://6cv2qpe2yxgc" path="res://scenes/lights_charles/ambiant_circle_light.tscn" id="5_o3775"]
@@ -61,7 +61,7 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 size = Vector3(4.76953, 4.28993, 0.197266)
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_c6ihu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.128099, 5.77068, 1.6668)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.128099, 3.60717, 1.6668)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
 
