@@ -24,6 +24,7 @@ func _on_option_back_pressed():
 
 func _on_menu_pressed():
 	get_tree().paused = false
+	PlayerPositionSingleton.player_position = Vector3.INF
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_quit_pressed():

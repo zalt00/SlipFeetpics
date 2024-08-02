@@ -11,6 +11,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _mouse_position = Vector2(0.0, 0.0)
 var _total_pitch = 0.0
 
+@onready var last_checkpoint_pos: Vector3 = global_position
+@onready var last_checkpoint_rotation: Vector3 = global_rotation
+
 @onready var sub_viewport := $SubViewport
 @onready var light_detection := $SubViewport/light_detection
 
@@ -69,6 +72,14 @@ func set_number_of_shots(n):
 		antimatter_shotgun.number_of_shots = n
 
 func _ready():
+	
+	var pos = PlayerPositionSingleton.player_position
+	if pos != Vector3.INF:
+		global_position = pos
+		global_rotation = PlayerPositionSingleton.player_rotation
+		last_checkpoint_pos = pos
+		last_checkpoint_rotation = PlayerPositionSingleton.player_rotation
+	
 	sub_viewport.debug_draw = 2
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -189,6 +200,9 @@ func _input(event):
 		_mouse_position = event.relative
 		
 	if Input.is_action_just_pressed("respawn"):
+
+		PlayerPositionSingleton.player_position = last_checkpoint_pos
+		PlayerPositionSingleton.player_rotation = last_checkpoint_rotation
 		get_tree().reload_current_scene()
 		
 	if interact_raycast.is_looking_at_interactable:
