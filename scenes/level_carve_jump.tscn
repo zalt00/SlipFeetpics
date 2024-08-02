@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0ag6i3pv7fey"]
+[gd_scene load_steps=4 format=3 uid="uid://0ag6i3pv7fey"]
 
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_xod04"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vah2n"]
+[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_belqa"]
 
 [node name="LevelCarveJump" type="Node3D"]
 
@@ -178,3 +179,5 @@ size = Vector3(3, 6, 2)
 [node name="CSGBox3D15" type="CSGBox3D" parent="Unbreakable"]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 90, -25.5, -57.5858)
 size = Vector3(3, 8, 2)
+
+[node name="MusicPlayer" parent="." instance=ExtResource("3_belqa")]
