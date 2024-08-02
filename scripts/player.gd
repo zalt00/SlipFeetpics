@@ -105,7 +105,7 @@ func _update_movement(delta):
 			SPEED = new_speed
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and dt < 0.2:
+	if Input.is_action_just_pressed("ui_accept") and dt < 0.4:
 		var jump_velo = jump_speed[pallier]
 		
 		velocity.y = jump_velo
