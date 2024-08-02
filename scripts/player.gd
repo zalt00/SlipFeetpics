@@ -26,6 +26,7 @@ var _total_pitch = 0.0
 @onready var interact_raycast = $cam_helper/Camera3D/camera_items/InteractRay
 @onready var aim_raycast = $cam_helper/Camera3D/camera_items/AimRay
 @onready var interact_text = $UI
+@onready var echap = $Echap
 
 @onready var ammo_label = $HUD/AmmoLabel
 

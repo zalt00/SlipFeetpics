@@ -242,8 +242,9 @@ already_on = true
 [node name="EmancipationGrid" parent="." instance=ExtResource("4_bh2mm")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -25, -91.6611, -83)
 
-[node name="Timer" parent="." instance=ExtResource("6_ceffq")]
+[node name="Timer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_ceffq")]
 offset_left = 36.0
 offset_top = 197.0
 offset_right = -1795.0
 offset_bottom = -849.0
+player = NodePath("../player")
