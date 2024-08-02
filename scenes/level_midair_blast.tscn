@@ -50,9 +50,10 @@ MAX_SPEED = 20.0
 breakable = NodePath("../Breakable")
 unbreakable = NodePath("../Unbreakable")
 number_of_shots = 30
+kill_plane_y = -150.0
 palliers = [0.16, 0.4, 0.7, 0.9, 1.0]
 jump_speed = [7.0, 7.0, 7.0, 7.0, 7.0]
-move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
+move_speed = [12.0, 12.0, 12.0, 12.0, 12.0]
 friction_air = 1.5
 gravity_multiplier = 0.8
 
@@ -260,7 +261,7 @@ transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -43.067, -
 size = Vector3(3, 0.743652, 13)
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -69.567, -63.7437, -85.25)
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -71.567, -75.7437, -86.25)
 size = Vector3(8, 3, 8)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Breakable"]
@@ -304,19 +305,19 @@ transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -49.344, -
 size = Vector3(9, 6, 0.321777)
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -51.344, -39.5, -70.6969)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -52.344, -39.5, -72.6969)
 size = Vector3(9, 6, 0.321777)
 
 [node name="CSGBox3D27" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -54.344, -45.5, -75.6969)
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -57.344, -50.5, -77.6969)
 size = Vector3(9, 6, 0.321777)
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -58.344, -48.5, -77.6969)
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -61.344, -57.5, -80.6969)
 size = Vector3(9, 6, 0.321777)
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -63.344, -56.5, -80.6969)
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -66.344, -65.5, -82.6969)
 size = Vector3(9, 6, 0.321777)
 
 [node name="Unbreakable" type="CSGCombiner3D" parent="."]
@@ -351,11 +352,11 @@ transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -53.4469
 size = Vector3(20, 21, 0.321777)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Unbreakable"]
-transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -61.1789, -52, -83.9469)
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -61.1789, -57, -83.9469)
 size = Vector3(24, 21, 0.321777)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Unbreakable"]
-transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -66.4469, -52, -78.9469)
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -66.4469, -57, -78.9469)
 size = Vector3(20, 21, 0.321777)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Unbreakable"]

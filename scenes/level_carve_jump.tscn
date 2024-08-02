@@ -8,7 +8,7 @@
 [node name="RedSky" parent="." instance=ExtResource("1_xod04")]
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_vah2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 MAX_SPEED = 20.0
 breakable = NodePath("../Breakable")
 unbreakable = NodePath("../Unbreakable")
@@ -53,8 +53,8 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 size = Vector3(6, 7, 6)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 32.0481, 5, -36.0303)
-size = Vector3(5, 11, 4)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 32.0481, 2, -36.0303)
+size = Vector3(5, 17, 4)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Breakable"]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 65.8964, -15, -31.1036)

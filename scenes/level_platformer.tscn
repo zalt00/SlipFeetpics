@@ -31,19 +31,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, -10, -0.5)
 size = Vector3(4, 1, 4)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, -13, -1)
-size = Vector3(6, 1, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, -13, -1)
+size = Vector3(8, 1, 5)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.5, -38, -9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.5, -38, -6.5)
 size = Vector3(4, 1, 4)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.447, -38, -6.44675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.447, -38, -6.44675)
 size = Vector3(4, 1, 4)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -6.5, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, -6.5, -1.5)
 size = Vector3(1, 4, 12)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Breakable"]
