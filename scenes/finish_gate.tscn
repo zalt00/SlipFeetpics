@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cs85a4naor6kv"]
+
+[ext_resource type="Script" path="res://scripts/finish_gate.gd" id="1_ynqkh"]
+[ext_resource type="Shader" path="res://shaders/finish_gate2.gdshader" id="2_q58pk"]
+[ext_resource type="Shader" path="res://shaders/finish_gate.gdshader" id="3_tp5xo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fv61x"]
+size = Vector3(2.8, 2, 0.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_siq2c"]
+render_priority = 0
+shader = ExtResource("2_q58pk")
+shader_parameter/lines1 = 80.0
+shader_parameter/lines2 = 50.0
+shader_parameter/color = Color(0.00985426, 0.255424, 0, 1)
+shader_parameter/_emission = 15.0
+shader_parameter/_frensel = 0.897
+shader_parameter/_glitch_intensity = 0.07
+shader_parameter/_th = null
+
+[sub_resource type="BoxMesh" id="BoxMesh_lfjin"]
+size = Vector3(2.8, 2, 0.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hmk4r"]
+render_priority = 0
+shader = ExtResource("3_tp5xo")
+shader_parameter/lines1 = 90.0
+shader_parameter/lines2 = 50.0
+shader_parameter/color = Color(0.245753, 0.549077, 0.0800542, 1)
+shader_parameter/_emission = 6.155
+shader_parameter/_frensel = 0.583
+shader_parameter/_glitch_intensity = null
+shader_parameter/_th = null
+
+[sub_resource type="BoxMesh" id="BoxMesh_tycxg"]
+size = Vector3(2.4, 1.6, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prtst"]
+
+[node name="finish_gate" type="Node3D"]
+script = ExtResource("1_ynqkh")
+
+[node name="Area3D2" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.968, 0)
+shape = SubResource("BoxShape3D_fv61x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.961645, 0)
+material_override = SubResource("ShaderMaterial_siq2c")
+mesh = SubResource("BoxMesh_lfjin")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_hmk4r")
+mesh = SubResource("BoxMesh_tycxg")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Area3D2"]
+material_override = SubResource("StandardMaterial3D_prtst")
+transparency = 0.25
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Area3D2/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969534, 0)
+size = Vector3(3, 2.2, 0.1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D2/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969534, 0)
+operation = 2
+size = Vector3(2.8, 2, 1)

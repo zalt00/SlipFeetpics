@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvunrqonu5jb4"]
+[gd_scene load_steps=10 format=3 uid="uid://cvunrqonu5jb4"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_ugy6t"]
 [ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_lv6l3"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="3_cyu1l"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="4_bh2mm"]
+[ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="6_3okd6"]
 [ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="6_ceffq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ojv7s"]
@@ -248,3 +249,6 @@ offset_top = 197.0
 offset_right = -1795.0
 offset_bottom = -849.0
 player = NodePath("../player")
+
+[node name="finish_gate" parent="." instance=ExtResource("6_3okd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)

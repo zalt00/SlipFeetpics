@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cewmmh8ykfbeq"]
+[gd_scene load_steps=3 format=3 uid="uid://cewmmh8ykfbeq"]
 
 [ext_resource type="Script" path="res://scripts/timer.gd" id="1_q2vrk"]
+[ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="2_yein3"]
 
 [node name="Timer" type="Control"]
 process_mode = 3
@@ -16,4 +17,5 @@ script = ExtResource("1_q2vrk")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_yein3")
 text = "cramptés s"
