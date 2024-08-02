@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://co4lu1l5fa6ou"]
+[gd_scene load_steps=9 format=3 uid="uid://co4lu1l5fa6ou"]
 
 [ext_resource type="Script" path="res://scripts/antimatter_player.gd" id="1_tf8ae"]
 [ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_yb136"]
+[ext_resource type="Shader" path="res://shaders/speed.gdshader" id="3_rc1rs"]
 [ext_resource type="ArrayMesh" uid="uid://cq6q8g20r582t" path="res://obj/cortex2.obj" id="4_iu3xn"]
 [ext_resource type="Material" uid="uid://bhj8h6euvjxxq" path="res://materials/unbreakable_colored.tres" id="4_txjfv"]
 
@@ -13,7 +14,12 @@ shader_parameter/shadow_thickness = 2.0
 shader_parameter/truc = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_sywrr"]
-size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlcip"]
+render_priority = 0
+shader = ExtResource("3_rc1rs")
+shader_parameter/speedScale = 16.0
+shader_parameter/clipPosition = 0.1
 
 [node name="AntimatterPlayer" type="Node3D" node_paths=PackedStringArray("projectile")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -24,6 +30,13 @@ projectile = NodePath("CSGMesh3D")
 transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 0.0119474, 0, -0.353876)
 layers = 2
 material_override = SubResource("ShaderMaterial_pkf07")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_sywrr")
+
+[node name="quad de shader2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 0.0119474, 0, -0.239334)
+layers = 2
+material_override = SubResource("ShaderMaterial_mlcip")
 cast_shadow = 0
 mesh = SubResource("QuadMesh_sywrr")
 

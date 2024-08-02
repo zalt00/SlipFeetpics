@@ -20,13 +20,13 @@ background_mode = 2
 sky = SubResource("Sky_salpv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0cb7"]
-size = Vector3(17.0902, 1, 21.1802)
+size = Vector3(5, 1, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_erxpi"]
-size = Vector3(17.0902, 1, 21.1802)
+size = Vector3(5, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jlpek"]
-size = Vector3(17.0902, 1.58551, 20.0685)
+size = Vector3(5, 1, 5)
 
 [node name="Jsp" type="Node3D"]
 
@@ -69,13 +69,29 @@ size = Vector3(3.34184, 13.2252, 3.90369)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.5308, -9.72661, -35.7008)
 size = Vector3(20.2414, 13.2252, 3.90369)
 
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.455, 0.655952, -102.226)
+size = Vector3(20.2414, 13.2252, 0.286318)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.15183, 0, 0.988407, 0, 1, 0, -0.988407, 0, -0.15183, 98.2616, 0.655952, -147.746)
+size = Vector3(20.2414, 13.2252, 3.90369)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.999996, 0, 0.00277501, 0, 1, 0, -0.00277501, 0, -0.999996, 111.64, -5.95175, -127.581)
+size = Vector3(20.2414, 7.12349, 3.90369)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.397452, 0, 0.917623, 0, 1, 0, -0.917623, 0, 0.397452, 123.899, 0.655952, -147.746)
+size = Vector3(20.2414, 13.2252, 3.90369)
+
 [node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.249, -6.55311, -56.0311)
-size = Vector3(0.692419, 6.87824, 28.8751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.249, -6.21261, -56.0311)
+size = Vector3(0.692419, 7.55924, 28.8751)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.484947, -0.874544, 0, 0.874544, 0.484947, 110.579, -8.8707, -74.663)
-size = Vector3(6.67408, 0.655795, 20.1246)
+transform = Transform3D(1, 0, 0, 0, 0.694771, -0.719231, 0, 0.719231, 0.694771, 110.579, -3.57611, -79.7775)
+size = Vector3(6.67408, 0.655795, 5.40164)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6924, -10.0532, -36.6674)
@@ -149,6 +165,10 @@ size = Vector3(2.75439, 0.149239, 0.960644)
 transform = Transform3D(0.0557169, 0, 0.998447, 0, 1, 0, -0.998447, 0, 0.0557169, 111.59, -5.12942, -44.4483)
 size = Vector3(18.3457, 0.149239, 0.960644)
 
+[node name="CSGBox3D17" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(0.0169812, 0, 0.999856, 0, 1, 0, -0.999856, 0, 0.0169812, 111.313, -5.12942, -152.333)
+size = Vector3(30.6689, 0.149239, 5.86565)
+
 [node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_gvil7")]
 transform = Transform3D(-0.0328062, 0, -0.999462, 0, 1, 0, 0.999462, 0, -0.0328062, 39.477, -9.76303, -36.3851)
 player = NodePath("../player")
@@ -160,21 +180,39 @@ respawn_location = NodePath("Node3D")
 [node name="Node3D" type="Node3D" parent="EmancipationGrid/checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09845, 0)
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." node_paths=PackedStringArray("player")]
+[node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.204, -3.8128, -93.0229)
-script = ExtResource("5_h5et7")
-player = NodePath("../player")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("5_h5et7")
+player = NodePath("../../player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/AnimatableBody3D"]
 shape = SubResource("BoxShape3D_s0cb7")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/AnimatableBody3D"]
 mesh = SubResource("BoxMesh_erxpi")
 
-[node name="Area3D" type="Area3D" parent="AnimatableBody3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+visible = false
+mesh = SubResource("BoxMesh_erxpi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D/Area3D"]
+[node name="Area3D" type="Area3D" parent="Node3D/AnimatableBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/AnimatableBody3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.292755, -0.555847)
 shape = SubResource("BoxShape3D_jlpek")
 
-[connection signal="body_entered" from="AnimatableBody3D/Area3D" to="AnimatableBody3D" method="_on_area_3d_body_entered"]
+[node name="EmancipationGrid2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_gvil7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.215, -2.42685, -69.897)
+player = NodePath("../player")
+
+[node name="checkpoint" parent="EmancipationGrid2" node_paths=PackedStringArray("player", "respawn_location") instance=ExtResource("4_du13t")]
+player = NodePath("../../player")
+respawn_location = NodePath("Node3D")
+
+[node name="Node3D" type="Node3D" parent="EmancipationGrid2/checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.803857, -0.260712)
+
+[connection signal="body_entered" from="Node3D/AnimatableBody3D/Area3D" to="Node3D/AnimatableBody3D" method="_on_area_3d_body_entered"]
