@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw7udw55suwgp"]
+
+[ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="1_0b3wp"]
+[ext_resource type="Material" uid="uid://cys8n0adb33n6" path="res://materials/wire_off.tres" id="2_wykaj"]
+
+[node name="FinalLightCharles" type="Node3D"]
+
+[node name="bulb" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("2_wykaj")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="bulb"]
+transform = Transform3D(-1, 7.9232e-08, -3.69464e-08, -8.74228e-08, -0.906308, 0.422618, 0, 0.422618, 0.906308, 6.03595e-08, -0.790709, 0.349215)
+radius = 0.15
+height = 0.176876
+sides = 5
+
+[node name="spot" type="Node3D" parent="."]
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 3.8147e-06, -0.937274, 0.420974)
+spot_range = 20.0
+spot_attenuation = 0.176777
+spot_angle = 10.0
+spot_angle_attenuation = 0.116629
+
+[node name="base" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0210966, -0.207302)
+material_override = ExtResource("1_0b3wp")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="base"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0.690432, 0.5)
+radius = 0.2
+height = 0.5
+sides = 5
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="base"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0.751134, 0.525859)
+operation = 2
+radius = 0.15
+height = 0.4
+sides = 5
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="base"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0.265476, 0.281859)
+radius = 0.05
+height = 0.5
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="base"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0673951, -0.0298647)
+radius = 0.05
+height = 0.5

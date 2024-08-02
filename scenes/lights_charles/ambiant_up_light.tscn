@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw7udw55suwgp"]
+[gd_scene load_steps=2 format=3 uid="uid://cloo5oica10tn"]
 
-[ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="1_0b3wp"]
+[ext_resource type="Material" uid="uid://d4cxa60yuipsj" path="res://materials/metallic.tres" id="1_rbmgv"]
 
 [node name="AmbiantUpLight" type="Node3D"]
 
 [node name="base" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0397724, -0.15525)
-material_override = ExtResource("1_0b3wp")
+material_override = ExtResource("1_rbmgv")
+use_collision = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="base"]
 transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0.690432, 0.5)
@@ -35,6 +36,7 @@ height = 0.5
 
 [node name="SpotLight3D" type="SpotLight3D" parent="spot"]
 transform = Transform3D(1, 0, 0, 0, -0.422618, -0.906308, 0, 0.906308, -0.422618, 0, 0.770333, 0.411591)
+layers = 64
 light_color = Color(0.784314, 1, 1, 1)
 spot_range = 20.0
 spot_angle = 65.0

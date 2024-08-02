@@ -9,7 +9,7 @@ var pressing = false
 @onready var mat_on = load("res://materials/wire_on.tres")
 @onready var lever = $Lever
 
-var animation_speed = 3
+var animation_speed = 2
 
 func _ready():
 	for light in lights.get_children():
