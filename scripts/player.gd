@@ -31,6 +31,8 @@ var _total_pitch = 0.0
 
 @onready var jump_bar = $HUD/jump_bar
 
+@onready var speed_meter_label = $HUD/speed_meter
+
 @onready var reticule = $HUD/Reticle
 @onready var camera_items = $cam_helper/Camera3D/camera_items/InteractRay
 
@@ -72,7 +74,11 @@ func set_number_of_shots(n):
 		antimatter_shotgun.number_of_shots = n
 
 func _ready():
+	floor_max_angle = deg_to_rad(60.0)
+	floor_constant_speed = false
 	
+	floor_snap_length = 0.2
+
 	var pos = PlayerPositionSingleton.player_position
 	if pos != Vector3.INF:
 		global_position = pos
@@ -134,21 +140,39 @@ func _update_movement(delta):
 	
 	var multiplier = friction_ground if is_on_floor() else friction_air
 	
-	if direction:
-		
-		velocity.x += multiplier * ACCEL * delta*direction.x
-		velocity.z += multiplier * ACCEL * delta*direction.z
-		
+	var plan_velo = Vector2(velocity.x, velocity.z)
+	var plan_speed = plan_velo.length()
+
+	var dontcorrect = false
+	
 	var norm = velocity.normalized()
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, ACCEL * delta * abs(norm.x))
 		velocity.z = move_toward(velocity.z, 0, ACCEL * delta * abs(norm.z))
+	
+	if direction:
+
+		velocity.x += multiplier * ACCEL * delta*direction.x
+		velocity.z += multiplier * ACCEL * delta*direction.z
+		var plan_speed2 = Vector2(velocity.x, velocity.z).length()
+		if plan_speed2 >= SPEED && plan_speed2 >= plan_speed:
+			velocity.x = velocity.x * plan_speed / plan_speed2
+			velocity.z = velocity.z * plan_speed / plan_speed2
+			if is_on_floor():
+				velocity *= 0.997
+		else:
+			dontcorrect = true
+	
+	var plan_speed3 = Vector2(velocity.x, velocity.z).length()
+	if (plan_speed3 < SPEED and SPEED - 0.8 < plan_speed3 and direction 
+		and not dontcorrect):
+		velocity.x = velocity.x * SPEED / plan_speed3
+		velocity.z = velocity.z * SPEED / plan_speed3
 		
-	var plan_velo = Vector2(velocity.x, velocity.z)
-	var plan_speed = plan_velo.length()
-	if plan_speed > SPEED:
-		velocity.x = velocity.x * SPEED / plan_speed
-		velocity.z = velocity.z * SPEED / plan_speed
+	speed_meter_label.text = str(snapped(Vector2(velocity.x, velocity.z).length(), 0.1))
+	#if plan_speed > SPEED:
+		#velocity.x = velocity.x * SPEED / plan_speed
+		#velocity.z = velocity.z * SPEED / plan_speed
 	var speed = velocity.length()
 	if speed > MAX_SPEED:
 		velocity = velocity / speed * MAX_SPEED
