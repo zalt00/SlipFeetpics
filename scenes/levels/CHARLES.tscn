@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_36ru8"]
 [ext_resource type="PackedScene" uid="uid://yo3vtjafi7si" path="res://scenes/lights_charles/light_depart.tscn" id="3_6wenu"]
 [ext_resource type="PackedScene" uid="uid://8jvacyrdv33w" path="res://scenes/switch_charles.tscn" id="4_bsnqf"]
-[ext_resource type="PackedScene" uid="uid://dw7udw55suwgp" path="res://scenes/lights_charles/final_light_charles.tscn" id="5_0o6im"]
+[ext_resource type="PackedScene" uid="uid://dw7udw55suwgp" path="res://scenes/lights_charles/final_light_charles_up.tscn" id="5_0o6im"]
 [ext_resource type="PackedScene" uid="uid://cloo5oica10tn" path="res://scenes/lights_charles/ambiant_up_light.tscn" id="6_1frak"]
 
 [sub_resource type="Environment" id="Environment_y2qll"]
@@ -17,13 +17,13 @@ material_override = ExtResource("1_takb0")
 use_collision = true
 
 [node name="contenant" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06213, 10.8148, -2.98808)
-size = Vector3(35.0371, 20.1249, 44.7582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06213, 13.5201, 15.9605)
+size = Vector3(47.3584, 25.5356, 72.7174)
 
 [node name="premiertrou" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 9.43495, 2.18449)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 9.43495, -0.751761)
 operation = 2
-size = Vector3(21.085, 16.6898, 19.71)
+size = Vector3(21.085, 16.6898, 13.8375)
 
 [node name="plateformeprincipal" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 1.84909, -2.38258)
@@ -32,10 +32,6 @@ size = Vector3(2.57983, 1.51807, 3.57129)
 [node name="sol principal" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0839577, 1.85483, 5.71459)
 size = Vector3(21.0385, 1.50659, 12.6161)
-
-[node name="grandmur2" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0824316, 8.68131, 7.04373)
-size = Vector3(9.87448, 12.1304, 0.001)
 
 [node name="deuxiemetrou" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0122644, 4.52232, -13.9331)
@@ -48,18 +44,18 @@ operation = 2
 size = Vector3(3.51367, 2.82959, 4.91779)
 
 [node name="grandmur" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0921974, 8.51468, 2.0917)
-size = Vector3(21.0586, 11.7971, 0.001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0921974, 8.51468, 6.01622)
+size = Vector3(21.0586, 11.7971, 0.238293)
 
-[node name="trougauche" type="CSGBox3D" parent="unbreakable/grandmur"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -4.662, 0)
+[node name="troudroit" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0613186, 3.85268, 5.99614)
 operation = 2
-size = Vector3(1.75293, 2.41217, 0.001)
+size = Vector3(1.75293, 2.41217, 0.379031)
 
-[node name="troudroit" type="CSGBox3D" parent="unbreakable/grandmur"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -4.662, 0)
+[node name="grandmur2" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0921974, 10.9569, 18.8504)
 operation = 2
-size = Vector3(1.75293, 2.41217, 0.001)
+size = Vector3(41.585, 16.6816, 25.4181)
 
 [node name="breakable" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.89218)
@@ -67,7 +63,35 @@ use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9424, -3.68372)
+visible = false
 size = Vector3(21.0918, 1, 19.8102)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48621, 16.7025, -8.45233)
+radius = 0.780936
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48621, 16.7025, -8.45233)
+operation = 2
+radius = 0.632194
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00414217, 8.35866, -13.0134)
+radius = 0.780936
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00414217, 8.35866, -13.0134)
+operation = 2
+radius = 0.632194
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77444, 16.7025, -8.45233)
+radius = 0.780936
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77444, 16.7025, -8.45233)
+operation = 2
+radius = 0.694315
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_36ru8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654925, 3.60717, -0.0409098)
@@ -84,10 +108,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81462, 4.5047, -7.39335)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70212, 4.5047, -7.39335)
 
 [node name="AmbiantUpLight3" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.81462, 4.5047, 12.0245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81462, 4.5047, 6.43035)
 
 [node name="AmbiantUpLight4" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.70212, 4.5047, 12.0245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70212, 4.5047, 6.43035)
+
+[node name="AmbiantUpLight9" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.81462, 4.5047, 5.65993)
+
+[node name="AmbiantUpLight10" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.70212, 4.5047, 5.65993)
+
+[node name="AmbiantUpLight5" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
+transform = Transform3D(1, 0, 0, 0, 0.997087, -0.0762666, 0, 0.0762666, 0.997087, 5.69267, 13.0464, -7.21835)
+
+[node name="AmbiantUpLight6" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
+transform = Transform3D(1, 0, 0, 0, 0.997087, -0.0762666, 0, 0.0762666, 0.997087, -5.5333, 13.0464, -7.21835)
+
+[node name="AmbiantUpLight7" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
+transform = Transform3D(-4.37114e-08, -0.076719, -0.997053, 0, 0.997053, -0.076719, 1, -3.3535e-09, -4.35826e-08, 10.5147, 13.0464, -2.57708)
+
+[node name="AmbiantUpLight8" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
+transform = Transform3D(-4.37114e-08, 0.076719, 0.997053, 0, 0.997053, -0.076719, -1, -3.3535e-09, -4.35826e-08, -10.4324, 13.0464, -2.57708)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_y2qll")
@@ -104,6 +146,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20748, 1.89841, -2.43028)
 [node name="LightCharlesDepart2" parent="SysLights/SysLightsBas/WiredLightsBas" instance=ExtResource("3_6wenu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.36761, 1.89841, -2.43028)
 
+[node name="FinalLightCharles" parent="SysLights/SysLightsBas/WiredLightsBas" instance=ExtResource("5_0o6im")]
+transform = Transform3D(1, 0, 0, 0, 0.985277, 0.170966, 0, -0.170966, 0.985277, 0.0837367, 8.96516, -7.32845)
+
 [node name="SwitchLightBas" parent="SysLights/SysLightsBas" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.120569, 2.05972, -4.20911)
 lights = NodePath("../WiredLightsBas")
@@ -117,7 +162,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.7402
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.38879, 0)
 
 [node name="SwitchLightDroite" parent="SysLights/SysLightsDroite" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6448, 3.98709, 3.15301)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.50549, 3.98709, 1.06007)
 lights = NodePath("../WiredLightsDroite")
 
 [node name="SysLightsGauche" type="Node3D" parent="SysLights"]
@@ -128,5 +173,5 @@ lights = NodePath("../WiredLightsDroite")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.55905, 17.3888, -2.58004)
 
 [node name="SwitchLightGauche" parent="SysLights/SysLightsGauche" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.4286, 3.92675, 3.2446)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.29311, 3.92675, 0.79164)
 lights = NodePath("../WiredLightsGauche")
