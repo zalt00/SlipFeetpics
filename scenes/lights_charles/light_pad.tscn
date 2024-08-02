@@ -12,7 +12,9 @@ size = Vector3(1, 0.001, 1)
 
 [node name="spot" type="Node3D" parent="."]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="spot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.162459, 0)
-light_color = Color(1, 1, 0.407843, 1)
-omni_range = 9.722
+[node name="SpotLight3D" type="SpotLight3D" parent="spot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.69065, 0)
+light_energy = 2.0
+spot_range = 25.0
+spot_attenuation = 0.0796602
+spot_angle = 91.0

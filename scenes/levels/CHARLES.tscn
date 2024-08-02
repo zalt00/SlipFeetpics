@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://clft8rriwp70h"]
+[gd_scene load_steps=9 format=3 uid="uid://clft8rriwp70h"]
 
 [ext_resource type="Material" path="res://materials/unbreakable.tres" id="1_takb0"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_36ru8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8jvacyrdv33w" path="res://scenes/switch_charles.tscn" id="4_bsnqf"]
 [ext_resource type="PackedScene" uid="uid://dw7udw55suwgp" path="res://scenes/lights_charles/final_light_charles_up.tscn" id="5_0o6im"]
 [ext_resource type="PackedScene" uid="uid://cloo5oica10tn" path="res://scenes/lights_charles/ambiant_up_light.tscn" id="6_1frak"]
+[ext_resource type="PackedScene" uid="uid://dj536pjn2am8v" path="res://scenes/lights_charles/light_pad.tscn" id="7_ojj11"]
 
 [sub_resource type="Environment" id="Environment_y2qll"]
 
@@ -94,7 +95,7 @@ operation = 2
 radius = 0.694315
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_36ru8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654925, 3.60717, -0.0409098)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0423822, 3.60717, -0.0409098)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
 jump_speed = [5.0, 5.8, 7.3, 10.0, 15.0]
@@ -175,3 +176,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.559
 [node name="SwitchLightGauche" parent="SysLights/SysLightsGauche" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.29311, 3.92675, 0.79164)
 lights = NodePath("../WiredLightsGauche")
+
+[node name="LightPad" parent="." instance=ExtResource("7_ojj11")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 20.8677, 11, 18.001)
