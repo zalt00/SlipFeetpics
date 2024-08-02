@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr7jdcgdcdfv7"]
+[gd_scene load_steps=8 format=3 uid="uid://cr7jdcgdcdfv7"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_mlchi"]
 [ext_resource type="Material" path="res://materials/breakable.tres" id="2_wklfh"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_ubxtq"]
+[ext_resource type="PackedScene" uid="uid://8jvacyrdv33w" path="res://scenes/switch_charles.tscn" id="4_af3ia"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fsti3"]
 sky_top_color = Color(0, 0.505882, 0.6, 1)
@@ -24,6 +25,7 @@ environment = SubResource("Environment_iqteu")
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("1_mlchi")]
 breakable = NodePath("../CSGCombiner3D")
+number_of_shots = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.906757, 0.357215, -0.224028, -0.13921, 0.755136, 0.640617, 0.39801, -0.549698, 0.734453, 0, 0, 2.96333)
@@ -35,8 +37,8 @@ material_override = ExtResource("2_wklfh")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.711, 0)
-size = Vector3(100, 0.423, 100)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22699, -1.711, -2.45428)
+size = Vector3(68.7225, 0.423, 26.5824)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80444, 0.29817, -3.3292)
@@ -87,8 +89,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06887, 0.29817, -23.5744)
 size = Vector3(4.60889, 3.8905, 3.34839)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.269, 7.17722, -35.2571)
-size = Vector3(8.20862, 17.6486, 5.47058)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.269, -6.35765, -35.2571)
+size = Vector3(8.20862, 44.7183, 5.47058)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.269, -7.39112, -40.1139)
+size = Vector3(8.20862, 0.417948, 5.47058)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.269, -12.3997, -52.4571)
+size = Vector3(8.20862, 10.4351, 4.34967)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.483, -1.84174, -20.2479)
@@ -105,6 +115,17 @@ light_energy = 1.37
 shadow_enabled = true
 omni_range = 34.0664
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55749, -5.25862, -41.3956)
+light_color = Color(1, 0.133333, 1, 1)
+light_energy = 1.37
+shadow_enabled = true
+omni_range = 34.0664
+
 [node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_ubxtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44794, -1.28864, -28.7357)
 player = NodePath("../player")
+
+[node name="SwitchCharles" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("4_af3ia")]
+transform = Transform3D(0.999818, -0.017051, 0.00856822, 0.0170504, 0.999855, 0.000146118, -0.00856946, 0, 0.999963, 0, -2.42849, -54.0919)
+lights = NodePath("../OmniLight3D")
