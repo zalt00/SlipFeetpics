@@ -16,78 +16,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.99903)
 material_override = ExtResource("1_takb0")
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06213, 7.17514, -2.98808)
-size = Vector3(11.9633, 12.8455, 44.7582)
+[node name="contenant" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06213, 10.8148, -2.98808)
+size = Vector3(35.0371, 20.1249, 44.7582)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 7.07837, 2.18449)
+[node name="premiertrou" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 9.43495, 2.18449)
 operation = 2
-size = Vector3(11.6621, 11.9766, 19.71)
+size = Vector3(21.085, 16.6898, 19.71)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="unbreakable"]
+[node name="plateformeprincipal" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 1.84909, -2.38258)
 size = Vector3(2.57983, 1.51807, 3.57129)
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824318, 1.84909, 5.73798)
-size = Vector3(11.717, 1.51807, 12.6686)
+[node name="sol principal" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0839577, 1.85483, 5.71459)
+size = Vector3(21.0385, 1.50659, 12.6161)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="unbreakable"]
+[node name="grandmur2" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0824316, 8.68131, 7.04373)
+size = Vector3(9.87448, 12.1304, 0.001)
+
+[node name="deuxiemetrou" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0122644, 4.52232, -13.9331)
+operation = 2
+size = Vector3(7.12012, 7.07422, 5.93324)
+
+[node name="troucouloir" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0122644, 5.94663, -10.1128)
 operation = 2
 size = Vector3(3.51367, 2.82959, 4.91779)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0122644, 4.52232, -13.9331)
+[node name="grandmur" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0921974, 8.51468, 2.0917)
+size = Vector3(21.0586, 11.7971, 0.001)
+
+[node name="trougauche" type="CSGBox3D" parent="unbreakable/grandmur"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -4.662, 0)
 operation = 2
-size = Vector3(7.12012, 7.07422, 5.93324)
+size = Vector3(1.75293, 2.41217, 0.001)
+
+[node name="troudroit" type="CSGBox3D" parent="unbreakable/grandmur"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -4.662, 0)
+operation = 2
+size = Vector3(1.75293, 2.41217, 0.001)
 
 [node name="breakable" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.89218)
 use_collision = true
 
+[node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9424, -3.68372)
+size = Vector3(21.0918, 1, 19.8102)
+
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_36ru8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.128099, 3.60717, 5.01863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654925, 3.60717, -0.0409098)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
 jump_speed = [5.0, 5.8, 7.3, 10.0, 15.0]
-
-[node name="SysLightsBas" type="Node3D" parent="."]
-
-[node name="WiredLightsBas" type="Node3D" parent="SysLightsBas"]
-
-[node name="LightCharlesDepart" parent="SysLightsBas/WiredLightsBas" instance=ExtResource("3_6wenu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20748, 1.89841, -2.43028)
-
-[node name="LightCharlesDepart2" parent="SysLightsBas/WiredLightsBas" instance=ExtResource("3_6wenu")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.36761, 1.89841, -2.43028)
-
-[node name="SwitchLightBas" parent="SysLightsBas" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.71354, 2.15044, -4.54664)
-lights = NodePath("../WiredLightsBas")
-
-[node name="SysLightsDroite" type="Node3D" parent="."]
-
-[node name="WiredLightsDroite" type="Node3D" parent="SysLightsDroite"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.74028, 12, -2.58004)
-
-[node name="FinalLightDroite" parent="SysLightsDroite/WiredLightsDroite" instance=ExtResource("5_0o6im")]
-
-[node name="SwitchLightDroite" parent="SysLightsDroite" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.90936, 3.98709, 0.93075)
-lights = NodePath("../WiredLightsDroite")
-
-[node name="SysLightsGauche" type="Node3D" parent="."]
-
-[node name="WiredLightsGauche" type="Node3D" parent="SysLightsGauche"]
-
-[node name="FinalLightGauche" parent="SysLightsGauche/WiredLightsGauche" instance=ExtResource("5_0o6im")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.55905, 12, -2.58004)
-
-[node name="SwitchLightGauche" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.70385, 3.92675, 1.00277)
-lights = NodePath("../SysLightsGauche/WiredLightsGauche")
 
 [node name="AmbiantLigths" type="Node3D" parent="."]
 
@@ -105,3 +91,42 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.7021
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_y2qll")
+
+[node name="SysLights" type="Node3D" parent="."]
+
+[node name="SysLightsBas" type="Node3D" parent="SysLights"]
+
+[node name="WiredLightsBas" type="Node3D" parent="SysLights/SysLightsBas"]
+
+[node name="LightCharlesDepart" parent="SysLights/SysLightsBas/WiredLightsBas" instance=ExtResource("3_6wenu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20748, 1.89841, -2.43028)
+
+[node name="LightCharlesDepart2" parent="SysLights/SysLightsBas/WiredLightsBas" instance=ExtResource("3_6wenu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.36761, 1.89841, -2.43028)
+
+[node name="SwitchLightBas" parent="SysLights/SysLightsBas" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.120569, 2.05972, -4.20911)
+lights = NodePath("../WiredLightsBas")
+
+[node name="SysLightsDroite" type="Node3D" parent="SysLights"]
+
+[node name="WiredLightsDroite" type="Node3D" parent="SysLights/SysLightsDroite"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.74028, 12, -2.58004)
+
+[node name="FinalLightDroite" parent="SysLights/SysLightsDroite/WiredLightsDroite" instance=ExtResource("5_0o6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.38879, 0)
+
+[node name="SwitchLightDroite" parent="SysLights/SysLightsDroite" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6448, 3.98709, 3.15301)
+lights = NodePath("../WiredLightsDroite")
+
+[node name="SysLightsGauche" type="Node3D" parent="SysLights"]
+
+[node name="WiredLightsGauche" type="Node3D" parent="SysLights/SysLightsGauche"]
+
+[node name="FinalLightGauche" parent="SysLights/SysLightsGauche/WiredLightsGauche" instance=ExtResource("5_0o6im")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.55905, 17.3888, -2.58004)
+
+[node name="SwitchLightGauche" parent="SysLights/SysLightsGauche" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.4286, 3.92675, 3.2446)
+lights = NodePath("../WiredLightsGauche")
