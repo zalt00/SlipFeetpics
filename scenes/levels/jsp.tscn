@@ -56,6 +56,10 @@ size = Vector3(3.34184, 13.2252, 3.90369)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.5308, -9.72661, -35.7008)
 size = Vector3(20.2414, 13.2252, 3.90369)
 
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.249, -6.55311, -54.3944)
+size = Vector3(0.692419, 6.87824, 25.6018)
+
 [node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6924, -10.0532, -36.6674)
 size = Vector3(8.36174, 0.149239, 7.93768)
@@ -112,8 +116,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.3626, -14.0948, -36.008)
 size = Vector3(8.36174, 0.149239, 0.960644)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.9878, -5.12942, -35.6606)
-size = Vector3(6.8005, 0.149239, 0.960644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.76, -5.12942, -35.6606)
+size = Vector3(18.3457, 0.149239, 0.960644)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(0.0557169, 0, 0.998447, 0, 1, 0, -0.998447, 0, 0.0557169, 111.59, -5.12942, -44.4483)
+size = Vector3(18.3457, 0.149239, 0.960644)
 
 [node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_gvil7")]
 transform = Transform3D(-0.0328062, 0, -0.999462, 0, 1, 0, 0.999462, 0, -0.0328062, 39.477, -9.76303, -36.3851)
