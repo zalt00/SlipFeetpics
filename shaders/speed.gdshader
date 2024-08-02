@@ -1,7 +1,8 @@
 shader_type spatial;
-
+render_mode unshaded, shadows_disabled;
 uniform float speedScale = 16.0;
-uniform float clipPosition = 0.2;
+uniform float clipPosition = 0.3;
+uniform float alpha = 1.0;
 
 float random (vec2 uv) {
     return fract(sin(dot(uv.xy,
@@ -11,7 +12,7 @@ float random (vec2 uv) {
 void fragment() {
 	ALPHA = 0.0;
 	
-	vec2 pos = UV - vec2(0.5);
+	vec2 pos = SCREEN_UV - vec2(0.5);
 	float theta = round(64.0 * atan(pos.y, pos.x));
 	float dist = sqrt(pow(pos.x, 2) + pow(pos.y, 2));
 	
@@ -19,5 +20,7 @@ void fragment() {
 	if (dist > clipPosition + random(vec2(theta)) * 0.3 && random(vec2(theta, distValue)) < 0.02) {
 		ALPHA = 1.0;
 	}
-	ALPHA = clipPosition + random(vec2(theta)) * 0.3 * random(vec2(theta, distValue));
+	ALBEDO = vec3(1.0, 1.0, 1.0);
+	float m = step(clipPosition, length(pos)) * (length(pos)-clipPosition);
+	ALPHA = random(vec2(theta)) * 0.3 * random(vec2(theta, distValue)) * m * alpha;
 }

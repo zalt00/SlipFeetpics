@@ -12,6 +12,7 @@ var number_of_shots
 @onready var unbreakable_normal = preload("res://materials/unbreakable.tres")
 @onready var unbreakable_colored = preload("res://materials/unbreakable_colored.tres")
 
+@onready var quoiquoushader := $"quad de shader2"
 var copies = []
 
 func _ready():

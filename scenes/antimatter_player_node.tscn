@@ -19,7 +19,8 @@ shader_parameter/truc = false
 render_priority = 0
 shader = ExtResource("3_rc1rs")
 shader_parameter/speedScale = 16.0
-shader_parameter/clipPosition = 0.1
+shader_parameter/clipPosition = 0.3
+shader_parameter/alpha = 1.0
 
 [node name="AntimatterPlayer" type="Node3D" node_paths=PackedStringArray("projectile")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

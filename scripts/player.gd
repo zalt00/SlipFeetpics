@@ -104,10 +104,6 @@ func _update_movement(delta):
 		var multiplier = 1.0 if velocity.y > 0 else 1.8
 		
 		velocity.y -= gravity * delta * multiplier * gravity_multiplier # * (1.0 - illum_level) * 1.6
-	
-	
-	
-	
 	var pallier = 0
 	while illum_level > palliers[pallier]:
 		pallier += 1
@@ -169,8 +165,23 @@ func _update_movement(delta):
 		and not dontcorrect):
 		velocity.x = velocity.x * SPEED / plan_speed3
 		velocity.z = velocity.z * SPEED / plan_speed3
+	var final_speed = Vector2(velocity.x, velocity.z).length()	
+	speed_meter_label.text = str(snapped(final_speed, 0.1))
+	var effect_intensity = final_speed / 30.0;
+	if final_speed > 8.0:
+		effect_intensity = max(effect_intensity, 0.5)
+	var alpha
+	if final_speed >=15.0:
+		alpha = 1.0
+	else:
+		alpha = final_speed / 15.0
 		
-	speed_meter_label.text = str(snapped(Vector2(velocity.x, velocity.z).length(), 0.1))
+	antimatter_shotgun.quoiquoushader.material_override.set_shader_parameter(
+		"clipPosition", 1.0-effect_intensity)
+	antimatter_shotgun.quoiquoushader.material_override.set_shader_parameter(
+		"alpha", alpha)
+	
+	
 	#if plan_speed > SPEED:
 		#velocity.x = velocity.x * SPEED / plan_speed
 		#velocity.z = velocity.z * SPEED / plan_speed
