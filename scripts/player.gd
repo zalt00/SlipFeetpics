@@ -105,7 +105,7 @@ func _update_movement(delta):
 	while illum_level > palliers[pallier]:
 		pallier += 1
 
-	
+	$HUD/jump_bar.change_fill_level(pallier)
 	$HUD/pallier_label.text = str(pallier)
 	
 	var new_speed = move_speed[pallier]

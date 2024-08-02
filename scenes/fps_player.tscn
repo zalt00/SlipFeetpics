@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=24 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
@@ -10,10 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="8_aemiu"]
 [ext_resource type="Texture2D" uid="uid://bixqn5tvwua8v" path="res://images/ret.png" id="8_m8wlf"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="9_fmnkt"]
+[ext_resource type="Texture2D" uid="uid://cpjrk86v55hoy" path="res://images/04.jpg" id="10_2gow3"]
 [ext_resource type="Script" path="res://scripts/bar.gd" id="11_d40eg"]
-[ext_resource type="Texture2D" uid="uid://c43a13sg7pin1" path="res://images/1on3.jpg" id="12_6juyx"]
-[ext_resource type="Texture2D" uid="uid://8414arp0sc0l" path="res://images/2on3.jpg" id="13_xa5mh"]
-[ext_resource type="Texture2D" uid="uid://dvwcxba2ejx16" path="res://images/fill.jpg" id="14_704fg"]
+[ext_resource type="Texture2D" uid="uid://c6uyc0egk321t" path="res://images/14.jpg" id="11_foyfd"]
+[ext_resource type="Texture2D" uid="uid://u5qk11tmmaph" path="res://images/24.jpg" id="12_xhm1w"]
+[ext_resource type="Texture2D" uid="uid://06kf3i3up0id" path="res://images/34.jpg" id="13_0m08h"]
+[ext_resource type="Texture2D" uid="uid://cm744kbjvxe01" path="res://images/44.jpg" id="14_h3hov"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
 size = Vector3(0.1, 1.8, 0.1)
@@ -100,6 +102,7 @@ offset_right = 1920.0
 offset_bottom = 1081.0
 
 [node name="BarHealth" type="ProgressBar" parent="HUD"]
+visible = false
 layout_mode = 1
 offset_left = 10.0
 offset_top = 10.0
@@ -109,6 +112,7 @@ theme = ExtResource("5_we0pa")
 value = 50.0
 
 [node name="IlluminationLevel" type="ProgressBar" parent="HUD"]
+visible = false
 layout_mode = 1
 offset_left = 10.0
 offset_top = 50.0
@@ -152,12 +156,15 @@ texture = SubResource("ViewportTexture_xti1f")
 
 [node name="jump_bar" type="TextureRect" parent="HUD"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
 script = ExtResource("11_d40eg")
-textures = Array[CompressedTexture2D]([ExtResource("12_6juyx"), ExtResource("13_xa5mh"), ExtResource("14_704fg")])
+textures = Array[CompressedTexture2D]([ExtResource("10_2gow3"), ExtResource("11_foyfd"), ExtResource("12_xhm1w"), ExtResource("13_0m08h"), ExtResource("14_h3hov")])
 
 [node name="pallier_label" type="Label" parent="HUD"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
