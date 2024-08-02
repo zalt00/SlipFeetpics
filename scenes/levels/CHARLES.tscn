@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://clft8rriwp70h"]
 
-[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_c6ihu"]
-[ext_resource type="Material" path="res://materials/unbreakable.tres" id="1_dx1tu"]
-[ext_resource type="PackedScene" uid="uid://8jvacyrdv33w" path="res://scenes/switch_charles.tscn" id="2_4gawr"]
-[ext_resource type="PackedScene" uid="uid://yo3vtjafi7si" path="res://scenes/lights_charles/light_depart.tscn" id="5_a2lm4"]
-[ext_resource type="PackedScene" uid="uid://dw7udw55suwgp" path="res://scenes/lights_charles/final_light_charles.tscn" id="6_wiqo0"]
-[ext_resource type="PackedScene" uid="uid://cloo5oica10tn" path="res://scenes/lights_charles/ambiant_up_light.tscn" id="7_rnply"]
+[ext_resource type="Material" path="res://materials/unbreakable.tres" id="1_takb0"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_36ru8"]
+[ext_resource type="PackedScene" uid="uid://yo3vtjafi7si" path="res://scenes/lights_charles/light_depart.tscn" id="3_6wenu"]
+[ext_resource type="PackedScene" uid="uid://8jvacyrdv33w" path="res://scenes/switch_charles.tscn" id="4_bsnqf"]
+[ext_resource type="PackedScene" uid="uid://dw7udw55suwgp" path="res://scenes/lights_charles/final_light_charles.tscn" id="5_0o6im"]
+[ext_resource type="PackedScene" uid="uid://cloo5oica10tn" path="res://scenes/lights_charles/ambiant_up_light.tscn" id="6_1frak"]
 
 [sub_resource type="Environment" id="Environment_y2qll"]
 
@@ -13,7 +13,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.99903)
 
 [node name="unbreakable" type="CSGCombiner3D" parent="." groups=["unbreakable"]]
-material_override = ExtResource("1_dx1tu")
+material_override = ExtResource("1_takb0")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="unbreakable"]
@@ -47,7 +47,7 @@ size = Vector3(7.12012, 7.07422, 5.93324)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.89218)
 use_collision = true
 
-[node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_c6ihu")]
+[node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_36ru8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.128099, 3.60717, 5.01863)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
@@ -57,13 +57,13 @@ jump_speed = [5.0, 5.8, 7.3, 10.0, 15.0]
 
 [node name="WiredLightsBas" type="Node3D" parent="SysLightsBas"]
 
-[node name="LightCharlesDepart" parent="SysLightsBas/WiredLightsBas" instance=ExtResource("5_a2lm4")]
+[node name="LightCharlesDepart" parent="SysLightsBas/WiredLightsBas" instance=ExtResource("3_6wenu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20748, 1.89841, -2.43028)
 
-[node name="LightCharlesDepart2" parent="SysLightsBas/WiredLightsBas" instance=ExtResource("5_a2lm4")]
+[node name="LightCharlesDepart2" parent="SysLightsBas/WiredLightsBas" instance=ExtResource("3_6wenu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.36761, 1.89841, -2.43028)
 
-[node name="SwitchLightBas" parent="SysLightsBas" node_paths=PackedStringArray("lights") instance=ExtResource("2_4gawr")]
+[node name="SwitchLightBas" parent="SysLightsBas" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.71354, 2.15044, -4.54664)
 lights = NodePath("../WiredLightsBas")
 
@@ -72,9 +72,9 @@ lights = NodePath("../WiredLightsBas")
 [node name="WiredLightsDroite" type="Node3D" parent="SysLightsDroite"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.74028, 12, -2.58004)
 
-[node name="FinalLightDroite" parent="SysLightsDroite/WiredLightsDroite" instance=ExtResource("6_wiqo0")]
+[node name="FinalLightDroite" parent="SysLightsDroite/WiredLightsDroite" instance=ExtResource("5_0o6im")]
 
-[node name="SwitchLightDroite" parent="SysLightsDroite" node_paths=PackedStringArray("lights") instance=ExtResource("2_4gawr")]
+[node name="SwitchLightDroite" parent="SysLightsDroite" node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.90936, 3.98709, 0.93075)
 lights = NodePath("../WiredLightsDroite")
 
@@ -82,25 +82,25 @@ lights = NodePath("../WiredLightsDroite")
 
 [node name="WiredLightsGauche" type="Node3D" parent="SysLightsGauche"]
 
-[node name="FinalLightGauche" parent="SysLightsGauche/WiredLightsGauche" instance=ExtResource("6_wiqo0")]
+[node name="FinalLightGauche" parent="SysLightsGauche/WiredLightsGauche" instance=ExtResource("5_0o6im")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.55905, 12, -2.58004)
 
-[node name="SwitchLightGauche" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("2_4gawr")]
+[node name="SwitchLightGauche" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("4_bsnqf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.70385, 3.92675, 1.00277)
 lights = NodePath("../SysLightsGauche/WiredLightsGauche")
 
 [node name="AmbiantLigths" type="Node3D" parent="."]
 
-[node name="AmbiantUpLight" parent="AmbiantLigths" instance=ExtResource("7_rnply")]
+[node name="AmbiantUpLight" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81462, 4.5047, -7.39335)
 
-[node name="AmbiantUpLight2" parent="AmbiantLigths" instance=ExtResource("7_rnply")]
+[node name="AmbiantUpLight2" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70212, 4.5047, -7.39335)
 
-[node name="AmbiantUpLight3" parent="AmbiantLigths" instance=ExtResource("7_rnply")]
+[node name="AmbiantUpLight3" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.81462, 4.5047, 12.0245)
 
-[node name="AmbiantUpLight4" parent="AmbiantLigths" instance=ExtResource("7_rnply")]
+[node name="AmbiantUpLight4" parent="AmbiantLigths" instance=ExtResource("6_1frak")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.70212, 4.5047, 12.0245)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
