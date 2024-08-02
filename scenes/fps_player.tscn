@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=25 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
@@ -35,6 +35,10 @@ viewport_path = NodePath("SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_svboh"]
 font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_478fi"]
+line_spacing = 50.0
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_lebje"]
 font_size = 25
@@ -169,6 +173,14 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_svboh")
+
+[node name="speed_meter" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 100.0
+offset_right = 70.0
+offset_bottom = 155.0
+label_settings = SubResource("LabelSettings_478fi")
 
 [node name="Echap" parent="." instance=ExtResource("8_aemiu")]
 anchors_preset = 0

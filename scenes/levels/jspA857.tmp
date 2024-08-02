@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck3sx3j6h1f1j"]
+[gd_scene load_steps=8 format=3 uid="uid://ck3sx3j6h1f1j"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_g446a"]
 [ext_resource type="Material" path="res://materials/breakable.tres" id="2_udstr"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_gvil7"]
 [ext_resource type="PackedScene" uid="uid://b14abfo1cgk2y" path="res://scenes/checkpoint.tscn" id="4_du13t"]
-[ext_resource type="Script" path="res://scripts/AnimatableBody3D.gd" id="5_h5et7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lhuk6"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -19,21 +18,13 @@ sky_material = SubResource("ProceduralSkyMaterial_lhuk6")
 background_mode = 2
 sky = SubResource("Sky_salpv")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_s0cb7"]
-size = Vector3(17.0902, 1, 21.1802)
-
-[sub_resource type="BoxMesh" id="BoxMesh_erxpi"]
-size = Vector3(17.0902, 1, 21.1802)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jlpek"]
-size = Vector3(17.0902, 1.58551, 20.0685)
-
 [node name="Jsp" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kidyq")
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_g446a")]
+MAX_SPEED = 20.0
 breakable = NodePath("../CSGCombiner3D")
 unbreakable = NodePath("../unbreakable")
 number_of_shots = 15
@@ -159,22 +150,3 @@ respawn_location = NodePath("Node3D")
 
 [node name="Node3D" type="Node3D" parent="EmancipationGrid/checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09845, 0)
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.204, -3.8128, -93.0229)
-script = ExtResource("5_h5et7")
-player = NodePath("../player")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
-shape = SubResource("BoxShape3D_s0cb7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D"]
-mesh = SubResource("BoxMesh_erxpi")
-
-[node name="Area3D" type="Area3D" parent="AnimatableBody3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.292755, -0.555847)
-shape = SubResource("BoxShape3D_jlpek")
-
-[connection signal="body_entered" from="AnimatableBody3D/Area3D" to="AnimatableBody3D" method="_on_area_3d_body_entered"]
