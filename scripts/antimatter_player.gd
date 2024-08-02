@@ -40,11 +40,9 @@ func _process(delta):
 		
 func _input(event):
 	if Input.is_action_pressed("viser"):
-		#$"quad de shader".material_override.set_shader_parameter("truc", false)
 		previsu_meshi.show()
 		update_materials(unbreakable_colored)
 	elif Input.is_action_just_released("viser"):
-		#$"quad de shader".material_override.set_shader_parameter("truc", true)
 		previsu_meshi.hide()
 		update_materials(unbreakable_normal)
 		
