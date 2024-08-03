@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bu3m7xi04a3ow" path="res://images/ARRAOW.png" id="6_baqsy"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="7_ogdpm"]
 [ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="9_ojow2"]
-[ext_resource type="PackedScene" path="res://scenes/finish_gate.tscn" id="10_jjysl"]
+[ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="10_jjysl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lhuk6"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -168,10 +168,6 @@ size = Vector3(8.36174, 0.149239, 6.28574)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-0.119357, 0.992851, 0, -0.992851, -0.119357, 0, 0, 0, 1, 50.027, -10.0532, -36.3819)
-size = Vector3(8.36174, 0.149239, 6.28574)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56401, 0, 0)
 size = Vector3(8.36174, 0.149239, 6.28574)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]

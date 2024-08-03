@@ -4,11 +4,14 @@
 [ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_yb136"]
 [ext_resource type="Shader" path="res://shaders/speed.gdshader" id="3_rc1rs"]
 [ext_resource type="ArrayMesh" uid="uid://cq6q8g20r582t" path="res://obj/cortex2.obj" id="4_iu3xn"]
-[ext_resource type="Material" path="res://materials/unbreakable_colored.tres" id="4_txjfv"]
+[ext_resource type="Material" uid="uid://bhj8h6euvjxxq" path="res://materials/unbreakable_colored.tres" id="4_txjfv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkf07"]
 render_priority = 0
 shader = ExtResource("2_yb136")
+shader_parameter/edge_threshold = 0.3
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/background_color = Color(0.408, 0.969, 0.694, 1)
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
 shader_parameter/shadow_thickness = 2.0
 shader_parameter/truc = false
@@ -32,6 +35,7 @@ transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 0.0119474, 
 layers = 2
 material_override = SubResource("ShaderMaterial_pkf07")
 cast_shadow = 0
+extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_sywrr")
 
 [node name="quad de shader2" type="MeshInstance3D" parent="."]
