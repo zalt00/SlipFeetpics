@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpjsragdjuns"]
+[gd_scene load_steps=11 format=3 uid="uid://bpjsragdjuns"]
 
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="1_q4c36"]
 [ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_7h2lb"]
@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_ki51q"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_11csn"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="6_7s8gc"]
-[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="7_icy3u"]
+[ext_resource type="PackedScene" uid="uid://b14abfo1cgk2y" path="res://scenes/checkpoint.tscn" id="7_icy3u"]
 [ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="8_7wusg"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="9_ainjc"]
-[ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="10_8rlqo"]
-[ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="11_ge0t8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw6j1"]
 
 [node name="tutoriel" type="Node3D"]
 
@@ -37,14 +37,15 @@ size = Vector3(10, 3, 8)
 [node name="CSGBox3D3" type="CSGBox3D" parent="breakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -22.5)
 size = Vector3(27, 7, 8)
+material = SubResource("StandardMaterial3D_pw6j1")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="breakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4054, 17.5, -93.2378)
 size = Vector3(7, 6, 4)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9.5, -48)
-size = Vector3(7, 6, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9.5, -48.5)
+size = Vector3(7, 6, 4)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="breakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4054, 18.5, -110.497)
@@ -67,13 +68,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, -1)
 size = Vector3(46, 1, 47)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9, -48)
-size = Vector3(11, 9, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9, -48.5)
+size = Vector3(11, 9, 4)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9.5, -47.847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9.5, -50.3757)
 operation = 2
-size = Vector3(7, 6, 6.79919)
+size = Vector3(7, 6, 7.75146)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 16, -78.5)
@@ -142,7 +143,7 @@ already_on = true
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_11csn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7061, 16.3373, -123.238)
 player = NodePath("../player")
-rank_times = Array[float]([24.0, 0.0, 18.0])
+rank_times = Array[float]([24.0, 20.0, 16.0])
 
 [node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_7s8gc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 6.13941, -37.1793)
@@ -184,6 +185,3 @@ font_size = 72
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
 light_energy = 0.515
 shadow_enabled = true
-
-[node name="MusicUpdater" parent="." instance=ExtResource("10_8rlqo")]
-music = ExtResource("11_ge0t8")

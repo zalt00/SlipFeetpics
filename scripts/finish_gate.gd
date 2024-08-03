@@ -4,7 +4,7 @@ extends Node3D
 @export var player: CharacterBody3D
 @export var rank_times : Array[float]
 
-var ranks = ['C', 'B', 'A', 'S']
+var ranks = ['C', 'B', 'A', 'S', 'I Beat The Devs']
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$finish_screen.hide()
@@ -14,7 +14,7 @@ func _on_area_3d_body_entered(body):
 		PlayerPositionSingleton.level_ended = true
 		var time = floor(PlayerPositionSingleton.ellapsed / 10.) / 100.
 		var j = 0
-		for i in range(3):
+		for i in range(4):
 			if time < rank_times[j] :
 				j = i+1
 		
