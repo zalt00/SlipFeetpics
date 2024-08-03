@@ -8,6 +8,7 @@ var current_time : float
 
 @export var player : CharacterBody3D
 
+
 func _ready() -> void:
 	start_time = Time.get_ticks_msec() 
 

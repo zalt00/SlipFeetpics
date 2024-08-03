@@ -268,6 +268,7 @@ player = NodePath("../player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)
 player = NodePath("../player")
 timer = NodePath("../Timer")
+rank_times = Array[float]([30.0, 25.0, 20.0])
 
 [node name="killbox" type="Area3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)

@@ -4,6 +4,9 @@ var time_text : String :
 	set(value):
 		$MarginContainer/VBoxContainer/Time.text = value
 
+var rank_text : String :
+	set(value):
+		$MarginContainer/VBoxContainer/Rank.text = value
 
 func _on_retry_pressed():
 	get_tree().paused = false
