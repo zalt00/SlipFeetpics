@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ilgdnkqcu3q1"]
+[gd_scene load_steps=24 format=3 uid="uid://ilgdnkqcu3q1"]
 
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_sy1l0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_ew11k"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dvwcxba2ejx16" path="res://images/fill.jpg" id="13_bm03j"]
 [ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="14_csj58"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="15_soq6h"]
+[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="16_o8uwi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
 size = Vector3(0.1, 1.8, 0.1)
@@ -386,3 +387,5 @@ size = Vector3(19, 10, 7)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0)
 shadow_enabled = true
+
+[node name="MusicPlayer" parent="." instance=ExtResource("16_o8uwi")]

@@ -7,20 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="6_3okd6"]
 [ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="6_ceffq"]
 [ext_resource type="Script" path="res://scripts/killbox.gd" id="7_toem2"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ojv7s"]
-sky_top_color = Color(0.0034489, 0.00991546, 0.00931598, 1)
-sky_horizon_color = Color(0.258824, 0.0980392, 0, 1)
-sky_energy_multiplier = 21.36
-ground_bottom_color = Color(0.529412, 0.305882, 0, 1)
-ground_horizon_color = Color(0.6, 0.156863, 0, 1)
-
-[sub_resource type="Sky" id="Sky_3vlip"]
-sky_material = SubResource("ProceduralSkyMaterial_ojv7s")
-
-[sub_resource type="Environment" id="Environment_xqp7n"]
-background_mode = 2
-sky = SubResource("Sky_3vlip")
+[ext_resource type="PackedScene" uid="uid://bg0ulbkpy48gf" path="res://scenes/purple_sky.tscn" id="8_qtglh"]
+[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="9_iep00"]
+[ext_resource type="AudioStream" uid="uid://dfp6yun7sqwn4" path="res://songs/fantomes.wav" id="10_5ljfk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjusx"]
 size = Vector3(99, 4, 94)
@@ -232,9 +221,6 @@ size = Vector3(21, 7, 1)
 transform = Transform3D(0.704233, 0.488948, -0.514768, -0.0241016, 0.741103, 0.670958, 0.70956, -0.460105, 0.533694, -24.7757, -68.1978, -76.7427)
 size = Vector3(21, 7, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xqp7n")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.766044, 0.182562, -0.616317, 0, 0.95882, 0.284015, 0.642788, 0.217568, -0.734499, 0, 0, 0)
 light_color = Color(0.670588, 0.180392, 0, 1)
@@ -257,17 +243,15 @@ already_on = true
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -25, -91.6611, -83)
 player = NodePath("../player")
 
-[node name="Timer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_ceffq")]
+[node name="Timer" parent="." instance=ExtResource("6_ceffq")]
 offset_left = 22.0
 offset_top = 227.0
 offset_right = -1716.0
 offset_bottom = -756.0
-player = NodePath("../player")
 
-[node name="finish_gate" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("6_3okd6")]
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_3okd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)
 player = NodePath("../player")
-timer = NodePath("../Timer")
 rank_times = Array[float]([25.0, 22.0, 20.0])
 
 [node name="killbox" type="Area3D" parent="." node_paths=PackedStringArray("player")]
@@ -305,6 +289,11 @@ player = NodePath("../player")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="killbox4"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -13.1673, -4, -53.2972)
 shape = SubResource("BoxShape3D_yofjl")
+
+[node name="PurpleSky" parent="." instance=ExtResource("8_qtglh")]
+
+[node name="MusicPlayer" parent="." instance=ExtResource("9_iep00")]
+stream = ExtResource("10_5ljfk")
 
 [connection signal="body_entered" from="killbox" to="killbox" method="_on_body_entered"]
 [connection signal="body_entered" from="killbox2" to="killbox2" method="_on_body_entered"]

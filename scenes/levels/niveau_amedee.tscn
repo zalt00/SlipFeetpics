@@ -3,23 +3,10 @@
 [ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="1_gu6h4"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_ovw1s"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_mj53v"]
+[ext_resource type="PackedScene" uid="uid://bg0ulbkpy48gf" path="res://scenes/purple_sky.tscn" id="3_ra14i"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_8mdp8"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qx7bj"]
-sky_top_color = Color(0.4896, 0.288, 0.96, 1)
-sky_horizon_color = Color(0.843137, 0.443137, 0.870588, 1)
-ground_bottom_color = Color(0.4896, 0.288, 0.96, 1)
-ground_horizon_color = Color(0.861213, 0.492073, 0.883582, 1)
-
-[sub_resource type="Sky" id="Sky_ngk76"]
-sky_material = SubResource("ProceduralSkyMaterial_qx7bj")
-
-[sub_resource type="Environment" id="Environment_bi4ip"]
-background_mode = 2
-background_color = Color(0.4896, 0.288, 0.96, 1)
-background_energy_multiplier = 0.6
-sky = SubResource("Sky_ngk76")
-ambient_light_color = Color(1, 1, 1, 1)
+[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="6_8xhuq"]
+[ext_resource type="AudioStream" uid="uid://dfp6yun7sqwn4" path="res://songs/fantomes.wav" id="7_umu4c"]
 
 [node name="NiveauAmedee" type="Node3D"]
 
@@ -145,8 +132,7 @@ radius = 8.10229
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20335, 2.70889, 0)
 breakable = NodePath("../breakable")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bi4ip")
+[node name="PurpleSky" parent="." instance=ExtResource("3_ra14i")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.986847, 0.048048, -0.15435, 0.0418395, 0.846358, 0.530969, 0.156147, -0.530443, 0.833215, 0, 5.13811, 7.84622)
@@ -186,3 +172,6 @@ omni_range = 5.8086
 
 [node name="lamp" parent="." instance=ExtResource("4_8mdp8")]
 transform = Transform3D(1, 0, 0, 0, 0.194234, -0.980955, 0, 0.980955, 0.194234, -7.85364, 20.1755, -44.3481)
+
+[node name="MusicPlayer" parent="." instance=ExtResource("6_8xhuq")]
+stream = ExtResource("7_umu4c")
