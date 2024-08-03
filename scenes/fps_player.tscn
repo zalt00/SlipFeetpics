@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=26 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
@@ -16,6 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://u5qk11tmmaph" path="res://images/24.jpg" id="12_xhm1w"]
 [ext_resource type="Texture2D" uid="uid://06kf3i3up0id" path="res://images/34.jpg" id="13_0m08h"]
 [ext_resource type="Texture2D" uid="uid://cm744kbjvxe01" path="res://images/44.jpg" id="14_h3hov"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xy15w"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_bn3hq"]
 size = Vector3(0.1, 1.8, 0.1)
@@ -69,6 +74,17 @@ current = true
 
 [node name="AntimatterPlayer" parent="cam_helper/Camera3D" instance=ExtResource("3_p4fqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Shotgun" type="Node3D" parent="cam_helper/Camera3D"]
+transform = Transform3D(0.985727, 0, -0.168352, 0.047975, 0.958537, 0.280902, 0.161371, -0.284969, 0.944855, -0.199484, -0.27326, 0.0763028)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cam_helper/Camera3D/Shotgun"]
+transform = Transform3D(0.981674, -0.13746, 0.13199, 0, 0.692609, 0.721313, -0.190569, -0.708094, 0.679916, 0.456775, 0, -0.605137)
+mesh = SubResource("CylinderMesh_xy15w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="cam_helper/Camera3D/Shotgun"]
+transform = Transform3D(0.981673, -0.13746, 0.13199, -5.58794e-09, 0.692609, 0.721313, -0.190569, -0.708094, 0.679916, 0.537418, 0.00238501, -0.618382)
+mesh = SubResource("CylinderMesh_xy15w")
 
 [node name="position_helper" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049369, 0)
