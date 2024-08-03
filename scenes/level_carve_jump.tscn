@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0ag6i3pv7fey"]
+[gd_scene load_steps=6 format=3 uid="uid://0ag6i3pv7fey"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vah2n"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_belqa"]
 [ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="3_guf63"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="3_t1oda"]
+[ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_civ2t"]
 
 [node name="LevelCarveJump" type="Node3D"]
 
@@ -98,8 +99,8 @@ transform = Transform3D(1, 0, 4.37114e-08, 0, 1, 0, -4.37114e-08, 0, 1, 87.8964,
 size = Vector3(6, 11, 6)
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 4.37114e-08, 0, 1, 0, -4.37114e-08, 0, 1, 82.8964, -95.5, -207.104)
-size = Vector3(8, 12, 8)
+transform = Transform3D(1, 0, 4.37114e-08, 0, 1, 0, -4.37114e-08, 0, 1, 82.8964, -100.5, -207.104)
+size = Vector3(8, 2, 8)
 
 [node name="Unbreakable" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -189,3 +190,8 @@ transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
 shadow_enabled = true
 
 [node name="BlueSky" parent="." instance=ExtResource("3_t1oda")]
+
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_civ2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.9324, -99.5, -207.654)
+player = NodePath("../player")
+rank_times = Array[float]([50.0, 40.0, 30.0])

@@ -6,26 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_ki51q"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_11csn"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="6_7s8gc"]
-[ext_resource type="PackedScene" uid="uid://b14abfo1cgk2y" path="res://scenes/checkpoint.tscn" id="7_icy3u"]
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="7_icy3u"]
 [ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="8_7wusg"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r1nhk"]
-sky_top_color = Color(0.695942, 0.329711, 0.0233831, 1)
-sky_horizon_color = Color(0.607709, 0.690995, 0.489589, 1)
-sky_curve = 0.0349887
-ground_bottom_color = Color(0.252699, 0.14496, 0.0690557, 1)
-
-[sub_resource type="Sky" id="Sky_r3kcw"]
-sky_material = SubResource("ProceduralSkyMaterial_r1nhk")
-
-[sub_resource type="Environment" id="Environment_c8ivk"]
-background_mode = 2
-sky = SubResource("Sky_r3kcw")
+[ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="9_ainjc"]
+[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="10_pa1cf"]
+[ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="11_xeosq"]
 
 [node name="tutoriel" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_c8ivk")
 
 [node name="breakable" type="CSGCombiner3D" parent="."]
 material_override = ExtResource("1_q4c36")
@@ -112,10 +99,27 @@ size = Vector3(17, 1, 12)
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -22.9156, 16, -81.769)
 size = Vector3(11, 1, 4)
 
+[node name="CSGBox3D12" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(-0.258819, -4.2222e-08, -0.965926, -0.965926, 1.13133e-08, 0.258819, 0, 1, -4.37114e-08, -6.91497, 14.6596, -7.71066)
+size = Vector3(4, 7, 2)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="unbreakable"]
+transform = Transform3D(-0.258819, -4.2222e-08, -1.98653, -0.965926, 1.13133e-08, 0.532289, 0, 1, -8.98972e-08, -7.95051, 14.7978, -12.2533)
+polygon = PackedVector2Array(0, -1, -3, 1, 3, 1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(0.266457, 0.224144, -0.937422, -0.961516, 0.12941, -0.242363, 0.0669873, 0.965926, 0.25, 7.54404, 15.2128, -8.92206)
+size = Vector3(4, 7, 2)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="unbreakable"]
+transform = Transform3D(0.266457, 0.224144, -1.92791, -0.961516, 0.12941, -0.498444, 0.0669873, 0.965926, 0.514152, 5.59049, 14.2445, -13.0419)
+polygon = PackedVector2Array(0, -1, -3, 1, 3, 1)
+
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("3_f1non")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
+number_of_shots = 20
 kill_plane_y = -60.0
 palliers = [0.16, 0.6, 0.8, 0.9, 1.0]
 move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
@@ -138,7 +142,7 @@ already_on = true
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_11csn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7061, 16.3373, -123.238)
 player = NodePath("../player")
-rank_times = Array[float]([0.0, 0.0, 0.0])
+rank_times = Array[float]([24.0, 0.0, 18.0])
 
 [node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_7s8gc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 6.13941, -37.1793)
@@ -173,3 +177,14 @@ text = "A higher light level make you jump higher
 Not the most used mechanic in the game "
 font = ExtResource("8_7wusg")
 font_size = 72
+
+[node name="BlueSky" parent="." instance=ExtResource("9_ainjc")]
+
+[node name="MusicPlayer" parent="." instance=ExtResource("10_pa1cf")]
+stream = ExtResource("11_xeosq")
+volume_db = 7.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
+light_energy = 0.515
+shadow_enabled = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c411rupintnjt"]
+[gd_scene load_steps=5 format=3 uid="uid://c411rupintnjt"]
 
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_hy0na"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_a38h0"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_f7cfh"]
+[ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_ugc7o"]
 
 [node name="LevelPlatformer" type="Node3D"]
 
@@ -25,7 +26,7 @@ size = Vector3(5, 1, 6)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Breakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, -2.5, -1.5)
-size = Vector3(5, 20, 6)
+size = Vector3(5, 20, 10)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Breakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, -10, -0.5)
@@ -36,8 +37,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, -13, -1)
 size = Vector3(8, 1, 5)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.5, -38, -6.5)
-size = Vector3(4, 1, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.5, -38, -6.5)
+size = Vector3(8, 1, 4)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Breakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.447, -38, -6.44675)
@@ -90,3 +91,8 @@ volume_db = 7.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-2.18557e-08, -0.866025, 0.5, -3.78552e-08, 0.5, 0.866025, -1, 1.77636e-15, -4.37114e-08, 0, 0, 0)
+
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ugc7o")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100.719, -37.3869, -6.51353)
+player = NodePath("../player")
+rank_times = Array[float]([24.0, 16.0, 11.0])

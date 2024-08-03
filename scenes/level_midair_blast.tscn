@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ilgdnkqcu3q1"]
+[gd_scene load_steps=5 format=3 uid="uid://ilgdnkqcu3q1"]
 
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_sy1l0"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_rbw2y"]
+[ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_0sn43"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="16_o8uwi"]
 
 [node name="LevelMidairBlast" type="Node3D"]
@@ -191,3 +192,8 @@ jump_speed = [7.0, 7.0, 7.0, 7.0, 7.0]
 move_speed = [12.0, 12.0, 12.0, 12.0, 12.0]
 friction_air = 1.0
 gravity_multiplier = 0.8
+
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_0sn43")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -74.3012, -74.2437, -87.8004)
+player = NodePath("../player")
+rank_times = Array[float]([36.0, 30.0, 24.0])

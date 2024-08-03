@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd1e70o8x7vn"]
+[gd_scene load_steps=5 format=3 uid="uid://bd1e70o8x7vn"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_mg0ba"]
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="2_nwt8q"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_063nb"]
+[ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_5n88r"]
 
 [node name="LevelWallJump" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -96,3 +97,8 @@ transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_063nb")]
 volume_db = 6.559
+
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_5n88r")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -47, -37.3906, -18)
+player = NodePath("../player")
+rank_times = Array[float]([0.0, 16.0, 12.0])

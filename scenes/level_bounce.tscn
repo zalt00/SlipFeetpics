@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr5vxpynfoeo6"]
+[gd_scene load_steps=6 format=3 uid="uid://cr5vxpynfoeo6"]
 
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="2_sx22q"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vjj3u"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_bqm6e"]
 [ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="4_agx06"]
+[ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_drhra"]
 
 [node name="LevelBounce" type="Node3D"]
 
@@ -13,6 +14,7 @@ breakable = NodePath("../Breakable")
 unbreakable = NodePath("../Unbreakable")
 number_of_shots = 30
 kill_plane_y = -150.0
+jump_speed = [7.0, 7.0, 7.0, 7.0, 7.0]
 move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
 friction_air = 1.0
 gravity_multiplier = 0.8
@@ -56,7 +58,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, -34, -54)
 size = Vector3(14, 1, 13)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -34, -68)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -34, -70)
 size = Vector3(6, 1, 5)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Unbreakable"]
@@ -99,3 +101,12 @@ size = Vector3(10, 6, 1)
 [node name="MusicPlayer" parent="." instance=ExtResource("3_bqm6e")]
 stream = ExtResource("4_agx06")
 volume_db = 7.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 3, 0)
+shadow_enabled = true
+
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_drhra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3547, -33.5, -71.3694)
+player = NodePath("../player")
+rank_times = Array[float]([24.0, 18.0, 12.0])
