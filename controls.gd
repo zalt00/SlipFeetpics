@@ -33,9 +33,6 @@ func _process(delta):
 	pass
 
 
-func _on_button_pressed():
-	pass # Replace with function body.
-
 func cancel_cur_change():
 	if changing >= 0:
 		item_list.set_item_text(changing * 2 + 1, 
@@ -73,3 +70,9 @@ func _on_cancel_pressed():
 		changing = i
 		cancel_cur_change()
 	changing = -1
+
+
+func _on_button_pressed():
+	var menu = preload("res://scenes/menu_title_screen.tscn").instantiate()
+	get_tree().current_scene.add_child(menu)
+	queue_free()

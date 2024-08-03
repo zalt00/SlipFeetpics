@@ -4,7 +4,9 @@ func _on_play_pressed() -> void:
 	get_tree().change_scene_to_packed(preload("res://scenes/level_wall_jump.tscn"))
 
 func _on_options_pressed() -> void:
-	pass
+	var controls = load("res://controls.tscn").instantiate()
+	get_tree().current_scene.add_child(controls)
+	queue_free()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
