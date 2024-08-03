@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ck3sx3j6h1f1j"]
+[gd_scene load_steps=18 format=3 uid="uid://ck3sx3j6h1f1j"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_g446a"]
 [ext_resource type="Material" path="res://materials/breakable.tres" id="2_udstr"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scripts/AnimatableBody3D.gd" id="5_h5et7"]
 [ext_resource type="Texture2D" uid="uid://bu3m7xi04a3ow" path="res://images/ARRAOW.png" id="6_baqsy"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="7_ogdpm"]
+[ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="9_ojow2"]
+[ext_resource type="PackedScene" path="res://scenes/finish_gate.tscn" id="10_jjysl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lhuk6"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -335,5 +337,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.68, 0, -281.274)
 light_color = Color(1, 0, 1, 1)
 shadow_enabled = true
 omni_range = 13.3652
+
+[node name="Timer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_ojow2")]
+offset_left = 56.0
+offset_top = 221.0
+player = NodePath("../player")
+
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("10_jjysl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, -2.20894, -312.312)
+player = NodePath("../player")
+timer = NodePath("../Timer")
 
 [connection signal="body_entered" from="Node3D/AnimatableBody3D/Area3D" to="Node3D/AnimatableBody3D" method="_on_area_3d_body_entered"]
