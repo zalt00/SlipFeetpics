@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="3_t1oda"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_civ2t"]
 [ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="6_4w7xm"]
-[ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="7_jrtpl"]
+[ext_resource type="AudioStream" uid="uid://dfp6yun7sqwn4" path="res://songs/fantomes.wav" id="7_ia4qy"]
 
 [node name="LevelCarveJump" type="Node3D"]
 
@@ -198,4 +198,4 @@ rank_times = Array[float]([50.0, 40.0, 30.0, 29.12])
 lvl_id = 2
 
 [node name="MusicUpdater" parent="." instance=ExtResource("6_4w7xm")]
-music = ExtResource("7_jrtpl")
+music = ExtResource("7_ia4qy")

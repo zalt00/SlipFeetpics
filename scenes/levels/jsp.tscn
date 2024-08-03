@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="7_ogdpm"]
 [ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="10_63560"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="10_jjysl"]
-[ext_resource type="AudioStream" uid="uid://dfp6yun7sqwn4" path="res://songs/fantomes.wav" id="11_kxmgr"]
+[ext_resource type="AudioStream" uid="uid://mrebs40auciw" path="res://songs/spaceship2.wav" id="11_ifnuv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lhuk6"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -342,6 +342,6 @@ rank_times = Array[float]([90.0, 50.0, 36.0])
 lvl_id = 8
 
 [node name="MusicUpdater" parent="." instance=ExtResource("10_63560")]
-music = ExtResource("11_kxmgr")
+music = ExtResource("11_ifnuv")
 
 [connection signal="body_entered" from="Node3D/AnimatableBody3D/Area3D" to="Node3D/AnimatableBody3D" method="_on_area_3d_body_entered"]

@@ -1,23 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpjsragdjuns"]
+[gd_scene load_steps=11 format=3 uid="uid://bpjsragdjuns"]
 
-[ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="1_q4c36"]
-[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_7h2lb"]
+[ext_resource type="Material" path="res://materials/unbreakable.tres" id="2_7h2lb"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_f1non"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_ki51q"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_11csn"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="6_7s8gc"]
-[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="7_icy3u"]
+[ext_resource type="PackedScene" uid="uid://b14abfo1cgk2y" path="res://scenes/checkpoint.tscn" id="7_icy3u"]
 [ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="8_7wusg"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="9_ainjc"]
-[ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="10_0v0w7"]
-[ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="11_q6kg2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l05tf"]
+albedo_color = Color(0.388235, 0.843137, 0.886275, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw6j1"]
 
 [node name="tutoriel" type="Node3D"]
 
 [node name="breakable" type="CSGCombiner3D" parent="."]
-material_override = ExtResource("1_q4c36")
+material_override = SubResource("StandardMaterial3D_l05tf")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
@@ -146,6 +146,7 @@ already_on = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7061, 16.3373, -123.238)
 player = NodePath("../player")
 rank_times = Array[float]([24.0, 20.0, 16.0, 13.99])
+lvl_id = 0
 
 [node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_7s8gc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 6.13941, -37.1793)
@@ -188,6 +189,3 @@ font_size = 72
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
 light_energy = 0.515
 shadow_enabled = true
-
-[node name="MusicUpdater" parent="." instance=ExtResource("10_0v0w7")]
-music = ExtResource("11_q6kg2")
