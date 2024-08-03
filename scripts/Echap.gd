@@ -13,6 +13,7 @@ func _ready():
 
 func _on_resume_pressed():
 	resume()
+	PlayerPositionSingleton.resume()
 
 func _on_options_pressed():
 	principal.hide()
@@ -23,20 +24,27 @@ func _on_option_back_pressed():
 	options.hide()
 
 func _on_menu_pressed():
-	get_tree().paused = false
+	PlayerPositionSingleton.paused = false
 	PlayerPositionSingleton.player_position = Vector3.INF
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	PlayerPositionSingleton.reset()
 
 func _on_quit_pressed():
 	get_tree().quit()
 
 func _input(event):
 	if Input.is_action_just_pressed("echap"):
-		if not pause:
+		if not PlayerPositionSingleton.paused:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			principal.show()
+			PlayerPositionSingleton.paused = true
 			pause = true
-			get_tree().paused = true
+			#get_tree().paused = true
+			PlayerPositionSingleton.pause()
+		else:
+			resume()
+			PlayerPositionSingleton.resume()
+
 
 func _on_respawn_pressed():
 	resume()
@@ -46,4 +54,4 @@ func resume():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	principal.hide()
 	pause = false
-	get_tree().paused = false
+	PlayerPositionSingleton.paused = false

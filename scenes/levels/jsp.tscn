@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ck3sx3j6h1f1j"]
+[gd_scene load_steps=17 format=3 uid="uid://ck3sx3j6h1f1j"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_g446a"]
 [ext_resource type="Material" path="res://materials/breakable.tres" id="2_udstr"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://scripts/AnimatableBody3D.gd" id="5_h5et7"]
 [ext_resource type="Texture2D" uid="uid://bu3m7xi04a3ow" path="res://images/ARRAOW.png" id="6_baqsy"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="7_ogdpm"]
-[ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="9_ojow2"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="10_jjysl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lhuk6"]
@@ -99,8 +98,8 @@ transform = Transform3D(0.999556, 0, -0.029788, 0, 1, 0, 0.029788, 0, 0.999556, 
 size = Vector3(20.2414, 44.9692, 2.41962)
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 116.651, -3.99122, -216.067)
-size = Vector3(20.2414, 15.4359, 0.577974)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 116.651, -15.3194, -216.067)
+size = Vector3(20.2414, 15.4359, 23.2344)
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, -0.551762, -0.834001, 0, 0.834001, -0.551762, 119.254, -4.91151, -237.551)
@@ -131,12 +130,12 @@ transform = Transform3D(0.00897481, -0.994726, -0.102179, 0.00735915, -0.102115,
 size = Vector3(13.912, 8, 7.58599)
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.0113348, -0.695821, 0.718127, -0.00249523, 0.718151, 0.695883, -0.999933, -0.00967964, 0.00640386, 120.788, 0.769773, -282.146)
-size = Vector3(7.31615, 15.0717, 0.577974)
+transform = Transform3D(0.0113348, -0.695821, 0.718127, -0.00249523, 0.718151, 0.695883, -0.999933, -0.00967964, 0.00640386, 119.756, 1.8348, -282.16)
+size = Vector3(7.31615, 12.1057, 0.577974)
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.0028522, 0.329902, 0.944011, -0.0112503, 0.943966, -0.329852, -0.999933, -0.00967964, 0.00640386, 117.609, 4.59126, -272.045)
-size = Vector3(3.37208, 13.7182, 3.94573)
+transform = Transform3D(0.0028522, 0.329902, 0.944011, -0.0112503, 0.943966, -0.329852, -0.999933, -0.00967964, 0.00640386, 116.871, 2.47945, -272.023)
+size = Vector3(3.37208, 9.24387, 3.94573)
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(0.0252544, -0.0667444, 0.997451, 0.998335, 0.0534614, -0.0216994, -0.0518768, 0.996337, 0.0679834, 122.137, -4.60423, -263.675)
@@ -326,17 +325,6 @@ light_color = Color(1, 0, 1, 1)
 shadow_enabled = true
 omni_range = 13.3652
 
-[node name="Timer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_ojow2")]
-offset_left = 56.0
-offset_top = 221.0
-player = NodePath("../player")
-
-[node name="finish_gate" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("10_jjysl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, -2.20894, -312.312)
-player = NodePath("../player")
-timer = NodePath("../Timer")
-rank_times = Array[float]([456456.0, 455454.0, 666.0])
-
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_g446a")]
 breakable = NodePath("../CSGCombiner3D")
 unbreakable = NodePath("../unbreakable")
@@ -344,5 +332,10 @@ number_of_shots = 15
 move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
 friction_air = 1.0
 gravity_multiplier = 0.9
+
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_jjysl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, -2.20894, -312.312)
+player = NodePath("../player")
+rank_times = Array[float]([456456.0, 455454.0, 666.0])
 
 [connection signal="body_entered" from="Node3D/AnimatableBody3D/Area3D" to="Node3D/AnimatableBody3D" method="_on_area_3d_body_entered"]

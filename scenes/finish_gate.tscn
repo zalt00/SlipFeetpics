@@ -71,6 +71,5 @@ operation = 2
 size = Vector3(2.8, 2, 1)
 
 [node name="finish_screen" parent="." instance=ExtResource("4_yp7v0")]
-process_mode = 2
 
 [connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_body_entered"]

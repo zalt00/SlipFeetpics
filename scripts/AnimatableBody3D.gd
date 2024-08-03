@@ -10,7 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if move and position.z > -30:
+	if move and position.z > -30 and not PlayerPositionSingleton.paused:
 		position.z += -delta*10.0
 		
 

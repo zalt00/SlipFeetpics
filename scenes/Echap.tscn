@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_1w00l")
 
 [node name="Principal" type="MarginContainer" parent="."]
-process_mode = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,36 +27,29 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Principal"]
-process_mode = 2
 layout_mode = 2
 
 [node name="Resume" type="Button" parent="Principal/VBoxContainer"]
-process_mode = 2
 layout_mode = 2
 text = "RESUME"
 
 [node name="Respawn" type="Button" parent="Principal/VBoxContainer"]
-process_mode = 2
 layout_mode = 2
 text = "RESPAWN"
 
 [node name="Options" type="Button" parent="Principal/VBoxContainer"]
-process_mode = 2
 layout_mode = 2
 text = "OPTIONS"
 
 [node name="Menu" type="Button" parent="Principal/VBoxContainer"]
-process_mode = 2
 layout_mode = 2
 text = "MENU"
 
 [node name="Quit" type="Button" parent="Principal/VBoxContainer"]
-process_mode = 2
 layout_mode = 2
 text = "QUIT"
 
 [node name="Options" type="MarginContainer" parent="."]
-process_mode = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -72,19 +64,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
-process_mode = 2
 layout_mode = 2
 
 [node name="Sounds" type="HSlider" parent="Options/VBoxContainer"]
-process_mode = 2
 layout_mode = 2
 
 [node name="Music" type="HSlider" parent="Options/VBoxContainer"]
-process_mode = 2
 layout_mode = 2
 
 [node name="OptionBack" type="Button" parent="Options/VBoxContainer"]
-process_mode = 2
 layout_mode = 2
 text = "BACK"
 

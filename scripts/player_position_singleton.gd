@@ -4,11 +4,40 @@ var player_position = Vector3.INF
 var player_rotation = Vector3.INF
 
 
+var paused = false
+
+var ellapsed = 0
+var start_time = 0
+
+var timer_paused = true
+
+func resume():
+	if timer_paused:
+		timer_paused = false
+		start_time = Time.get_ticks_msec()
+
+func pause():
+	if not timer_paused:
+		timer_paused = true
+		var time = Time.get_ticks_msec()
+		ellapsed += time - start_time
+		start_time = time
+
+func reset():
+	pause()
+	ellapsed = 0
+	start_time = Time.get_ticks_msec()
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _physics_process(delta):
+	var time = Time.get_ticks_msec()
+	if not PlayerPositionSingleton.timer_paused:
+		PlayerPositionSingleton.ellapsed += time - PlayerPositionSingleton.start_time
+	PlayerPositionSingleton.start_time = time

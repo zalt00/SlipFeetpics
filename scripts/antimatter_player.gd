@@ -23,27 +23,29 @@ func clear_antimater():
 		obj.queue_free()
 	copies.clear()
 
-# Updates mouselook and movement every frame
-func _process(delta):
-
-	if Input.is_action_just_pressed("tirer") && number_of_shots > 0:
-		var copy: Node3D = projectile.duplicate()
-		add_child(copy)
-		copy.visible = true
-		copy.reparent(breakable, true)
-		copies.append(copy)
-		
-		if len(copies) > 10:
-			var obj = copies.pop_front()
-			obj.queue_free()
-			
-		number_of_shots -= 1
 		
 func _input(event):
-	if Input.is_action_pressed("viser"):
-		previsu_meshi.show()
-		update_materials(unbreakable_colored)
-	elif Input.is_action_just_released("viser"):
+	if not PlayerPositionSingleton.paused:
+		if Input.is_action_pressed("viser"):
+			previsu_meshi.show()
+			update_materials(unbreakable_colored)
+		elif Input.is_action_just_released("viser"):
+			previsu_meshi.hide()
+			update_materials(unbreakable_normal)
+		
+		if Input.is_action_just_pressed("tirer") && number_of_shots > 0:
+			var copy: Node3D = projectile.duplicate()
+			add_child(copy)
+			copy.visible = true
+			copy.reparent(breakable, true)
+			copies.append(copy)
+			
+			if len(copies) > 10:
+				var obj = copies.pop_front()
+				obj.queue_free()
+				
+			number_of_shots -= 1
+	else:
 		previsu_meshi.hide()
 		update_materials(unbreakable_normal)
 		

@@ -20,11 +20,9 @@ var _total_pitch = 0.0
 @onready var progress_bar := $HUD/IlluminationLevel
 @onready var health_bar = $HUD/BarHealth
 @onready var antimatter_shotgun := $cam_helper/Camera3D/AntimatterPlayer
-@onready var antimatter_grenade_launcher: Node3D = $cam_helper/AntimatterGrenadeLauncher
 
 @onready var cam = $cam_helper
 @onready var interact_raycast = $cam_helper/Camera3D/camera_items/InteractRay
-@onready var aim_raycast = $cam_helper/Camera3D/camera_items/AimRay
 @onready var interact_text = $UI
 @onready var echap = $Echap
 
@@ -33,6 +31,8 @@ var _total_pitch = 0.0
 @onready var jump_bar = $HUD/jump_bar
 
 @onready var speed_meter_label = $HUD/speed_meter
+
+@onready var timer_label = $HUD/timer_label
 
 @onready var reticule = $HUD/Reticle
 @onready var camera_items = $cam_helper/Camera3D/camera_items/InteractRay
@@ -93,7 +93,6 @@ func _ready():
 	antimatter_shotgun.breakable = breakable
 	antimatter_shotgun.unbreakable = unbreakable
 	health_bar.value = health
-	antimatter_grenade_launcher.breakable = breakable
 	
 	antimatter_shotgun.number_of_shots = number_of_shots
 	
@@ -148,7 +147,7 @@ func _update_movement(delta):
 		velocity.z = move_toward(velocity.z, 0, ACCEL * delta * abs(norm.z))
 	
 	if direction:
-
+		PlayerPositionSingleton.resume()
 		velocity.x += multiplier * ACCEL * delta*direction.x
 		velocity.z += multiplier * ACCEL * delta*direction.z
 		var plan_speed2 = Vector2(velocity.x, velocity.z).length()
@@ -191,36 +190,38 @@ func _update_movement(delta):
 		velocity = velocity / speed * MAX_SPEED
 	
 	ammo_label.text = "Ammo : " + str(antimatter_shotgun.number_of_shots)
-	
+	var time = PlayerPositionSingleton.ellapsed
+	timer_label.text = "Time : " + str(time/1000) + ":" + str((time/10)%100)
 	
 func _physics_process(delta):
-	if is_on_floor():
-		dt = 0.0
-		saved_position.append(position)
-		if len(saved_position) > 10:
-			saved_position.pop_front()
-	else:
-		dt += delta
-		if position.y < kill_plane_y:
-			position = saved_position[0]
-			velocity = Vector3(0, 0, 0)
-	
-	_update_movement(delta)
-	# Add the gravity.
-	_mouse_position *= sensitivity
-	var yaw = _mouse_position.x
-	var pitch = _mouse_position.y
-	_mouse_position = Vector2(0, 0)
-	
-	# Prevents looking up/down too far
-	pitch = clamp(pitch, -90 - _total_pitch, 90 - _total_pitch)
-	_total_pitch += pitch
+	if not PlayerPositionSingleton.paused:
+		if is_on_floor():
+			dt = 0.0
+			saved_position.append(position)
+			if len(saved_position) > 10:
+				saved_position.pop_front()
+		else:
+			dt += delta
+			if position.y < kill_plane_y:
+				position = saved_position[0]
+				velocity = Vector3(0, 0, 0)
+		
+		_update_movement(delta)
+		# Add the gravity.
+		_mouse_position *= sensitivity
+		var yaw = _mouse_position.x
+		var pitch = _mouse_position.y
+		_mouse_position = Vector2(0, 0)
+		
+		# Prevents looking up/down too far
+		pitch = clamp(pitch, -90 - _total_pitch, 90 - _total_pitch)
+		_total_pitch += pitch
 
-	rotate_y(deg_to_rad(-yaw))
-	
-	cam.rotate_object_local(Vector3(1,0,0), deg_to_rad(-pitch))
+		rotate_y(deg_to_rad(-yaw))
+		
+		cam.rotate_object_local(Vector3(1,0,0), deg_to_rad(-pitch))
 
-	move_and_slide()
+		move_and_slide()
 
 func _process(delta):
 	light_detection.global_position = global_position
@@ -236,7 +237,7 @@ func _input(event):
 	if event is InputEventMouseMotion and not $Echap.pause:
 		_mouse_position = event.relative
 		
-	if Input.is_action_just_pressed("respawn"):
+	if Input.is_action_just_pressed("respawn") and not PlayerPositionSingleton.paused:
 
 		PlayerPositionSingleton.player_position = last_checkpoint_pos
 		PlayerPositionSingleton.player_rotation = last_checkpoint_rotation
