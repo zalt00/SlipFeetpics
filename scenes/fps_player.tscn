@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjqcqg24t4o3"]
+[gd_scene load_steps=26 format=3 uid="uid://bjqcqg24t4o3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3j6es"]
 [ext_resource type="PackedScene" uid="uid://bigttmwopa71u" path="res://scenes/camera_items.tscn" id="2_f1rdo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://dpyaubnhngg7k" path="res://themes/health_bar.tres" id="5_we0pa"]
 [ext_resource type="PackedScene" uid="uid://b8gugxppn8f61" path="res://scenes/antimatter_grenade_launcher.tscn" id="7_8lwy5"]
 [ext_resource type="PackedScene" uid="uid://c5d2ojowi23y5" path="res://scenes/Echap.tscn" id="8_aemiu"]
+[ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="8_iaq7s"]
 [ext_resource type="Texture2D" uid="uid://bixqn5tvwua8v" path="res://images/ret.png" id="8_m8wlf"]
 [ext_resource type="AudioStream" uid="uid://dtdajr57g46uj" path="res://sounds/whoosh.mp3" id="9_fmnkt"]
 [ext_resource type="Texture2D" uid="uid://cpjrk86v55hoy" path="res://images/04.jpg" id="10_2gow3"]
@@ -28,6 +29,7 @@ height = 1.45221
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_spi7g"]
+font = ExtResource("8_iaq7s")
 font_size = 55
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xti1f"]
@@ -38,7 +40,8 @@ font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_478fi"]
 line_spacing = 50.0
-font_size = 40
+font = ExtResource("8_iaq7s")
+font_size = 55
 
 [sub_resource type="LabelSettings" id="LabelSettings_lebje"]
 font_size = 25
@@ -133,7 +136,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -981.0
-offset_right = 277.0
+offset_right = 71.0
 offset_bottom = -903.0
 grow_vertical = 0
 text = "5
@@ -176,10 +179,19 @@ label_settings = SubResource("LabelSettings_svboh")
 
 [node name="speed_meter" type="Label" parent="HUD"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 100.0
+offset_left = 2.0
+offset_top = 150.0
 offset_right = 70.0
-offset_bottom = 155.0
+offset_bottom = 229.0
+label_settings = SubResource("LabelSettings_478fi")
+
+[node name="speed_meter2" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 150.0
+offset_right = 329.0
+offset_bottom = 229.0
+text = "m/s"
 label_settings = SubResource("LabelSettings_478fi")
 
 [node name="Echap" parent="." instance=ExtResource("8_aemiu")]

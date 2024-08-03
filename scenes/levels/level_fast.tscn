@@ -242,7 +242,7 @@ light_angular_distance = 4.25
 shadow_enabled = true
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_ugy6t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -88.7789, -125.788)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
 number_of_shots = 4
@@ -264,8 +264,10 @@ offset_right = -1716.0
 offset_bottom = -756.0
 player = NodePath("../player")
 
-[node name="finish_gate" parent="." instance=ExtResource("6_3okd6")]
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("6_3okd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)
+player = NodePath("../player")
+timer = NodePath("../Timer")
 
 [node name="killbox" type="Area3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)

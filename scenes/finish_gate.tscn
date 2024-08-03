@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cs85a4naor6kv"]
+[gd_scene load_steps=11 format=3 uid="uid://cs85a4naor6kv"]
 
 [ext_resource type="Script" path="res://scripts/finish_gate.gd" id="1_ynqkh"]
 [ext_resource type="Shader" path="res://shaders/finish_gate2.gdshader" id="2_q58pk"]
 [ext_resource type="Shader" path="res://shaders/finish_gate.gdshader" id="3_tp5xo"]
+[ext_resource type="PackedScene" uid="uid://dopjkke2dvfvs" path="res://scenes/finish_screen.tscn" id="4_yp7v0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fv61x"]
 size = Vector3(2.8, 2, 0.1)
@@ -68,3 +69,8 @@ size = Vector3(3, 2.2, 0.1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969534, 0)
 operation = 2
 size = Vector3(2.8, 2, 1)
+
+[node name="finish_screen" parent="." instance=ExtResource("4_yp7v0")]
+process_mode = 2
+
+[connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_body_entered"]
