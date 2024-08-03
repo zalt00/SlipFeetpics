@@ -87,5 +87,7 @@ shadow_enabled = true
 [node name="MusicUpdater" parent="." instance=ExtResource("5_f66mb")]
 music = ExtResource("6_qysds")
 
-[node name="finish_gate" parent="." instance=ExtResource("7_7st3k")]
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_7st3k")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 37.1911, -13.0795, -53.6029)
+player = NodePath("../player")
+rank_times = Array[float]([16.0, 10.0, 8.5, 8.18])
