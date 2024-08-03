@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ilgdnkqcu3q1"]
+[gd_scene load_steps=7 format=3 uid="uid://ilgdnkqcu3q1"]
 
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_sy1l0"]
+[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_64bp8"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_lh831"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_rbw2y"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_0sn43"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="16_o8uwi"]
@@ -10,6 +12,7 @@
 [node name="RedSky" parent="." instance=ExtResource("1_sy1l0")]
 
 [node name="Breakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("2_64bp8")
 use_collision = true
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Breakable"]
@@ -117,6 +120,7 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 size = Vector3(6, 9, 5)
 
 [node name="Unbreakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("3_lh831")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Unbreakable"]

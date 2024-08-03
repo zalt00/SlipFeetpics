@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr5vxpynfoeo6"]
+[gd_scene load_steps=8 format=3 uid="uid://cr5vxpynfoeo6"]
 
+[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_fc3ia"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="2_sx22q"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vjj3u"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_bqm6e"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_ydato"]
 [ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="4_agx06"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_drhra"]
 
@@ -20,6 +22,7 @@ friction_air = 1.0
 gravity_multiplier = 0.8
 
 [node name="Breakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("2_fc3ia")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Breakable"]
@@ -43,6 +46,7 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -28.5, -
 size = Vector3(11, 5, 0.186218)
 
 [node name="Unbreakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("3_ydato")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Unbreakable"]

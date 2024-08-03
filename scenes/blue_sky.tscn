@@ -3,8 +3,8 @@
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wnr18"]
 sky_top_color = Color(0.209029, 0.446122, 0.766849, 1)
 sky_horizon_color = Color(0.0921768, 0.760785, 0.635604, 1)
-ground_bottom_color = Color(0.1798, 0.31, 0.18631, 1)
-ground_horizon_color = Color(0.298194, 0.661008, 0.482242, 1)
+ground_bottom_color = Color(0.42, 0.27048, 0.0462, 1)
+ground_horizon_color = Color(0.672983, 0.569735, 0.221859, 1)
 ground_curve = 0.0386374
 
 [sub_resource type="Sky" id="Sky_2p4sb"]
