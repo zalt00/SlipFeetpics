@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnjlex6h0emxi"]
+[gd_scene load_steps=5 format=3 uid="uid://cnjlex6h0emxi"]
 
 [ext_resource type="Script" path="res://controls.gd" id="1_xi8nj"]
 [ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="2_epuea"]
 [ext_resource type="Script" path="res://scripts/volume_slider.gd" id="3_c243b"]
+
+[sub_resource type="Theme" id="Theme_q7tnd"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -101,6 +103,39 @@ max_value = 1.0
 step = 0.001
 script = ExtResource("3_c243b")
 bus_name = "Sfx"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 788.0
+offset_right = 302.0
+offset_bottom = 811.0
+scale = Vector2(5, 5)
+theme = SubResource("Theme_q7tnd")
+theme_override_fonts/font = ExtResource("2_epuea")
+text = "Master"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 938.0
+offset_top = 786.0
+offset_right = 980.0
+offset_bottom = 809.0
+scale = Vector2(5, 5)
+theme = SubResource("Theme_q7tnd")
+theme_override_fonts/font = ExtResource("2_epuea")
+text = "Music"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1574.0
+offset_top = 782.0
+offset_right = 1616.0
+offset_bottom = 805.0
+scale = Vector2(5, 5)
+theme = SubResource("Theme_q7tnd")
+theme_override_fonts/font = ExtResource("2_epuea")
+text = "SFX"
 
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="pressed" from="apply" to="." method="_on_apply_pressed"]
