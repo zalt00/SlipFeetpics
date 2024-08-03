@@ -37,10 +37,6 @@ text = "RESUME"
 layout_mode = 2
 text = "RESPAWN"
 
-[node name="Options" type="Button" parent="Principal/VBoxContainer"]
-layout_mode = 2
-text = "OPTIONS"
-
 [node name="Menu" type="Button" parent="Principal/VBoxContainer"]
 layout_mode = 2
 text = "MENU"
@@ -78,7 +74,6 @@ text = "BACK"
 
 [connection signal="pressed" from="Principal/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Principal/VBoxContainer/Respawn" to="." method="_on_respawn_pressed"]
-[connection signal="pressed" from="Principal/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Principal/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Principal/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/OptionBack" to="." method="_on_option_back_pressed"]

@@ -164,7 +164,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -9)
 text = "Use Left click to destroy destructible terrain
 Use Right click to \"aim\"
 You have limited ammo
-Use R to restart from the last checkpoint"
+Use R to restart from the last checkpoint
+Use the escape menu to start over"
 font = ExtResource("8_7wusg")
 font_size = 72
 

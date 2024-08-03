@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_hy0na"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_a38h0"]
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_eo3mj"]
-[ext_resource type="Material" path="res://materials/unbreakable.tres" id="3_dr0ow"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_dr0ow"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_ugc7o"]
 [ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="6_7515m"]
 [ext_resource type="AudioStream" uid="uid://dv6tm03g5h3an" path="res://songs/sonic_colors.wav" id="7_g5oqh"]
@@ -97,7 +97,7 @@ transform = Transform3D(-2.18557e-08, -0.866025, 0.5, -3.78552e-08, 0.5, 0.86602
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ugc7o")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100.719, -37.3869, -6.51353)
 player = NodePath("../player")
-rank_times = Array[float]([24.0, 16.0, 11.0])
+rank_times = Array[float]([24.0, 16.0, 11.0, 10.72])
 lvl_id = 6
 
 [node name="MusicUpdater" parent="." instance=ExtResource("6_7515m")]
