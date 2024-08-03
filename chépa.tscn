@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnjlex6h0emxi"]
+
+[ext_resource type="Script" path="res://chépa.gd" id="1_enhv2"]
+[ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="2_0rnq8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_enhv2")
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 168.0
+offset_right = 1607.0
+offset_bottom = 868.0
+theme_override_fonts/font = ExtResource("2_0rnq8")
+theme_override_font_sizes/font_size = 80
+allow_reselect = true
+allow_search = false
+item_count = 12
+max_columns = 2
+fixed_column_width = 500
+item_0/text = "forward"
+item_1/text = "w"
+item_2/text = "Backward"
+item_3/text = "s"
+item_4/text = "left"
+item_5/text = "a"
+item_6/text = "right"
+item_7/text = "d"
+item_8/text = "jump"
+item_9/text = "space"
+item_10/text = "respawn"
+item_11/text = "r"
+
+[connection signal="item_activated" from="ItemList" to="." method="_on_item_list_item_activated"]

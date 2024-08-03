@@ -120,16 +120,13 @@ func _update_movement(delta):
 			SPEED = new_speed
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and dt < 0.4:
+	if Input.is_action_just_pressed("sauter") and dt < 0.4:
 		var jump_velo = jump_speed[pallier]
 		
 		velocity.y = jump_velo
 		dt = 999999.0
 		$sounds.pitch_scale = 2 - illum_level
 		$sounds.play()
-		
-	if Input.is_action_just_pressed("godmod"):
-		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
