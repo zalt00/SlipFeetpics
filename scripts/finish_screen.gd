@@ -33,7 +33,9 @@ func _on_next_level_pressed():
 	PlayerPositionSingleton.level_ended = false
 	var lvl_lst = PlayerPositionSingleton.main_level_list
 	if lvl_id >= len(lvl_lst)-1:
-		pass
+		var bon_lvl_id = lvl_id - len(lvl_lst)+1
+		var new_lvl = PlayerPositionSingleton.bonus_level_list[bon_lvl_id]
+		get_tree().change_scene_to_file(new_lvl)
 	else:
 		var new_lvl = PlayerPositionSingleton.main_level_list[lvl_id+1]
 		get_tree().change_scene_to_file(new_lvl)

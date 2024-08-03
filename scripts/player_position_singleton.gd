@@ -27,6 +27,10 @@ var main_level_list = [
 	"res://scenes/levels/jsp.tscn"
 ]
 
+var bonus_level_list = [
+	"res://scenes/levels/level_5.tscn",
+	"res://scenes/levels/niveau_amedee.tscn"
+]
 
 
 func resume():
