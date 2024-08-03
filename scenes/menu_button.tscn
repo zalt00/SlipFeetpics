@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b54an2tc5jj7k"]
+
+[ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="1_juuu2"]
+
+[node name="MenuButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_juuu2")

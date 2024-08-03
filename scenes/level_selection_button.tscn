@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://x81f04nkimhc"]
+
+[ext_resource type="PackedScene" uid="uid://b54an2tc5jj7k" path="res://scenes/menu_button.tscn" id="1_gwg6l"]
+[ext_resource type="Script" path="res://scripts/level_selection_button.gd" id="2_joobk"]
+
+[node name="LevelSelectionButton" instance=ExtResource("1_gwg6l")]
+script = ExtResource("2_joobk")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
