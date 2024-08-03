@@ -42,14 +42,6 @@ size = Vector3(5, 1, 5)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kidyq")
 
-[node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_g446a")]
-breakable = NodePath("../CSGCombiner3D")
-unbreakable = NodePath("../unbreakable")
-number_of_shots = 15
-move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
-friction_air = 1.0
-gravity_multiplier = 0.9
-
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 material_override = ExtResource("2_udstr")
 use_collision = true
@@ -343,5 +335,14 @@ player = NodePath("../player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, -2.20894, -312.312)
 player = NodePath("../player")
 timer = NodePath("../Timer")
+rank_times = Array[float]([456456.0, 455454.0, 666.0])
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_g446a")]
+breakable = NodePath("../CSGCombiner3D")
+unbreakable = NodePath("../unbreakable")
+number_of_shots = 15
+move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
+friction_air = 1.0
+gravity_multiplier = 0.9
 
 [connection signal="body_entered" from="Node3D/AnimatableBody3D/Area3D" to="Node3D/AnimatableBody3D" method="_on_area_3d_body_entered"]
