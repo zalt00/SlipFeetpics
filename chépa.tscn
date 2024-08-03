@@ -17,7 +17,7 @@ layout_mode = 0
 offset_left = 421.0
 offset_top = 168.0
 offset_right = 1607.0
-offset_bottom = 868.0
+offset_bottom = 698.0
 theme_override_fonts/font = ExtResource("2_0rnq8")
 theme_override_font_sizes/font_size = 80
 allow_reselect = true
@@ -38,4 +38,36 @@ item_9/text = "space"
 item_10/text = "respawn"
 item_11/text = "r"
 
-[connection signal="item_activated" from="ItemList" to="." method="_on_item_list_item_activated"]
+[node name="apply" type="Button" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 721.0
+offset_right = 605.0
+offset_bottom = 797.0
+theme_override_fonts/font = ExtResource("2_0rnq8")
+theme_override_font_sizes/font_size = 90
+text = "apply"
+
+[node name="cancel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1341.0
+offset_top = 725.0
+offset_right = 1606.0
+offset_bottom = 823.0
+theme_override_fonts/font = ExtResource("2_0rnq8")
+theme_override_font_sizes/font_size = 90
+text = "cancel"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 721.0
+offset_right = 876.0
+offset_bottom = 823.0
+theme_override_fonts/font = ExtResource("2_0rnq8")
+theme_override_font_sizes/font_size = 90
+text = "ok"
+
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
+[connection signal="pressed" from="apply" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="cancel" to="." method="_on_cancel_pressed"]
