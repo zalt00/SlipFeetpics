@@ -13,6 +13,8 @@ var timer_paused = true
 
 var level_ended = false
 
+var current_music
+
 func resume():
 	if timer_paused:
 		timer_paused = false

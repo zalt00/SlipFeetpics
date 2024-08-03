@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://2js2yv00ynoh"]
+[gd_scene load_steps=3 format=3 uid="uid://2js2yv00ynoh"]
 
 [ext_resource type="AudioStream" uid="uid://dv6tm03g5h3an" path="res://songs/sonic_colors.wav" id="1_seey0"]
+[ext_resource type="Script" path="res://scripts/music_player.gd" id="2_grmet"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_seey0")
 autoplay = true
+script = ExtResource("2_grmet")

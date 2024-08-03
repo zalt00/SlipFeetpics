@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b04us1yb21q8"]
+[gd_scene load_steps=6 format=3 uid="uid://b04us1yb21q8"]
 
+[ext_resource type="Script" path="res://scripts/music_updater.gd" id="1_3yhi4"]
 [ext_resource type="PackedScene" uid="uid://k2lda7m2iefe" path="res://scenes/menu_title_screen.tscn" id="1_tnyo6"]
 [ext_resource type="PackedScene" uid="uid://c72cv1xp4fjm6" path="res://scenes/title_screen_background.tscn" id="2_c8vyk"]
+[ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="4_hd6hf"]
+[ext_resource type="AudioStream" uid="uid://dv6tm03g5h3an" path="res://songs/sonic_colors.wav" id="5_ajact"]
 
 [node name="TitleScreen" type="Node3D"]
+script = ExtResource("1_3yhi4")
 
 [node name="MenuTitleScreen" parent="." instance=ExtResource("1_tnyo6")]
 
 [node name="Background" parent="." instance=ExtResource("2_c8vyk")]
+
+[node name="MusicUpdater" parent="." instance=ExtResource("4_hd6hf")]
+music = ExtResource("5_ajact")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjmrobf4fydb1"]
+[gd_scene load_steps=7 format=3 uid="uid://bjmrobf4fydb1"]
 
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_1ynu5"]
 [ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_sjgox"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_t2dto"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="4_k4ded"]
+[ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="5_f66mb"]
+[ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="6_qysds"]
 
 [node name="LevelCarve" type="Node3D"]
 
@@ -71,3 +73,6 @@ transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 
 shadow_enabled = true
 
 [node name="BlueSky" parent="." instance=ExtResource("4_k4ded")]
+
+[node name="MusicUpdater" parent="." instance=ExtResource("5_f66mb")]
+music = ExtResource("6_qysds")
