@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://ck3sx3j6h1f1j"]
 
+[ext_resource type="Material" uid="uid://dat0ph3l0ybgc" path="res://materials/breakable_white.tres" id="1_714qe"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_g446a"]
-[ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_udstr"]
 [ext_resource type="Material" path="res://materials/unbreakable.tres" id="3_e7ntj"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_gvil7"]
 [ext_resource type="PackedScene" uid="uid://b14abfo1cgk2y" path="res://scenes/checkpoint.tscn" id="4_du13t"]
@@ -44,7 +44,7 @@ size = Vector3(5, 1, 5)
 environment = SubResource("Environment_kidyq")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-material_override = ExtResource("2_udstr")
+material_override = ExtResource("1_714qe")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -339,6 +339,7 @@ gravity_multiplier = 0.9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, -2.20894, -312.312)
 player = NodePath("../player")
 rank_times = Array[float]([90.0, 50.0, 36.0])
+lvl_id = 8
 
 [node name="MusicUpdater" parent="." instance=ExtResource("10_63560")]
 music = ExtResource("11_kxmgr")

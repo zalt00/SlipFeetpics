@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cvunrqonu5jb4"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_ugy6t"]
-[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_h6t30"]
+[ext_resource type="Material" path="res://materials/unbreakable.tres" id="2_h6t30"]
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_lv6l3"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="3_cyu1l"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="4_bh2mm"]
@@ -255,6 +255,7 @@ offset_bottom = -756.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)
 player = NodePath("../player")
 rank_times = Array[float]([25.0, 22.0, 20.0])
+lvl_id = 7
 
 [node name="killbox" type="Area3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)

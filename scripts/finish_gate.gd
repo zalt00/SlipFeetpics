@@ -3,11 +3,14 @@ extends Node3D
 
 @export var player: CharacterBody3D
 @export var rank_times : Array[float]
+@export var lvl_id = -1
+
 
 var ranks = ['C', 'B', 'A', 'S', 'I Beat The Devs']
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$finish_screen.hide()
+	$finish_screen.lvl_id = lvl_id
 
 func _on_area_3d_body_entered(body):
 	if body == player:

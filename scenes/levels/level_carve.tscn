@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bjmrobf4fydb1"]
 
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_1ynu5"]
-[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_sjgox"]
+[ext_resource type="Material" path="res://materials/unbreakable.tres" id="2_sjgox"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_t2dto"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="4_k4ded"]
 [ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="5_f66mb"]
@@ -91,3 +91,4 @@ music = ExtResource("6_qysds")
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 37.1911, -13.0795, -53.6029)
 player = NodePath("../player")
 rank_times = Array[float]([16.0, 10.0, 8.5, 8.18])
+lvl_id = 1
