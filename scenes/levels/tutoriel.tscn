@@ -1,6 +1,5 @@
 [gd_scene load_steps=11 format=3 uid="uid://bpjsragdjuns"]
 
-[ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="1_q4c36"]
 [ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_7h2lb"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_f1non"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_ki51q"]
@@ -10,12 +9,15 @@
 [ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="8_7wusg"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="9_ainjc"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l05tf"]
+albedo_color = Color(0.388235, 0.843137, 0.886275, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw6j1"]
 
 [node name="tutoriel" type="Node3D"]
 
 [node name="breakable" type="CSGCombiner3D" parent="."]
-material_override = ExtResource("1_q4c36")
+material_override = SubResource("StandardMaterial3D_l05tf")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
