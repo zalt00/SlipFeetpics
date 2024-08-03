@@ -1,0 +1,47 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3ckraxjbewjp"]
+
+[ext_resource type="Script" path="res://scripts/menu_level_selection.gd" id="1_3e13v"]
+[ext_resource type="PackedScene" uid="uid://clft8rriwp70h" path="res://scenes/levels/CHARLES.tscn" id="2_v0ou6"]
+[ext_resource type="PackedScene" uid="uid://ck3sx3j6h1f1j" path="res://scenes/levels/jsp.tscn" id="3_1hyjh"]
+[ext_resource type="PackedScene" uid="uid://dm0pyux7ujiu8" path="res://scenes/levels/level_5.tscn" id="4_c6eer"]
+[ext_resource type="PackedScene" uid="uid://cr5vxpynfoeo6" path="res://scenes/level_bounce.tscn" id="5_u3ngu"]
+[ext_resource type="PackedScene" uid="uid://bjmrobf4fydb1" path="res://scenes/levels/level_carve.tscn" id="6_senmm"]
+[ext_resource type="PackedScene" uid="uid://0ag6i3pv7fey" path="res://scenes/level_carve_jump.tscn" id="7_qsk5h"]
+[ext_resource type="PackedScene" uid="uid://cvunrqonu5jb4" path="res://scenes/levels/level_fast.tscn" id="8_8lcgr"]
+[ext_resource type="PackedScene" uid="uid://ilgdnkqcu3q1" path="res://scenes/level_midair_blast.tscn" id="9_o2wri"]
+[ext_resource type="PackedScene" uid="uid://c411rupintnjt" path="res://scenes/level_platformer.tscn" id="10_ookvv"]
+[ext_resource type="PackedScene" uid="uid://bd1e70o8x7vn" path="res://scenes/level_wall_jump.tscn" id="11_8nhh5"]
+[ext_resource type="PackedScene" uid="uid://doboslpiwyr4n" path="res://scenes/levels/niveau_amedee.tscn" id="12_7wjyo"]
+[ext_resource type="PackedScene" uid="uid://cr7jdcgdcdfv7" path="res://scenes/levels/niveau_amedee_2.tscn" id="13_hjmd2"]
+[ext_resource type="PackedScene" uid="uid://b54an2tc5jj7k" path="res://scenes/menu_button.tscn" id="14_5u4cl"]
+
+[node name="MenuLevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3e13v")
+levels = Array[PackedScene]([ExtResource("2_v0ou6"), ExtResource("3_1hyjh"), ExtResource("4_c6eer"), ExtResource("5_u3ngu"), ExtResource("6_senmm"), ExtResource("7_qsk5h"), ExtResource("8_8lcgr"), ExtResource("9_o2wri"), ExtResource("10_ookvv"), ExtResource("11_8nhh5"), ExtResource("12_7wjyo"), ExtResource("13_hjmd2")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MenuButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("14_5u4cl")]
+layout_mode = 2
+text = "Back"

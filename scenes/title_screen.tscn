@@ -7,4 +7,4 @@
 
 [node name="MenuTitleScreen" parent="." instance=ExtResource("1_tnyo6")]
 
-[node name="LevelCarveJump" parent="." instance=ExtResource("2_c8vyk")]
+[node name="Background" parent="." instance=ExtResource("2_c8vyk")]
