@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerPositionSingleton="*res://scripts/player_position_singleton.gd"
+MusicPlayer="*res://scenes/music_player.tscn"
 
 [display]
 

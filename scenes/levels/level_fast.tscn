@@ -1,16 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvunrqonu5jb4"]
+[gd_scene load_steps=14 format=3 uid="uid://cvunrqonu5jb4"]
 
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_ugy6t"]
 [ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_h6t30"]
-[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_lv6l3"]
+[ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_lv6l3"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="3_cyu1l"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="4_bh2mm"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="6_3okd6"]
 [ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="6_ceffq"]
 [ext_resource type="Script" path="res://scripts/killbox.gd" id="7_toem2"]
 [ext_resource type="PackedScene" uid="uid://bg0ulbkpy48gf" path="res://scenes/purple_sky.tscn" id="8_qtglh"]
-[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="9_iep00"]
-[ext_resource type="AudioStream" uid="uid://dfp6yun7sqwn4" path="res://songs/fantomes.wav" id="10_5ljfk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjusx"]
 size = Vector3(99, 4, 94)
@@ -293,9 +291,6 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 shape = SubResource("BoxShape3D_yofjl")
 
 [node name="PurpleSky" parent="." instance=ExtResource("8_qtglh")]
-
-[node name="MusicPlayer" parent="." instance=ExtResource("9_iep00")]
-stream = ExtResource("10_5ljfk")
 
 [connection signal="body_entered" from="killbox" to="killbox" method="_on_body_entered"]
 [connection signal="body_entered" from="killbox2" to="killbox2" method="_on_body_entered"]

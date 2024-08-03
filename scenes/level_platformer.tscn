@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c411rupintnjt"]
+[gd_scene load_steps=6 format=3 uid="uid://c411rupintnjt"]
 
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_hy0na"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_a38h0"]
-[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_eo3mj"]
+[ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_eo3mj"]
 [ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_dr0ow"]
-[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_f7cfh"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_ugc7o"]
 
 [node name="LevelPlatformer" type="Node3D"]
@@ -89,9 +88,6 @@ jump_speed = [7.0, 7.0, 7.0, 7.0, 7.0]
 move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
 friction_air = 1.5
 gravity_multiplier = 0.8
-
-[node name="MusicPlayer" parent="." instance=ExtResource("3_f7cfh")]
-volume_db = 7.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-2.18557e-08, -0.866025, 0.5, -3.78552e-08, 0.5, 0.866025, -1, 1.77636e-15, -4.37114e-08, 0, 0, 0)

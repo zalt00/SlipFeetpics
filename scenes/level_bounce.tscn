@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr5vxpynfoeo6"]
+[gd_scene load_steps=6 format=3 uid="uid://cr5vxpynfoeo6"]
 
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_fc3ia"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="2_sx22q"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vjj3u"]
-[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_bqm6e"]
 [ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_ydato"]
-[ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="4_agx06"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_drhra"]
 
 [node name="LevelBounce" type="Node3D"]
@@ -101,10 +99,6 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -23.5,
 size = Vector3(10, 6, 1)
 
 [node name="BlueSky" parent="." instance=ExtResource("2_sx22q")]
-
-[node name="MusicPlayer" parent="." instance=ExtResource("3_bqm6e")]
-stream = ExtResource("4_agx06")
-volume_db = 7.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 3, 0)

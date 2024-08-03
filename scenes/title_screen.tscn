@@ -1,14 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b04us1yb21q8"]
+[gd_scene load_steps=3 format=3 uid="uid://b04us1yb21q8"]
 
 [ext_resource type="PackedScene" uid="uid://k2lda7m2iefe" path="res://scenes/menu_title_screen.tscn" id="1_tnyo6"]
 [ext_resource type="PackedScene" uid="uid://c72cv1xp4fjm6" path="res://scenes/title_screen_background.tscn" id="2_c8vyk"]
-[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_u76wg"]
 
 [node name="TitleScreen" type="Node3D"]
 
 [node name="MenuTitleScreen" parent="." instance=ExtResource("1_tnyo6")]
 
 [node name="Background" parent="." instance=ExtResource("2_c8vyk")]
-
-[node name="MusicPlayer" parent="." instance=ExtResource("3_u76wg")]
-volume_db = 7.0
