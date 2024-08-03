@@ -34,12 +34,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 65.0
-offset_bottom = 65.0
+offset_left = -41.0
+offset_top = -27.0
+offset_right = 41.0
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(40, 100)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -47,3 +49,5 @@ layout_mode = 2
 [node name="MenuButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("14_5u4cl")]
 layout_mode = 2
 text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -15,3 +15,8 @@ func _ready() -> void:
 		button.text = "Level " + str(index)
 		button.level = level_cur
 		index += 1
+
+func _on_menu_button_pressed() -> void:
+	var menu = load("res://scenes/menu_title_screen.tscn").instantiate()
+	get_tree().current_scene.add_child(menu)
+	queue_free()
