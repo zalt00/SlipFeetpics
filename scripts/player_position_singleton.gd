@@ -11,6 +11,8 @@ var start_time = 0
 
 var timer_paused = true
 
+var level_ended = false
+
 func resume():
 	if timer_paused:
 		timer_paused = false

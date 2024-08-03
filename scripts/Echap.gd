@@ -41,12 +41,14 @@ func _input(event):
 			pause = true
 			#get_tree().paused = true
 			PlayerPositionSingleton.pause()
-		else:
+		elif not PlayerPositionSingleton.level_ended:
 			resume()
 			PlayerPositionSingleton.resume()
 
 
 func _on_respawn_pressed():
+	PlayerPositionSingleton.player_position = Vector3.INF
+	PlayerPositionSingleton.reset()
 	resume()
 	get_tree().reload_current_scene()
 	

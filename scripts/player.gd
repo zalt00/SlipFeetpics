@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _mouse_position = Vector2(0.0, 0.0)
 var _total_pitch = 0.0
 
-@onready var last_checkpoint_pos: Vector3 = global_position
+@onready var last_checkpoint_pos: Vector3 = Vector3.INF
 @onready var last_checkpoint_rotation: Vector3 = global_rotation
 
 @onready var sub_viewport := $SubViewport
@@ -86,6 +86,8 @@ func _ready():
 		global_rotation = PlayerPositionSingleton.player_rotation
 		last_checkpoint_pos = pos
 		last_checkpoint_rotation = PlayerPositionSingleton.player_rotation
+	else:
+		PlayerPositionSingleton.reset()
 	
 	sub_viewport.debug_draw = 2
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -191,7 +193,11 @@ func _update_movement(delta):
 	
 	ammo_label.text = "Ammo : " + str(antimatter_shotgun.number_of_shots)
 	var time = PlayerPositionSingleton.ellapsed
-	timer_label.text = "Time : " + str(time/1000) + ":" + str((time/10)%100)
+	var centi = (time/10)%100
+	if centi < 10:
+		timer_label.text = "Time : " + str(time/1000) + ".0" + str(centi)
+	else:
+		timer_label.text = "Time : " + str(time/1000) + "." + str(centi)
 	
 func _physics_process(delta):
 	if not PlayerPositionSingleton.paused:

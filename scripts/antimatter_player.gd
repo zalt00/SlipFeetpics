@@ -34,6 +34,7 @@ func _input(event):
 			update_materials(unbreakable_normal)
 		
 		if Input.is_action_just_pressed("tirer") && number_of_shots > 0:
+			PlayerPositionSingleton.resume()
 			var copy: Node3D = projectile.duplicate()
 			add_child(copy)
 			copy.visible = true

@@ -11,7 +11,7 @@ func _ready():
 
 func _on_area_3d_body_entered(body):
 	if body == player:
-		
+		PlayerPositionSingleton.level_ended = true
 		var time = floor(PlayerPositionSingleton.ellapsed / 10.) / 100.
 		var j = 0
 		for i in range(3):
