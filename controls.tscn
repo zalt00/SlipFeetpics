@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnjlex6h0emxi"]
+[gd_scene load_steps=4 format=3 uid="uid://cnjlex6h0emxi"]
 
 [ext_resource type="Script" path="res://controls.gd" id="1_xi8nj"]
 [ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="2_epuea"]
+[ext_resource type="Script" path="res://scripts/volume_slider.gd" id="3_c243b"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,10 +15,10 @@ script = ExtResource("1_xi8nj")
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
-offset_left = 421.0
-offset_top = 168.0
-offset_right = 1607.0
-offset_bottom = 698.0
+offset_left = 389.0
+offset_top = 54.0
+offset_right = 1575.0
+offset_bottom = 584.0
 theme_override_fonts/font = ExtResource("2_epuea")
 theme_override_font_sizes/font_size = 80
 allow_reselect = true
@@ -40,33 +41,66 @@ item_11/text = "r"
 
 [node name="apply" type="Button" parent="."]
 layout_mode = 0
-offset_left = 427.0
-offset_top = 721.0
-offset_right = 605.0
-offset_bottom = 797.0
+offset_left = 395.0
+offset_top = 607.0
+offset_right = 603.0
+offset_bottom = 705.0
 theme_override_fonts/font = ExtResource("2_epuea")
 theme_override_font_sizes/font_size = 90
 text = "apply"
 
 [node name="cancel" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1341.0
-offset_top = 725.0
-offset_right = 1606.0
-offset_bottom = 823.0
+offset_left = 1309.0
+offset_top = 611.0
+offset_right = 1574.0
+offset_bottom = 709.0
 theme_override_fonts/font = ExtResource("2_epuea")
 theme_override_font_sizes/font_size = 90
 text = "cancel"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 672.0
-offset_top = 721.0
-offset_right = 876.0
-offset_bottom = 823.0
+offset_left = 640.0
+offset_top = 607.0
+offset_right = 844.0
+offset_bottom = 709.0
 theme_override_fonts/font = ExtResource("2_epuea")
 theme_override_font_sizes/font_size = 90
 text = "Back"
+
+[node name="Master" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 850.0
+offset_right = 600.0
+offset_bottom = 950.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_c243b")
+bus_name = "Master"
+
+[node name="Music" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 850.0
+offset_right = 1264.0
+offset_bottom = 950.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_c243b")
+bus_name = "Music"
+
+[node name="Sfx" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 1375.0
+offset_top = 847.0
+offset_right = 1875.0
+offset_bottom = 947.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_c243b")
+bus_name = "Sfx"
 
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="pressed" from="apply" to="." method="_on_apply_pressed"]
