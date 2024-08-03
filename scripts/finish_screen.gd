@@ -27,11 +27,12 @@ func _on_main_menu_pressed():
 
 
 func _on_next_level_pressed():
+	
 	PlayerPositionSingleton.paused = false
 	PlayerPositionSingleton.player_position = Vector3.INF
 	PlayerPositionSingleton.level_ended = false
 	var lvl_lst = PlayerPositionSingleton.main_level_list
-	if lvl_id >= lvl_lst.length():
+	if lvl_id >= len(lvl_lst)-1:
 		pass
 	else:
 		var new_lvl = PlayerPositionSingleton.main_level_list[lvl_id+1]

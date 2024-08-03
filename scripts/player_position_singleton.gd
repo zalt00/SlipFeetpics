@@ -18,11 +18,11 @@ var truc = load("res://scenes/levels/tutoriel.tscn")
 var main_level_list = [
 	"res://scenes/levels/tutoriel.tscn",
 	"res://scenes/levels/level_carve.tscn",
-	"res://scenes/levels/level_carve_jump.tscn",
-	"res://scenes/levels/level_bounce.tscn",
-	"res://scenes/levels/level_midair_blast.tscn",
-	"res://scenes/levels/level_carve_jump.tscn",
-	"res://scenes/levels/level_platformer.tscn",
+	"res://scenes/level_carve_jump.tscn",
+	"res://scenes/level_bounce.tscn",
+	"res://scenes/level_midair_blast.tscn",
+	"res://scenes/level_wall_jump.tscn",
+	"res://scenes/level_platformer.tscn",
 	"res://scenes/levels/level_fast.tscn",
 	"res://scenes/levels/jsp.tscn"
 ]
