@@ -22,4 +22,4 @@ func _process(delta: float) -> void:
 		paused = false
 	else:
 		current_time = Time.get_ticks_msec() - start_time - pause_duration
-	$Label.text = str(floor(current_time / 10.) / 100.)
+	$Label.text = "TIME : " + str(floor(current_time / 10.) / 100.)

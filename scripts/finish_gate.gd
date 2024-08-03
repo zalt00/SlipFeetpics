@@ -14,4 +14,5 @@ func _on_area_3d_body_entered(body):
 		$finish_screen.time_text = time
 		$finish_screen.show()
 		get_tree().paused = true
+		player.echap.pause = true
 		
