@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cr5vxpynfoeo6"]
 
-[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="2_fc3ia"]
+[ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_fc3ia"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="2_sx22q"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vjj3u"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_bqm6e"]
@@ -38,12 +38,12 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 size = Vector3(3, 27, 6)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, -30, -51.9514)
-size = Vector3(6, 5, 0.186218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, -30.1127, -51.9514)
+size = Vector3(6, 4.77454, 0.186218)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Breakable"]
-transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -28.5, -31, -54.4514)
-size = Vector3(11, 5, 0.186218)
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -28.5, -31.0875, -54.4514)
+size = Vector3(11, 4.82507, 0.186218)
 
 [node name="Unbreakable" type="CSGCombiner3D" parent="."]
 material_override = ExtResource("3_ydato")
@@ -88,9 +88,9 @@ operation = 2
 size = Vector3(4, 4, 3)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Unbreakable"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.5, -30.9146, -58.5724)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.5, -30.9126, -58.5724)
 operation = 2
-size = Vector3(2, 4, 3)
+size = Vector3(2, 4.00391, 3)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Unbreakable"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -23.5, -30.5, -47.4921)
