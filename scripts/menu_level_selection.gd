@@ -5,6 +5,7 @@ const MENU_BUTTON = preload("res://scenes/level_selection_button.tscn")
 @onready var v_box_container: VBoxContainer = $MarginContainer/VBoxContainer
 
 @export var levels: Array[PackedScene]
+@export var bonus_levels: Array[PackedScene]
 
 func _ready() -> void:
 	var index = 1

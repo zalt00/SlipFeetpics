@@ -23,7 +23,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3e13v")
-levels = Array[PackedScene]([ExtResource("2_v0ou6"), ExtResource("3_1hyjh"), ExtResource("4_c6eer"), ExtResource("5_u3ngu"), ExtResource("6_senmm"), ExtResource("7_qsk5h"), ExtResource("8_8lcgr"), ExtResource("9_o2wri"), ExtResource("10_ookvv"), ExtResource("11_8nhh5"), ExtResource("12_7wjyo"), ExtResource("13_hjmd2")])
+levels = Array[PackedScene]([ExtResource("6_senmm"), ExtResource("5_u3ngu"), ExtResource("7_qsk5h"), ExtResource("8_8lcgr"), ExtResource("9_o2wri"), ExtResource("10_ookvv"), ExtResource("11_8nhh5"), ExtResource("12_7wjyo"), ExtResource("3_1hyjh")])
+bonus_levels = Array[PackedScene]([ExtResource("2_v0ou6"), ExtResource("4_c6eer"), ExtResource("13_hjmd2")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

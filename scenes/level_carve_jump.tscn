@@ -1,12 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://0ag6i3pv7fey"]
+[gd_scene load_steps=5 format=3 uid="uid://0ag6i3pv7fey"]
 
-[ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_xod04"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vah2n"]
 [ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_belqa"]
+[ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="3_guf63"]
+[ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="3_t1oda"]
 
 [node name="LevelCarveJump" type="Node3D"]
-
-[node name="RedSky" parent="." instance=ExtResource("1_xod04")]
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_vah2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
@@ -15,6 +14,7 @@ breakable = NodePath("../Breakable")
 unbreakable = NodePath("../Unbreakable")
 number_of_shots = 30
 kill_plane_y = -120.0
+jump_speed = [7.0, 7.0, 7.0, 7.0, 7.0]
 move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
 friction_air = 1.5
 
@@ -181,7 +181,10 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 size = Vector3(3, 8, 2)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_belqa")]
+stream = ExtResource("3_guf63")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
 shadow_enabled = true
+
+[node name="BlueSky" parent="." instance=ExtResource("3_t1oda")]
