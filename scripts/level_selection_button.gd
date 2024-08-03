@@ -1,6 +1,9 @@
 extends Button
 
 var level: PackedScene
+var callback
+
 
 func _on_pressed() -> void:
-	print("cramptés")
+	get_tree().change_scene_to_packed(level)
+

@@ -11,5 +11,5 @@ func _on_quit_pressed() -> void:
 
 func _on_level_select_pressed() -> void:
 	var menu = preload("res://scenes/menu_level_selection.tscn").instantiate()
-	get_tree().root.add_child(menu)
+	get_tree().current_scene.add_child(menu)
 	queue_free()

@@ -122,8 +122,8 @@ transform = Transform3D(-0.0070919, 0.94635, 0.323065, -0.00918745, 0.322998, -0
 size = Vector3(6.15368, 12.4224, 0.577974)
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00652216, 0.0122381, -0.999904, 0.0096003, -0.999878, -0.0123002, -0.999933, -0.00967964, 0.00640386, 117.795, 1.29929, -295.571)
-size = Vector3(6.57116, 10.7953, 1.25576)
+transform = Transform3D(-0.00652216, 0.0122381, -0.999904, 0.0096003, -0.999878, -0.0123002, -0.999933, -0.00967964, 0.00640386, 117.806, 0.414971, -295.58)
+size = Vector3(6.57116, 12.5642, 1.25576)
 
 [node name="CSGBox3D31" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(0.00897481, -0.994726, -0.102179, 0.00735915, -0.102115, 0.994746, -0.999933, -0.00967964, 0.00640386, 117.927, -5.9695, -306.856)
@@ -259,8 +259,8 @@ operation = 2
 size = Vector3(20.2414, 5.5728, 3.86369)
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(-0.00652216, 0.0122381, -0.999904, 0.0096003, -0.999878, -0.0123002, -0.999933, -0.00967964, 0.00640386, 119.772, 1.30576, -295.945)
-size = Vector3(7.31615, 10.7953, 1.72636)
+transform = Transform3D(-0.00652216, 0.0122381, -0.999904, 0.0096003, -0.999878, -0.0123002, -0.999933, -0.00967964, 0.00640386, 119.783, 0.413385, -295.954)
+size = Vector3(7.31615, 12.5803, 1.72636)
 
 [node name="CSGBox3D33" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(-0.0112595, 0.942896, -0.332899, -0.00281586, -0.332948, -0.942941, -0.999933, -0.00967964, 0.00640386, 115.366, -2.38485, -272.503)
@@ -336,6 +336,6 @@ gravity_multiplier = 0.9
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_jjysl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, -2.20894, -312.312)
 player = NodePath("../player")
-rank_times = Array[float]([456456.0, 455454.0, 666.0])
+rank_times = Array[float]([90.0, 50.0, 36.0])
 
 [connection signal="body_entered" from="Node3D/AnimatableBody3D/Area3D" to="Node3D/AnimatableBody3D" method="_on_area_3d_body_entered"]
