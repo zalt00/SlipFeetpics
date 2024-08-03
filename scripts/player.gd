@@ -165,8 +165,9 @@ func _update_movement(delta):
 		and not dontcorrect):
 		velocity.x = velocity.x * SPEED / plan_speed3
 		velocity.z = velocity.z * SPEED / plan_speed3
-	var final_speed = Vector2(velocity.x, velocity.z).length()	
-	speed_meter_label.text = str(snapped(final_speed, 0.1))
+	var final_speed = Vector2(velocity.x, velocity.z).length()
+		
+	speed_meter_label.text = "Speed : " + str(snapped(final_speed, 0.1))
 	var effect_intensity = final_speed / 30.0;
 	if final_speed > 8.0:
 		effect_intensity = max(effect_intensity, 0.5)
@@ -189,7 +190,7 @@ func _update_movement(delta):
 	if speed > MAX_SPEED:
 		velocity = velocity / speed * MAX_SPEED
 	
-	ammo_label.text = str(antimatter_shotgun.number_of_shots)
+	ammo_label.text = "Ammo : " + str(antimatter_shotgun.number_of_shots)
 	
 	
 func _physics_process(delta):
