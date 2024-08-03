@@ -149,9 +149,9 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 size = Vector3(83, 4, 147)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -29.9966, -43, -72.8687)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -29.9966, -41.8181, -72.8687)
 operation = 2
-size = Vector3(15, 57, 15)
+size = Vector3(15, 61.606, 15)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, -13, -65)
@@ -242,7 +242,7 @@ player = NodePath("../player")
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_3okd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)
 player = NodePath("../player")
-rank_times = Array[float]([25.0, 22.0, 20.0])
+rank_times = Array[float]([25.0, 22.0, 20.0, 17.33])
 lvl_id = 7
 
 [node name="killbox" type="Area3D" parent="." node_paths=PackedStringArray("player")]
