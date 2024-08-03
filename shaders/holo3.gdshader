@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode world_vertex_coords, cull_disabled, shadows_disabled, unshaded;
+render_mode world_vertex_coords, wireframe, cull_disabled, shadows_disabled, unshaded;
 #include "funcs.gdshaderinc"
 
 uniform float lines1:hint_range(0.0, 200.0, 1.0) = 2.0;
@@ -29,23 +29,28 @@ void vertex() {
 
 
 void fragment() {
-
+	float n = random2_1(SCREEN_UV);
+	float f = fresnel(_frensel, NORMAL, VIEW);
+	
+	vec2 igrid = floor(SCREEN_UV * lines1);
+	
+	float l1 = mod(igrid.y, 2.0);
+	l1 = mix(0.4, 1.0, l1);
+	
+	vec2 uv2 = SCREEN_UV;
+	uv2.y -= TIME * 0.06;
+	vec2 igrid2 = floor(uv2*lines2);
+	float l2 = random(igrid2.y);
+	l2 = step(0.05, l2);
+	l2 = mix(0.6, 1.0, l2);
+	
+	float m = f*n*l1*l2;
 	//ALBEDO = vec3(m);
-	float s = (0.3 + sin(length(VERTEX)*10.0)*0.0);
+	float s = (0.6 + sin(length(VERTEX)*10.0)*0.0);
 	
-	float d = step(0.1, abs(abs(VERTEX.x) - abs(VERTEX.y)));
-	float st = step(8.49, abs(VERTEX.z));
-	
-	float b = 1.0-step(2.6, max(abs(VERTEX.x), abs(VERTEX.y)));
-	float mb = d*(1.0-st) + st*b;
-	if (mb == 0.0) {
-		ALPHA = step(_th, length(VERTEX));
-		ALBEDO = vec3(0.0, 0.0, 0.0);
-	} else {
-		ALPHA = s*step(_th, length(VERTEX)) * mb;
-		ALBEDO = color;
-	}
 
+	ALPHA = s*step(_th, length(VERTEX));
+	ALBEDO = color;
 	//ALBEDO = color*mix(_emission, _emission + 2.0, rand_dist);
 	//ALBEDO = vec3(l2);
 }
