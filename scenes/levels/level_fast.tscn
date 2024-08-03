@@ -144,8 +144,8 @@ size = Vector3(5, 4, 1)
 use_collision = true
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="unbreakable"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -32.825, -43, -75.6971)
-size = Vector3(49, 57, 119)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -36.3605, -43, -79.2326)
+size = Vector3(59, 57, 119)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="unbreakable"]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -29.9966, -43, -72.8687)
@@ -242,7 +242,7 @@ light_angular_distance = 4.25
 shadow_enabled = true
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("1_ugy6t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -88.7789, -125.788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 breakable = NodePath("../breakable")
 unbreakable = NodePath("../unbreakable")
 number_of_shots = 4
@@ -268,7 +268,7 @@ player = NodePath("../player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)
 player = NodePath("../player")
 timer = NodePath("../Timer")
-rank_times = Array[float]([30.0, 25.0, 20.0])
+rank_times = Array[float]([25.0, 22.0, 20.0])
 
 [node name="killbox" type="Area3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)

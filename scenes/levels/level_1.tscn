@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce1874ibnua7a"]
+[gd_scene load_steps=8 format=3 uid="uid://ce1874ibnua7a"]
 
-[ext_resource type="Material" path="res://materials/white.tres" id="1_vot43"]
+[ext_resource type="Material" uid="uid://l5iu0nejt7o3" path="res://materials/white.tres" id="1_vot43"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_7avps"]
 [ext_resource type="PackedScene" uid="uid://cewmmh8ykfbeq" path="res://scenes/timer.tscn" id="3_hl1t7"]
+[ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_qc761"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umwkw"]
 albedo_color = Color(0, 0, 0, 1)
@@ -87,12 +88,19 @@ environment = SubResource("Environment_y7nlc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
-[node name="Timer" parent="." instance=ExtResource("3_hl1t7")]
+[node name="Timer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_hl1t7")]
 offset_left = 12.0
 offset_top = 8.0
 offset_right = 12.0
 offset_bottom = 8.0
+player = NodePath("../player")
 
 [node name="player" parent="." node_paths=PackedStringArray("breakable") instance=ExtResource("3_7avps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3175, 1.93907, -0.608218)
 breakable = NodePath("../breakable")
+
+[node name="finish_gate" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("4_qc761")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7203, 0.485679, 2.22374)
+player = NodePath("../player")
+timer = NodePath("../Timer")
+rank_times = Array[float]([0.0, 0.0, 0.0])

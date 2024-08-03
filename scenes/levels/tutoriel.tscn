@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpjsragdjuns"]
+
+[ext_resource type="Material" uid="uid://eil26ansg2iv" path="res://materials/breakable.tres" id="1_q4c36"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="2_7h2lb"]
+[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_f1non"]
+[ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_ki51q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r1nhk"]
+sky_top_color = Color(0.695942, 0.329711, 0.0233831, 1)
+sky_horizon_color = Color(0.607709, 0.690995, 0.489589, 1)
+sky_curve = 0.0349887
+ground_bottom_color = Color(0.252699, 0.14496, 0.0690557, 1)
+
+[sub_resource type="Sky" id="Sky_r3kcw"]
+sky_material = SubResource("ProceduralSkyMaterial_r1nhk")
+
+[sub_resource type="Environment" id="Environment_c8ivk"]
+background_mode = 2
+sky = SubResource("Sky_r3kcw")
+
+[node name="tutoriel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c8ivk")
+
+[node name="breakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_q4c36")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1.5, -14.5)
+size = Vector3(10, 4, 8)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 1.5, 10.5)
+size = Vector3(10, 4, 8)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 6, 10.5)
+size = Vector3(5, 13, 8)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -14.5)
+size = Vector3(10, 3, 8)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -22.5)
+size = Vector3(27, 7, 8)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9.5, -48)
+size = Vector3(7, 6, 5)
+
+[node name="unbreakable" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("2_7h2lb")
+use_collision = true
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 5, -47)
+size = Vector3(7, 3, 41)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 5, -88)
+size = Vector3(66, 3, 41)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, -1)
+size = Vector3(46, 1, 47)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9, -48)
+size = Vector3(11, 9, 5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 9.5, -48)
+operation = 2
+size = Vector3(7, 6, 5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="unbreakable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 15, -78.5)
+size = Vector3(5, 1, 4)
+
+[node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("3_f1non")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+breakable = NodePath("../breakable")
+unbreakable = NodePath("../unbreakable")
+kill_plane_y = -60.0
+palliers = [0.16, 0.6, 0.8, 0.9, 1.0]
+move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
+
+[node name="lamp" parent="." instance=ExtResource("4_ki51q")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -7.37046, 9.5, -79.5801)
+energy = 3.0
+already_on = true
+
+[node name="lamp2" parent="." instance=ExtResource("4_ki51q")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -3.37046, 9.5, -79.5801)
+energy = 1.0
+already_on = true
+
+[node name="lamp3" parent="." instance=ExtResource("4_ki51q")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.629539, 9.5, -79.5801)
+energy = 0.5
+already_on = true
