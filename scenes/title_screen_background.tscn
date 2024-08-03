@@ -1,22 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://0ag6i3pv7fey"]
+[gd_scene load_steps=8 format=3 uid="uid://c72cv1xp4fjm6"]
 
-[ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_xod04"]
-[ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vah2n"]
-[ext_resource type="PackedScene" uid="uid://2js2yv00ynoh" path="res://scenes/music_player.tscn" id="3_belqa"]
+[ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_8yyup"]
+[ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_8dok2"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_vi8t5"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fl1ff"]
+render_priority = 0
+shader = ExtResource("2_8dok2")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 2.0
+shader_parameter/truc = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_4wqp4"]
+
+[sub_resource type="Animation" id="Animation_0boj6"]
+resource_name = "rotate"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 10, 1, 0, 1, 0, -4.37114e-08, 19.9, 1, 0, 1.19209e-07, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epps1"]
+_data = {
+"rotate": SubResource("Animation_0boj6")
+}
 
 [node name="LevelCarveJump" type="Node3D"]
 
-[node name="RedSky" parent="." instance=ExtResource("1_xod04")]
-
-[node name="player" parent="." node_paths=PackedStringArray("breakable", "unbreakable") instance=ExtResource("2_vah2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-MAX_SPEED = 20.0
-breakable = NodePath("../Breakable")
-unbreakable = NodePath("../Unbreakable")
-number_of_shots = 30
-kill_plane_y = -120.0
-move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
-friction_air = 1.5
+[node name="RedSky" parent="." instance=ExtResource("1_8yyup")]
+camera_attributes = SubResource("CameraAttributesPractical_vi8t5")
 
 [node name="Breakable" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -180,8 +200,23 @@ size = Vector3(3, 6, 2)
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 90, -25.5, -57.5858)
 size = Vector3(3, 8, 2)
 
-[node name="MusicPlayer" parent="." instance=ExtResource("3_belqa")]
+[node name="quad de shader" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 43.0119, -9, -42.3539)
+visible = false
+layers = 2
+material_override = SubResource("ShaderMaterial_fl1ff")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_4wqp4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.205717, 0, -0.978612, 0, 1, 0, 0.978612, 0, 0.205717, 43, -9, -42)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
 shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_epps1")
+}
+autoplay = "rotate"
