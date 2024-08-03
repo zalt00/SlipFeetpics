@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bhj8h6euvjxxq"]
 
-[ext_resource type="Shader" path="res://shaders/holo.gdshader" id="1_hpkw0"]
+[ext_resource type="Shader" path="res://shaders/holo_placeholder.gdshader" id="1_ynvot"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_hpkw0")
+shader = ExtResource("1_ynvot")
 shader_parameter/lines1 = 2.0
 shader_parameter/lines2 = 2.0
 shader_parameter/color = Color(0.0980392, 0.411765, 0.972549, 1)

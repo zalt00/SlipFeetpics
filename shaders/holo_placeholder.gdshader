@@ -29,7 +29,6 @@ void vertex() {
 
 
 void fragment() {
-
 	//ALBEDO = vec3(m);
 	float s = (0.3 + sin(length(VERTEX)*10.0)*0.0);
 	
@@ -38,7 +37,7 @@ void fragment() {
 	
 	float b = 1.0-step(2.6, max(abs(VERTEX.x), abs(VERTEX.y)));
 	
-	ALPHA = s;
+	ALPHA = s*step(_th, length(VERTEX))*(d*(1.0-st) + st*b);
 	ALBEDO = color;
 	//ALBEDO = color*mix(_emission, _emission + 2.0, rand_dist);
 	//ALBEDO = vec3(l2);
