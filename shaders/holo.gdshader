@@ -37,9 +37,15 @@ void fragment() {
 	float st = step(8.49, abs(VERTEX.z));
 	
 	float b = 1.0-step(2.6, max(abs(VERTEX.x), abs(VERTEX.y)));
-	
-	ALPHA = s;
-	ALBEDO = color;
+	float mb = d*(1.0-st) + st*b;
+	if (mb == 0.0) {
+		ALPHA = step(_th, length(VERTEX));
+		ALBEDO = vec3(0.0, 0.0, 0.0);
+	} else {
+		ALPHA = s*step(_th, length(VERTEX)) * mb;
+		ALBEDO = color;
+	}
+
 	//ALBEDO = color*mix(_emission, _emission + 2.0, rand_dist);
 	//ALBEDO = vec3(l2);
 }

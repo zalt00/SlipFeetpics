@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode world_vertex_coords, cull_disabled, shadows_disabled, unshaded;
+render_mode world_vertex_coords;
 #include "funcs.gdshaderinc"
 
 uniform float lines1:hint_range(0.0, 200.0, 1.0) = 2.0;
@@ -30,14 +30,14 @@ void vertex() {
 
 void fragment() {
 	//ALBEDO = vec3(m);
-	float s = (0.3 + sin(length(VERTEX)*10.0)*0.0);
+	float s = (0.6 + sin(length(VERTEX)*10.0)*0.0);
 	
 	float d = step(0.1, abs(abs(VERTEX.x) - abs(VERTEX.y)));
 	float st = step(8.49, abs(VERTEX.z));
 	
 	float b = 1.0-step(2.6, max(abs(VERTEX.x), abs(VERTEX.y)));
 	
-	ALPHA = s*step(_th, length(VERTEX))*(d*(1.0-st) + st*b);
+	ALPHA = s;
 	ALBEDO = color;
 	//ALBEDO = color*mix(_emission, _emission + 2.0, rand_dist);
 	//ALBEDO = vec3(l2);
