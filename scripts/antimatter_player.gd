@@ -8,6 +8,8 @@ var unbreakable: CSGCombiner3D
 
 var number_of_shots
 
+var last_shot = 0
+
 @onready var previsu_meshi := $Previsu
 @onready var unbreakable_normal = preload("res://materials/unbreakable.tres")
 @onready var unbreakable_colored = preload("res://materials/unbreakable_colored.tres")
@@ -33,7 +35,9 @@ func _input(event):
 			previsu_meshi.hide()
 			update_materials(unbreakable_normal)
 		
-		if Input.is_action_just_pressed("tirer") && number_of_shots > 0:
+		var time = Time.get_ticks_msec()
+		
+		if Input.is_action_just_pressed("tirer") && number_of_shots > 0 && time - last_shot > 50:
 			PlayerPositionSingleton.resume()
 			var copy: Node3D = projectile.duplicate()
 			add_child(copy)
@@ -46,6 +50,7 @@ func _input(event):
 				obj.queue_free()
 				
 			number_of_shots -= 1
+			last_shot = time
 	else:
 		previsu_meshi.hide()
 		update_materials(unbreakable_normal)
