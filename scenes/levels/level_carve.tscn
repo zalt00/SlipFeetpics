@@ -76,3 +76,4 @@ shadow_enabled = true
 
 [node name="MusicPlayer" parent="." instance=ExtResource("5_ttro6")]
 stream = ExtResource("6_3b3r2")
+volume_db = 7.92

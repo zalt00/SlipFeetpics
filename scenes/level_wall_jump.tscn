@@ -89,13 +89,10 @@ size = Vector3(1, 16, 7)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 15, -4, -21)
 size = Vector3(1, 19, 5)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="Unbreakable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, -36.5, -16)
-size = Vector3(21, 12, 1)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
 
 [node name="RedSky" parent="." instance=ExtResource("2_nwt8q")]
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_063nb")]
+volume_db = 6.559

@@ -98,3 +98,4 @@ size = Vector3(10, 6, 1)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_bqm6e")]
 stream = ExtResource("4_agx06")
+volume_db = 7.0
