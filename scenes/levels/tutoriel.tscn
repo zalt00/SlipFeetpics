@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="4_ki51q"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_11csn"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="6_7s8gc"]
-[ext_resource type="PackedScene" uid="uid://b14abfo1cgk2y" path="res://scenes/checkpoint.tscn" id="7_icy3u"]
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="7_icy3u"]
 [ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="8_7wusg"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="9_ainjc"]
 
@@ -145,7 +145,7 @@ already_on = true
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_11csn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7061, 16.3373, -123.238)
 player = NodePath("../player")
-rank_times = Array[float]([24.0, 20.0, 16.0])
+rank_times = Array[float]([24.0, 20.0, 16.0, 13.99])
 
 [node name="EmancipationGrid" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_7s8gc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 6.13941, -37.1793)
