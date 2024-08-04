@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_sy1l0"]
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_64bp8"]
-[ext_resource type="Material" path="res://materials/unbreakable.tres" id="3_lh831"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_lh831"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="3_rbw2y"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_0sn43"]
 [ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="6_raj8b"]
@@ -200,7 +200,7 @@ gravity_multiplier = 0.8
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -74.3012, -74.2437, -87.8004)
 player = NodePath("../player")
 rank_times = Array[float]([36.0, 30.0, 24.0, 22.45])
-lvl_id = 4
+lvl_id = 3
 
 [node name="MusicUpdater" parent="." instance=ExtResource("6_raj8b")]
 music = ExtResource("7_dqkm0")

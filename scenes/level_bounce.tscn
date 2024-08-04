@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_fc3ia"]
 [ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="2_sx22q"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vjj3u"]
-[ext_resource type="Material" path="res://materials/unbreakable.tres" id="3_ydato"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_ydato"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_drhra"]
 [ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="6_wmjt5"]
 [ext_resource type="AudioStream" uid="uid://dc7cpwvqta81e" path="res://songs/créatures_aquatiques.wav" id="7_gjljo"]
@@ -110,7 +110,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3547, -33.5, -71.3694)
 player = NodePath("../player")
 rank_times = Array[float]([24.0, 18.0, 12.0, 11.12])
-lvl_id = 3
+lvl_id = 2
 
 [node name="MusicUpdater" parent="." instance=ExtResource("6_wmjt5")]
 music = ExtResource("7_gjljo")
