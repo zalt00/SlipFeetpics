@@ -243,7 +243,7 @@ player = NodePath("../player")
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_3okd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -91.6156, -128.5)
 player = NodePath("../player")
-rank_times = Array[float]([25.0, 22.0, 20.0, 17.33])
+rank_times = Array[float]([25.0, 22.0, 20.0, 16.44])
 lvl_id = 6
 
 [node name="killbox" type="Area3D" parent="." node_paths=PackedStringArray("player")]
