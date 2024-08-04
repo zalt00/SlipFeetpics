@@ -2,10 +2,10 @@
 
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_sci8q"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_vah2n"]
-[ext_resource type="Material" path="res://materials/unbreakable.tres" id="3_n2wey"]
-[ext_resource type="PackedScene" uid="uid://ca8ryunu2nir3" path="res://scenes/blue_sky.tscn" id="3_t1oda"]
+[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_n2wey"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="5_civ2t"]
 [ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="6_4w7xm"]
+[ext_resource type="PackedScene" uid="uid://bg0ulbkpy48gf" path="res://scenes/purple_sky.tscn" id="7_7sdra"]
 [ext_resource type="AudioStream" uid="uid://dfp6yun7sqwn4" path="res://songs/fantomes.wav" id="7_ia4qy"]
 
 [node name="LevelCarveJump" type="Node3D"]
@@ -189,8 +189,6 @@ size = Vector3(3, 8, 2)
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
 shadow_enabled = true
 
-[node name="BlueSky" parent="." instance=ExtResource("3_t1oda")]
-
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_civ2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.9324, -99.5, -207.654)
 player = NodePath("../player")
@@ -199,3 +197,5 @@ lvl_id = 7
 
 [node name="MusicUpdater" parent="." instance=ExtResource("6_4w7xm")]
 music = ExtResource("7_ia4qy")
+
+[node name="PurpleSky" parent="." instance=ExtResource("7_7sdra")]
