@@ -2,9 +2,9 @@
 
 [ext_resource type="Material" uid="uid://dat0ph3l0ybgc" path="res://materials/breakable_white.tres" id="1_714qe"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="1_g446a"]
-[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_e7ntj"]
+[ext_resource type="Material" path="res://materials/unbreakable.tres" id="3_e7ntj"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_gvil7"]
-[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="4_du13t"]
+[ext_resource type="PackedScene" uid="uid://b14abfo1cgk2y" path="res://scenes/checkpoint.tscn" id="4_du13t"]
 [ext_resource type="Script" path="res://scripts/AnimatableBody3D.gd" id="5_h5et7"]
 [ext_resource type="Texture2D" uid="uid://bu3m7xi04a3ow" path="res://images/ARRAOW.png" id="6_baqsy"]
 [ext_resource type="PackedScene" uid="uid://bnsttj046dcr3" path="res://scenes/lamp.tscn" id="7_ogdpm"]
@@ -340,7 +340,7 @@ gravity_multiplier = 0.9
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_jjysl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, -2.20894, -312.312)
 player = NodePath("../player")
-rank_times = Array[float]([90.0, 60.0, 40.0, 35.79])
+rank_times = Array[float]([90.0, 60.0, 40.0, 34.98])
 lvl_id = 8
 
 [node name="MusicUpdater" parent="." instance=ExtResource("10_63560")]

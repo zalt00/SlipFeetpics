@@ -1,16 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://co4lu1l5fa6ou"]
+[gd_scene load_steps=9 format=3 uid="uid://co4lu1l5fa6ou"]
 
 [ext_resource type="Script" path="res://scripts/antimatter_player.gd" id="1_tf8ae"]
-[ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_yb136"]
 [ext_resource type="Shader" path="res://shaders/speed.gdshader" id="3_rc1rs"]
 [ext_resource type="ArrayMesh" uid="uid://cq6q8g20r582t" path="res://obj/cortex2.obj" id="4_iu3xn"]
 [ext_resource type="Shader" path="res://shaders/holo.gdshader" id="5_0rojn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkf07"]
-render_priority = 0
-shader = ExtResource("2_yb136")
-shader_parameter/min_step = 0.16
-shader_parameter/max_step = 0.6
 
 [sub_resource type="QuadMesh" id="QuadMesh_sywrr"]
 size = Vector2(4, 4)

@@ -1,18 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c72cv1xp4fjm6"]
+[gd_scene load_steps=6 format=3 uid="uid://c72cv1xp4fjm6"]
 
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_8yyup"]
-[ext_resource type="Shader" path="res://shaders/LUCA.gdshader" id="2_8dok2"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_vi8t5"]
 dof_blur_far_enabled = true
 dof_blur_near_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fl1ff"]
-render_priority = 0
-shader = ExtResource("2_8dok2")
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/shadow_thickness = 2.0
-shader_parameter/truc = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_4wqp4"]
 
@@ -204,7 +196,6 @@ size = Vector3(3, 8, 2)
 transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 43.0119, -9, -42.3539)
 visible = false
 layers = 2
-material_override = SubResource("ShaderMaterial_fl1ff")
 cast_shadow = 0
 mesh = SubResource("QuadMesh_4wqp4")
 
