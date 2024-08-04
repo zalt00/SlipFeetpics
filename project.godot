@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="SLIP"
+run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://images/splash_screen.png"
 config/icon="res://images/icon.png"
@@ -24,7 +25,7 @@ MusicPlayer="*res://scenes/music_player.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/borderless=true
 
 [input]
 
