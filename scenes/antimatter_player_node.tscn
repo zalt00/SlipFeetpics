@@ -40,6 +40,7 @@ projectile = NodePath("CSGMesh3D")
 
 [node name="quad de shader" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 0.0119474, 0, -0.144765)
+visible = false
 layers = 2
 material_override = SubResource("ShaderMaterial_pkf07")
 cast_shadow = 0

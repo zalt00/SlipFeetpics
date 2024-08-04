@@ -24,6 +24,8 @@ sky_material = SubResource("ProceduralSkyMaterial_lhuk6")
 [sub_resource type="Environment" id="Environment_kidyq"]
 background_mode = 2
 sky = SubResource("Sky_salpv")
+fog_enabled = true
+fog_light_color = Color(0.478431, 0.309804, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0cb7"]
 size = Vector3(5, 1, 5)
