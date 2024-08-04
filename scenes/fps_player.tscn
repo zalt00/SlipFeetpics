@@ -168,6 +168,7 @@ offset_bottom = 549.5
 texture = ExtResource("8_m8wlf")
 
 [node name="TextureRect" type="TextureRect" parent="HUD"]
+visible = false
 layout_mode = 0
 offset_left = 500.0
 offset_right = 540.0
