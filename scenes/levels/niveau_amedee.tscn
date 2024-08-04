@@ -82,6 +82,18 @@ size = Vector3(3.89771, 5.91348, 1.10365)
 transform = Transform3D(1, 0, 0, 0, -0.0340098, -0.999421, 0, 0.999421, -0.0340098, 3.09462, 19.5943, -78.3581)
 size = Vector3(10.6549, 14.8098, 0.196356)
 
+[node name="CSGBox3D29" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(-0.00258307, -0.0340097, -0.999418, -0.999997, 8.78496e-05, 0.00258157, 0, 0.999421, -0.0340098, 18.7228, 24.3273, -78.3581)
+size = Vector3(11.2931, 14.8098, 0.196356)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(0.827296, 0.561441, -0.0191055, 0, -0.0340098, -0.999421, -0.561766, 0.826817, -0.0281362, 10.4395, 20.1367, -78.495)
+size = Vector3(1.44513, 7.52306, 0.196356)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(0.612618, -0.789922, 0.0268807, 0, -0.0340098, -0.999421, 0.79038, 0.612263, -0.020835, 10.4395, 20.1367, -78.495)
+size = Vector3(1.44513, 7.52306, 0.196356)
+
 [node name="CSGBox3D19" type="CSGBox3D" parent="breakable"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 13.3719, -8.27535, -79.6711)
 size = Vector3(9.22445, 12.1222, 0.196356)
@@ -99,11 +111,15 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 47.758
 size = Vector3(11.3608, 4.20986, 11.3822)
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="breakable"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 51.1566, -38.247, -103.961)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 51.1566, -38.247, -104.848)
 size = Vector3(11.3608, 6.32025, 13.5502)
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="breakable"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 51.1566, -41.6172, -109.398)
+size = Vector3(11.3608, 6.32025, 6.80985)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="breakable"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 51.1566, -41.6172, -119.686)
 size = Vector3(11.3608, 6.32025, 6.80985)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="breakable"]
@@ -175,3 +191,13 @@ transform = Transform3D(1, 0, 0, 0, 0.194234, -0.980955, 0, 0.980955, 0.194234, 
 
 [node name="MusicUpdater" parent="." instance=ExtResource("6_in8v1")]
 music = ExtResource("7_1tnlo")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6244, -5.76381)
+text = "Welcome to the bonus level"
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2431, -37.0965, -122.884)
+text = "Thanks to ludowoods, lysander and
+Adrienne Lombardo for organizing this game jam.
+And thank you for making it to the end! "

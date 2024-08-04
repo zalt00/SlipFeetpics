@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d0py50h4lucdc" path="res://scenes/red_sky.tscn" id="1_hy0na"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_a38h0"]
 [ext_resource type="Material" uid="uid://x65dxkrw0mrr" path="res://materials/breakable.tres" id="2_eo3mj"]
-[ext_resource type="Material" uid="uid://bx2eoh841pnbt" path="res://materials/unbreakable.tres" id="3_dr0ow"]
+[ext_resource type="Material" path="res://materials/unbreakable.tres" id="3_dr0ow"]
 [ext_resource type="PackedScene" uid="uid://cs85a4naor6kv" path="res://scenes/finish_gate.tscn" id="4_ugc7o"]
 [ext_resource type="PackedScene" uid="uid://cv72iacha7mej" path="res://scenes/music_updater.tscn" id="6_7515m"]
 [ext_resource type="AudioStream" uid="uid://dv6tm03g5h3an" path="res://songs/sonic_colors.wav" id="7_g5oqh"]

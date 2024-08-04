@@ -31,7 +31,7 @@ window/size/borderless=true
 
 avant={
 "deadzone": 0.5,
-"events": Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":90,"physical_keycode":87,"key_label":90,"unicode":122,"echo":false,"script":null)
+"events": Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":87,"physical_keycode":87,"key_label":87,"unicode":119,"echo":false,"script":null)
 ])
 }
 "arrière"={
@@ -41,7 +41,7 @@ avant={
 }
 gauche={
 "deadzone": 0.5,
-"events": Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":81,"physical_keycode":65,"key_label":81,"unicode":113,"echo":false,"script":null)
+"events": Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":65,"physical_keycode":65,"key_label":65,"unicode":97,"echo":false,"script":null)
 ])
 }
 droite={
