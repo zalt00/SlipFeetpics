@@ -15,6 +15,10 @@ background_color = Color(0.4896, 0.288, 0.96, 1)
 background_energy_multiplier = 0.6
 sky = SubResource("Sky_ngk76")
 ambient_light_color = Color(1, 1, 1, 1)
+fog_enabled = true
+fog_light_color = Color(0.597394, 0.496842, 0.723898, 1)
+fog_density = 0.005
+fog_sky_affect = 0.0
 
 [node name="PurpleSky" type="WorldEnvironment"]
 environment = SubResource("Environment_bi4ip")

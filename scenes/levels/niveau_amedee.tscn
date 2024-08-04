@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://doboslpiwyr4n"]
 
-[ext_resource type="Material" uid="uid://jl4si673qlox" path="res://materials/white_vraiment_blanc.tres" id="1_gu6h4"]
+[ext_resource type="Material" uid="uid://dat0ph3l0ybgc" path="res://materials/breakable_white.tres" id="1_e0ko3"]
 [ext_resource type="PackedScene" uid="uid://bjqcqg24t4o3" path="res://scenes/fps_player.tscn" id="2_ovw1s"]
 [ext_resource type="PackedScene" uid="uid://cd4gqcvmru1dc" path="res://scenes/emancipation_grid.tscn" id="3_mj53v"]
 [ext_resource type="PackedScene" uid="uid://bg0ulbkpy48gf" path="res://scenes/purple_sky.tscn" id="3_ra14i"]
@@ -11,7 +11,7 @@
 [node name="NiveauAmedee" type="Node3D"]
 
 [node name="breakable" type="CSGCombiner3D" parent="."]
-material_override = ExtResource("1_gu6h4")
+material_override = ExtResource("1_e0ko3")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="breakable"]

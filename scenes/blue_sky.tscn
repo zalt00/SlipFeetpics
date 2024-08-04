@@ -13,6 +13,10 @@ sky_material = SubResource("ProceduralSkyMaterial_wnr18")
 [sub_resource type="Environment" id="Environment_hh1p6"]
 background_mode = 2
 sky = SubResource("Sky_2p4sb")
+fog_enabled = true
+fog_light_color = Color(0.514356, 0.517961, 0.787908, 1)
+fog_density = 0.005
+fog_sky_affect = 0.0
 
 [node name="BlueSky" type="WorldEnvironment"]
 environment = SubResource("Environment_hh1p6")
