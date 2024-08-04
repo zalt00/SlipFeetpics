@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://k2lda7m2iefe"]
+[gd_scene load_steps=4 format=3 uid="uid://k2lda7m2iefe"]
 
 [ext_resource type="FontFile" uid="uid://nl47vuv24jg1" path="res://images/test.fnt" id="1_477lj"]
 [ext_resource type="Script" path="res://scripts/menu_title_screen.gd" id="1_efb4v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7o5w5"]
+font_size = 10
 
 [node name="MenuTitleScreen" type="Control"]
 layout_mode = 3
@@ -49,14 +52,27 @@ text = "Quit"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -36.8307
-offset_top = -99.5076
-offset_right = 42.1693
-offset_bottom = -78.5076
+offset_left = -71.723
+offset_top = -98.5384
+offset_right = 79.277
+offset_bottom = -77.5384
 theme_override_fonts/font = ExtResource("1_477lj")
-text = "Antimatter"
+text = "Antimatter (web version)"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -105.969
+offset_top = 45.8769
+offset_right = 111.031
+offset_bottom = 99.8769
+theme_override_fonts/font = ExtResource("1_477lj")
+text = "This is a web preview. Get the desktop version for the full experience."
+label_settings = SubResource("LabelSettings_7o5w5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/LevelSelect" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

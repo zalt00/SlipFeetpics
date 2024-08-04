@@ -9,14 +9,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkf07"]
 render_priority = 0
 shader = ExtResource("2_yb136")
-shader_parameter/edge_threshold = 0.3
-shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/background_color = Color(0.408, 0.969, 0.694, 1)
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/shadow_thickness = 2.0
-shader_parameter/truc = false
+shader_parameter/min_step = 0.16
+shader_parameter/max_step = 0.6
 
 [sub_resource type="QuadMesh" id="QuadMesh_sywrr"]
+size = Vector2(4, 4)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mlcip"]
 render_priority = 0
@@ -42,7 +39,7 @@ script = ExtResource("1_tf8ae")
 projectile = NodePath("CSGMesh3D")
 
 [node name="quad de shader" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 0.0119474, 0, -0.353876)
+transform = Transform3D(1.07713, 0, 0, 0, 1.04222, 0, 0, 0, 1.06053, 0.0119474, 0, -0.144765)
 layers = 2
 material_override = SubResource("ShaderMaterial_pkf07")
 cast_shadow = 0
