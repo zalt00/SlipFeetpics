@@ -21,7 +21,7 @@ func _ready():
 func _input(event):
 	
 	if event.is_action_type() and event.is_pressed() and not event.as_text().contains("Left Mouse Button"):
-		print("welp")
+
 		if changing >= 0:
 			InputMap.action_erase_events(action_list[changing])
 			InputMap.action_add_event(action_list[changing], event)
