@@ -206,8 +206,9 @@ func _physics_process(delta):
 		else:
 			dt += delta
 			if position.y < kill_plane_y:
-				position = saved_position[0]
-				velocity = Vector3(0, 0, 0)
+				PlayerPositionSingleton.player_position = last_checkpoint_pos
+				PlayerPositionSingleton.player_rotation = last_checkpoint_rotation
+				get_tree().reload_current_scene()
 		
 		_update_movement(delta)
 		# Add the gravity.

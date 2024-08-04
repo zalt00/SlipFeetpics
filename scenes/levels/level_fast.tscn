@@ -230,6 +230,7 @@ unbreakable = NodePath("../unbreakable")
 number_of_shots = 4
 kill_plane_y = -150.0
 move_speed = [10.0, 10.0, 10.0, 10.0, 10.0]
+friction_air = 1.0
 
 [node name="lamp" parent="." instance=ExtResource("3_cyu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -1, -54)

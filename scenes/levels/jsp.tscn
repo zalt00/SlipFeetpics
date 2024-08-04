@@ -338,7 +338,7 @@ gravity_multiplier = 0.9
 [node name="finish_gate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_jjysl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, -2.20894, -312.312)
 player = NodePath("../player")
-rank_times = Array[float]([90.0, 50.0, 36.0])
+rank_times = Array[float]([90.0, 60.0, 40.0, 35.79])
 lvl_id = 8
 
 [node name="MusicUpdater" parent="." instance=ExtResource("10_63560")]
